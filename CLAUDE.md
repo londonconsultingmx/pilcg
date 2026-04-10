@@ -420,6 +420,48 @@ ACTO 5 — "El plan para capturarlo" (Roadmap)
 - Inventario: Matriz de impacto vs. esfuerzo.
 - No usar bullet points genéricos. Cada slide debe tener un visual.
 
+### Reglas de diseño para HTMLs interactivos (GitHub Pages)
+
+Estas reglas aplican a TODOS los HTMLs publicados en GitHub Pages: documento integrador, entrevistas, y cualquier otro entregable web.
+
+**Fondos y estructura:**
+- **Fondo oscuro SOLO para la portada** (cover page). El resto del documento va sobre fondo blanco (`#fff`) o gris claro (`#f0f0f0`).
+- **NUNCA usar fondo verde** como color de fondo de contenido. El verde es acento, no fondo.
+- Cada sección va dentro de un `content-page` con `background: white` y `max-width: 1200px`.
+
+**Portada (cover):**
+- Full viewport (`min-height: 100vh`) con gradient oscuro: `linear-gradient(160deg, #001A13, #003D2D, #00523B)`.
+- Logos de LCG y PI Group (ambos del mismo peso visual, PI ~52px, LCG ~36px con `filter:brightness(10)`).
+- 4 estadísticas clave como cards con números en Mint.
+- Footer: "Confidencial • [fecha] • Preparado por London Consulting Group".
+
+**Logos:**
+- Siempre usar ambos logos juntos (LCG + PI Group) al mismo peso visual.
+- LCG es horizontal/largo → usar `filter:brightness(10)` sobre fondos oscuros.
+- PI es cuadrado → `border-radius: 8px`.
+- Paths relativos desde `assets/logo_lcg.png` y `assets/logo_pi.jpeg`.
+
+**Componentes obligatorios por pilar:**
+- Macro-map bar (12 pilares, pilar actual highlighted en teal).
+- CMM maturity box con barras horizontales por sub-módulo.
+- Callouts de laggers (rojo) y best practices (verde) en dos columnas.
+- Finding-cards con borde izquierdo de color (rojo = crítico, verde = positivo, teal = neutral).
+- Verbatim quotes intercalados donde la cita refuerce un hallazgo.
+- SVG gauges para indicadores clave (2-4 por pilar).
+- Tablas de datos duros con headers oscuros.
+- Cards de oportunidades con impacto, mecanismo, riesgos y badge de plazo.
+- Callout de gaps de información.
+
+**Lo que NO incluir en el resumen ejecutivo:**
+- NO poner tabla de "Magnitud de Oportunidades por Categoría" con columnas de Quick Wins / Mediano / Largo / Inversión. Esa granularidad va en la sección de Inventario de Oportunidades, no en el resumen.
+
+**Referencia de formato visual:**
+- Template base: `Formatovisual/adina/` (Bootstrap 5, Manrope, componentes disponibles).
+- Referencia de estilo de reporte: formato Engen Capital (https://alfredochavezenriquez85-maker.github.io/engen-capital/diagnostico/) — misma estructura de cover, section headers, finding-cards, verbatim, callouts, gauges, tablas.
+- El HTML debe ser un archivo único autocontenido (solo dependencias externas: Google Fonts).
+- Incluir botón "Imprimir / PDF" fijo en bottom-right, oculto en `@media print`.
+- Diseño responsive con breakpoint a 900px.
+
 ---
 
 ## REGLAS Y CONVENCIONES
