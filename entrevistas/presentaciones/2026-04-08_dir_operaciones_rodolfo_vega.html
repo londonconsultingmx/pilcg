@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrevista: Dir. Operaciones — Rodolfo Vega Carrión | Project Shine</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest: #003D2D;
+            --teal: #009072;
+            --mint: #31EB97;
+            --sage: #CDDCC9;
+            --offwhite: #F3F3F3;
+            --nearblack: #1D1D1B;
+            --navy: #1F426E;
+            --blue: #4178E6;
+            --silver: #9DC4D5;
+            --yellow: #E8FE41;
+            --red-alert: #D94F4F;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Archivo', sans-serif;
+            background: var(--offwhite);
+            color: var(--nearblack);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Hero ────────────────────────────────────────── */
+        .hero {
+            background: var(--forest);
+            color: var(--offwhite);
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; right: -60px;
+            width: 420px; height: 420px;
+            border-radius: 50%;
+            background: rgba(49,235,151,0.06);
+            pointer-events: none;
+        }
+        .hero-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-badge {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--mint);
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-family: 'DM Serif Text', serif;
+            font-size: 42px;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+        .hero h1 span { color: var(--mint); }
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            color: var(--sage);
+        }
+        .hero-meta strong { color: var(--offwhite); font-weight: 500; }
+
+        /* ── Sticky Nav ──────────────────────────────────── */
+        .pillar-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--forest);
+            border-bottom: 2px solid var(--teal);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .pillar-nav::-webkit-scrollbar { height: 0; }
+        .pillar-nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            gap: 4px;
+        }
+        .pillar-nav a {
+            display: block;
+            padding: 14px 18px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: var(--sage);
+            text-decoration: none;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            transition: all .2s;
+        }
+        .pillar-nav a:hover,
+        .pillar-nav a.active {
+            color: var(--mint);
+            border-bottom-color: var(--mint);
+        }
+
+        /* ── Container ───────────────────────────────────── */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* ── Executive Summary ───────────────────────────── */
+        .exec-summary {
+            background: white;
+            border-radius: 12px;
+            padding: 48px;
+            margin: -40px 40px 0;
+            position: relative;
+            z-index: 10;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 4px 24px rgba(0,61,45,0.08);
+            border-left: 5px solid var(--teal);
+        }
+        .exec-summary h2 {
+            font-family: 'DM Serif Text', serif;
+            font-size: 26px;
+            color: var(--forest);
+            margin-bottom: 16px;
+        }
+        .exec-summary p {
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 12px;
+        }
+        .exec-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        .exec-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            padding: 5px 14px;
+            border-radius: 20px;
+            background: var(--sage);
+            color: var(--forest);
+            font-weight: 500;
+        }
+
+        /* ── KPI Strip ───────────────────────────────────── */
+        .kpi-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 48px auto;
+            max-width: 1100px;
+            padding: 0 40px;
+        }
+        .kpi-card {
+            background: white;
+            border-radius: 10px;
+            padding: 28px 24px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,61,45,0.06);
+            border-top: 4px solid var(--teal);
+            transition: transform .2s;
+        }
+        .kpi-card:hover { transform: translateY(-3px); }
+        .kpi-card .kpi-value {
+            font-family: 'DM Serif Text', serif;
+            font-size: 40px;
+            color: var(--teal);
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+        .kpi-card .kpi-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+        }
+        .kpi-card .kpi-context {
+            font-size: 12px;
+            color: #999;
+            margin-top: 6px;
+        }
+
+        /* ── Pillar Sections ─────────────────────────────── */
+        .pillar-section {
+            margin-bottom: 56px;
+            scroll-margin-top: 60px;
+        }
+        .pillar-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--sage);
+        }
+        .pillar-num {
+            font-family: 'DM Serif Text', serif;
+            font-size: 48px;
+            color: var(--teal);
+            line-height: 1;
+            opacity: .35;
+        }
+        .pillar-title {
+            font-family: 'DM Serif Text', serif;
+            font-size: 28px;
+            color: var(--forest);
+        }
+
+        .finding-list {
+            list-style: none;
+            padding: 0;
+        }
+        .finding-list li {
+            padding: 14px 0 14px 28px;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            font-size: 15px;
+            color: #333;
+        }
+        .finding-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 22px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--teal);
+        }
+        .finding-list li:last-child { border-bottom: none; }
+        .data-highlight {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 500;
+            color: var(--teal);
+            background: rgba(0,144,114,0.07);
+            padding: 1px 6px;
+            border-radius: 3px;
+        }
+        .data-alert {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 500;
+            color: var(--red-alert);
+            background: rgba(217,79,79,0.08);
+            padding: 1px 6px;
+            border-radius: 3px;
+        }
+
+        /* ── Tables ──────────────────────────────────────── */
+        .data-table-wrap {
+            overflow-x: auto;
+            margin: 24px 0;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .data-table th {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: var(--forest);
+            color: var(--offwhite);
+            padding: 12px 16px;
+            text-align: left;
+        }
+        .data-table td {
+            padding: 11px 16px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+        .data-table tr:nth-child(even) td { background: #fafafa; }
+        .data-table tr:hover td { background: rgba(205,220,201,0.25); }
+
+        /* ── Section Titles ──────────────────────────────── */
+        .section-block {
+            margin: 56px auto;
+            max-width: 1100px;
+            padding: 0 40px;
+        }
+        .section-title-bar {
+            background: var(--forest);
+            color: var(--offwhite);
+            padding: 20px 32px;
+            border-radius: 10px 10px 0 0;
+            font-family: 'DM Serif Text', serif;
+            font-size: 24px;
+        }
+        .section-body {
+            background: white;
+            padding: 36px 32px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 2px 12px rgba(0,61,45,0.06);
+        }
+
+        /* ── Alert Cards ─────────────────────────────────── */
+        .alert-card {
+            background: white;
+            border-left: 5px solid var(--red-alert);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(217,79,79,0.08);
+        }
+        .alert-card h4 {
+            font-family: 'Archivo', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--red-alert);
+            margin-bottom: 6px;
+        }
+        .alert-card p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* ── Opportunity Cards ───────────────────────────── */
+        .opp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        .opp-card {
+            background: white;
+            border-radius: 10px;
+            padding: 28px;
+            box-shadow: 0 2px 12px rgba(0,61,45,0.06);
+            border-top: 4px solid var(--mint);
+            transition: transform .2s;
+        }
+        .opp-card:hover { transform: translateY(-3px); }
+        .opp-card h4 {
+            font-family: 'Archivo', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: 8px;
+        }
+        .opp-card .opp-pillar {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--teal);
+            margin-bottom: 10px;
+        }
+        .opp-card p { font-size: 14px; color: #555; margin-bottom: 10px; }
+        .opp-impact {
+            display: inline-block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            font-weight: 500;
+            background: rgba(49,235,151,0.12);
+            color: var(--forest);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        /* ── Validation Checklist ────────────────────────── */
+        .checklist { list-style: none; padding: 0; }
+        .checklist li {
+            padding: 12px 0 12px 36px;
+            position: relative;
+            font-size: 14px;
+            color: #444;
+            border-bottom: 1px solid #eee;
+        }
+        .checklist li::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 14px;
+            width: 18px; height: 18px;
+            border: 2px solid var(--teal);
+            border-radius: 4px;
+        }
+        .checklist li strong { color: var(--forest); }
+        .checklist-source {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--teal);
+            display: block;
+            margin-top: 4px;
+        }
+
+        /* ── Quotes ──────────────────────────────────────── */
+        .quote-block {
+            background: var(--forest);
+            border-radius: 10px;
+            padding: 28px 32px;
+            margin-bottom: 16px;
+            position: relative;
+        }
+        .quote-block::before {
+            content: '\201C';
+            font-family: 'DM Serif Text', serif;
+            font-size: 72px;
+            color: var(--mint);
+            opacity: .3;
+            position: absolute;
+            top: -8px; left: 20px;
+            line-height: 1;
+        }
+        .quote-block p {
+            font-size: 15px;
+            color: var(--offwhite);
+            font-style: italic;
+            padding-left: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        .quote-author {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: var(--mint);
+            margin-top: 10px;
+            padding-left: 40px;
+        }
+
+        /* ── Documents Table ─────────────────────────────── */
+        .status-badge {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        .status-pending { background: #FFF3CD; color: #856404; }
+        .status-seen { background: #D4EDDA; color: #155724; }
+        .status-committed { background: #D1ECF1; color: #0C5460; }
+
+        /* ── Schedule Table ───────────────────────────────── */
+        .schedule-row td:first-child {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 500;
+            color: var(--teal);
+            white-space: nowrap;
+        }
+
+        /* ── Footer ──────────────────────────────────────── */
+        .footer {
+            background: var(--forest);
+            color: var(--sage);
+            text-align: center;
+            padding: 32px 40px;
+            margin-top: 80px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* ── Responsive ──────────────────────────────────── */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 28px; }
+            .hero-inner, .container, .section-block { padding: 0 20px; }
+            .exec-summary { padding: 28px 20px; margin: -30px 20px 0; }
+            .kpi-strip { padding: 0 20px; }
+            .kpi-card .kpi-value { font-size: 32px; }
+            .pillar-num { font-size: 36px; }
+            .pillar-title { font-size: 22px; }
+            .opp-grid { grid-template-columns: 1fr; }
+            .section-body { padding: 24px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ════════ HERO ════════ -->
+<header class="hero">
+    <div class="hero-inner">
+        <div class="hero-badge">Project Shine &mdash; Prediagnostico Operativo</div>
+        <h1>Entrevista: Director de Operaciones<br><span>Rodolfo Vega Carrion</span></h1>
+        <div class="hero-meta">
+            <div><strong>Fecha</strong> 8 de abril de 2026</div>
+            <div><strong>Duracion</strong> 1h 44m</div>
+            <div><strong>Entrevistador LCG</strong> Fernando Sanchez Andrade</div>
+            <div><strong>Participacion adicional</strong> Marco A. Barcenas Sotelo</div>
+        </div>
+    </div>
+</header>
+
+<!-- ════════ STICKY NAV ════════ -->
+<nav class="pillar-nav" id="pillarNav">
+    <div class="pillar-nav-inner">
+        <a href="#summary">Resumen</a>
+        <a href="#pilar03">03 Planeacion</a>
+        <a href="#pilar04">04 Produccion</a>
+        <a href="#pilar05">05 Mantenimiento</a>
+        <a href="#pilar06">06 Calidad</a>
+        <a href="#pilar09">09 Almacenes</a>
+        <a href="#pilar10">10 Distribucion</a>
+        <a href="#pilar12">12 Estructura</a>
+        <a href="#datos">Datos</a>
+        <a href="#alertas">Alertas</a>
+        <a href="#opps">Oportunidades</a>
+        <a href="#validar">Validar</a>
+        <a href="#citas">Citas</a>
+        <a href="#docs">Docs</a>
+        <a href="#agenda">Agenda</a>
+    </div>
+</nav>
+
+<!-- ════════ EXECUTIVE SUMMARY ════════ -->
+<section class="exec-summary" id="summary">
+    <h2>Resumen Ejecutivo</h2>
+    <p>Rodolfo Vega Carrion es Director de Operaciones de PI Group con <strong>21 anos de antiguedad</strong>. Es uno de los pilares historicos del crecimiento operativo de la compania. Tiene bajo su cargo <strong>produccion, mezclas, mantenimiento (industrial e infraestructura), proyectos, logistica de producto terminado y normatividad/sistema de gestion integral</strong>.</p>
+    <p>Reporta directamente al Director General. No maneja costos &mdash; toda la parte financiera de operaciones se gestiona desde areas administrativas. Le faltan <strong>2 posiciones clave vacantes: gerente y jefe de produccion</strong>. La planeacion de produccion no depende de el, sino de Contraloria (Marco Barcenas).</p>
+    <p>Esta entrevista es la fuente principal de informacion operativa del prediagnostico. Cubre 7 pilares del Modelo Macro y revela hallazgos criticos sobre capacidad ociosa, factor logistico y estructura organizacional.</p>
+    <div class="exec-tags">
+        <span class="exec-tag">Pilar 03 Planeacion</span>
+        <span class="exec-tag">Pilar 04 Produccion</span>
+        <span class="exec-tag">Pilar 05 Mantenimiento</span>
+        <span class="exec-tag">Pilar 06 Calidad</span>
+        <span class="exec-tag">Pilar 09 Almacenes</span>
+        <span class="exec-tag">Pilar 10 Distribucion</span>
+        <span class="exec-tag">Pilar 12 Estructura</span>
+    </div>
+</section>
+
+<!-- ════════ KPI STRIP ════════ -->
+<div class="kpi-strip">
+    <div class="kpi-card">
+        <div class="kpi-value">99.8%</div>
+        <div class="kpi-label">Fill Rate 2025</div>
+        <div class="kpi-context">Pedidos surtidos completos</div>
+    </div>
+    <div class="kpi-card">
+        <div class="kpi-value">~40%</div>
+        <div class="kpi-label">Capacidad Disponible</div>
+        <div class="kpi-context">En turno actual + 2 turnos mas</div>
+    </div>
+    <div class="kpi-card">
+        <div class="kpi-value">9.14%</div>
+        <div class="kpi-label">Factor Logistico</div>
+        <div class="kpi-context">Meta: 8% | Ref. historica: 5%</div>
+    </div>
+    <div class="kpi-card">
+        <div class="kpi-value">2,089 h</div>
+        <div class="kpi-label">Paros de Linea 2025</div>
+        <div class="kpi-context">~2.18% del tiempo productivo</div>
+    </div>
+    <div class="kpi-card">
+        <div class="kpi-value">97.2%</div>
+        <div class="kpi-label">Cumpl. Mtto Preventivo</div>
+        <div class="kpi-context">Cumplimiento ordenes 2025</div>
+    </div>
+    <div class="kpi-card">
+        <div class="kpi-value">7,690</div>
+        <div class="kpi-label">Viajes 2025</div>
+        <div class="kpi-context">Solo 3 robos en el ano</div>
+    </div>
+</div>
+
+<!-- ════════ PILLAR SECTIONS ════════ -->
+<div class="container">
+
+    <!-- ── Pilar 03 ── -->
+    <section class="pillar-section" id="pilar03">
+        <div class="pillar-header">
+            <span class="pillar-num">03</span>
+            <span class="pillar-title">Planeacion de Produccion</span>
+        </div>
+        <ul class="finding-list">
+            <li>La planeacion de produccion <strong>no reporta a Operaciones sino a Contraloria/Finanzas</strong> (Marco Barcenas). Esto genera una separacion entre quien planea y quien ejecuta.</li>
+            <li>Proceso en cascada: planeacion <span class="data-highlight">mensual &rarr; semanal &rarr; diaria</span>. Los cambios frecuentes llegan hasta nivel diario.</li>
+            <li>PI Group opera con <strong>2 temporadas</strong>: alta (<span class="data-highlight">Ene, Sep-Dic</span>) y baja (<span class="data-highlight">Feb-Ago</span>). Plantillas ya definidas para cada temporada.</li>
+            <li>Para Sanchez y Martin la planeacion es conjunta, pero las desviaciones son enormes: terminan comprando <span class="data-alert">250%+ de lo contratado</span>.</li>
+            <li>Cumplimiento al programa general: <span class="data-highlight">~106%</span> &mdash; produccion tiene holgura para absorber cambios.</li>
+            <li>Estandares de capacidad al <span class="data-highlight">85% de eficiencia</span> por linea, pero <strong>no existe reporte formal de utilizacion de capacidad</strong> como indicador gestionado.</li>
+            <li>Rodolfo reporta <span class="data-highlight">~40% de capacidad disponible</span> en turno actual y capacidad para crecer a <span class="data-highlight">3 turnos completos</span>.</li>
+            <li>Lineas de detergente 10L (9 y 12): capacidad combinada de <span class="data-highlight">~4,560 tarimas/mes al 85%</span>, programacion real <span class="data-highlight">~3,357 tarimas/mes</span> (~70% utilizado).</li>
+        </ul>
+    </section>
+
+    <!-- ── Pilar 04 ── -->
+    <section class="pillar-section" id="pilar04">
+        <div class="pillar-header">
+            <span class="pillar-num">04</span>
+            <span class="pillar-title">Produccion (Control de Piso)</span>
+        </div>
+        <ul class="finding-list">
+            <li><strong>Estructura de turnos:</strong> Turno 1 (<span class="data-highlight">6:00-15:30 L-V</span>), Turno 3 nocturno (<span class="data-highlight">21:30-6:00 L-V</span>). <strong>No hay turno vespertino</strong> por politica de bienestar (mayoria mujeres, atencion a familias). Fines de semana no se trabaja en produccion.</li>
+            <li>Demas areas (logistica, almacenes, mantenimiento) <strong>si trabajan 3 turnos</strong> L-V y 2 turnos los sabados.</li>
+            <li>Personal produccion temporada baja: <span class="data-highlight">~220 personas</span> (160 T1 + 55-60 T3). Temporada alta: <span class="data-highlight">~310-320 personas</span> (210 T1 + 100 T3).</li>
+            <li>Turno nocturno <strong>dedicado exclusivamente a maquila Sanchez y Martin</strong>. Turno 1 atiende todos los clientes.</li>
+            <li>Paros de linea anuales 2025: <span class="data-highlight">2,089 horas</span> (<span class="data-highlight">~2.18%</span> del tiempo productivo). Causas: mantenimiento (~25%), produccion (atrasos de granel, falta de personal), calidad de materiales, planeacion y almacen.</li>
+            <li>Se manejan <strong>tiempos de ciclo estandar por linea</strong> al 85%. Ej: Linea 17 (limpiador multiusos, 6 personas) = <span class="data-highlight">1,695 tarimas/mes</span>.</li>
+            <li><span class="data-alert">No se mide productividad de mano de obra como indicador</span> (costo MO / ventas). Rodolfo no maneja costos.</li>
+            <li><strong>Vacantes criticas:</strong> <span class="data-alert">Gerente de Produccion y Jefe de Produccion vacantes</span>. Solo un supervisor (Enrique Tellez) como linea de mando directa.</li>
+            <li>Members Mark (Walmart/Sam's) se cumple consistentemente. S&M se sobreproducen <span class="data-highlight">250%+ vs contrato</span> por demanda real excedente.</li>
+        </ul>
+    </section>
+
+    <!-- ── Pilar 05 ── -->
+    <section class="pillar-section" id="pilar05">
+        <div class="pillar-header">
+            <span class="pillar-num">05</span>
+            <span class="pillar-title">Mantenimiento</span>
+        </div>
+        <ul class="finding-list">
+            <li>Estructura: Gerente de Mantenimiento (Ismael Hernandez), con areas de mantenimiento industrial (taller nave 6, oficinas nave 8), infraestructura y proyectos.</li>
+            <li>Cumplimiento a ordenes de mantenimiento preventivo 2025: <span class="data-highlight">97.22%</span>. Bajon en junio por disponibilidad de equipos (lineas no liberadas para mantenimiento).</li>
+            <li>Causas de incumplimiento: falta de refaccion, equipo no prestado, olvido del equipo de mantenimiento.</li>
+            <li>Paros por mantenimiento: <span class="data-highlight">~25% del total</span> (~522 horas/ano). Se mide: tiempo de reaccion, tiempo entre fallas, gastos por area.</li>
+            <li><strong>Migracion de CMMS:</strong> de MP v10 (obsoleto, sin soporte) a <span class="data-highlight">Fractal</span>. Proyecto iniciado 2025, aun en implementacion. <span class="data-alert">Bloqueado por falta de licencias</span>.</li>
+            <li>Vision de Fractal: reportes de falla desde operador, ordenes de trabajo por tecnico, refacciones por equipo, MTBF, MTTR automaticos, asignacion de gasto por equipo.</li>
+            <li>Inventario de refacciones se ha incrementado progresivamente en valor.</li>
+            <li><span class="data-alert">No se mide productividad por tecnico</span> (ordenes de trabajo realizadas por persona). Esto vendra con Fractal.</li>
+        </ul>
+    </section>
+
+    <!-- ── Pilar 06 ── -->
+    <section class="pillar-section" id="pilar06">
+        <div class="pillar-header">
+            <span class="pillar-num">06</span>
+            <span class="pillar-title">Calidad</span>
+        </div>
+        <ul class="finding-list">
+            <li>Normatividad y sistema de gestion integral (SGI) reporta a Rodolfo. Responsable de: sistema de gestion de calidad, auditorias, certificaciones, documentacion, implementacion de normas.</li>
+            <li>Defectos de calidad reportados por cliente (2025): <span class="data-highlight">135 eventos</span> en ~7,690 viajes (<span class="data-highlight">~1.76% incidencia</span> por viaje).</li>
+            <li>Tipos de defectos: fuera de pesos, falta de codificado, mal cerrado, etiqueta desprendida, microfugas.</li>
+            <li>Los defectos se rastrean por linea de produccion gracias al codificado.</li>
+            <li>Calidad de MP genera paros: <span class="data-alert">envases inflados, rebaba en cuello de botella, problemas de enfriamiento</span>. Muestreo a recepcion no captura todo; produccion detecta problemas pieza por pieza en llenado.</li>
+        </ul>
+    </section>
+
+    <!-- ── Pilar 09 ── -->
+    <section class="pillar-section" id="pilar09">
+        <div class="pillar-header">
+            <span class="pillar-num">09</span>
+            <span class="pillar-title">Almacenes</span>
+        </div>
+        <ul class="finding-list">
+            <li>Almacenes divididos: almacen de MP y almacen de producto terminado/logistica, cada uno con equipo y dependencia propia.</li>
+            <li>Almacen de MP: <span class="data-highlight">~26 personas</span>. Responsable de recibo de proveedores y movimientos de traslado entre naves.</li>
+            <li>Almacen de refacciones: <span class="data-highlight">4-5 personas</span>, ubicado en nave 8.</li>
+            <li>Indicadores medidos: tiempo de recibo, traspaso entre naves, paros causados por almacen, productividad individual, capacidad de personal, danos a materiales, inventario, acomodo.</li>
+            <li>Proyectos de <strong>optimizacion de layout</strong> y reduccion de tiempos de traspaso entre naves.</li>
+            <li>La dispersion en <span class="data-alert">12 naves</span> genera complejidad logistica interna significativa (traslados de MP entre naves).</li>
+        </ul>
+    </section>
+
+    <!-- ── Pilar 10 ── -->
+    <section class="pillar-section" id="pilar10">
+        <div class="pillar-header">
+            <span class="pillar-num">10</span>
+            <span class="pillar-title">Distribucion</span>
+        </div>
+        <ul class="finding-list">
+            <li><strong>Fill rate 2025:</strong> <span class="data-highlight">99.8% (in full)</span>. Pedidos surtidos completos vs fincados.</li>
+            <li><strong>On-time delivery: <span class="data-alert">~50%</span></strong> &mdash; pero por causa positiva: Rodolfo frecuentemente <strong>adelanta entregas</strong>. Entregar antes penaliza on-time igual que entregar tarde.</li>
+            <li><strong>Factor logistico 2025:</strong> <span class="data-highlight">9.14%</span> (costo flete / facturacion). Meta: 8%. Ref. historica: 5%.</li>
+            <li>Erosion por: (1) <span class="data-alert">2 anos sin incremento de precios</span> al cliente (desde finales 2023) mientras flete sube; (2) mix de destinos; (3) mix de productos.</li>
+            <li>Factor por destino: <span class="data-alert">Merida >20%</span> (mas costoso). Mexico y Chalco = mayor volumen y mejor factor (subsidian foraneos).</li>
+            <li>Modelo: <span class="data-highlight">~80% transportistas individuales</span> ("hombre-camion"), <span class="data-highlight">~20% backhaul Walmart</span>. Cartera de ~30 transportistas, trabaja con ~15.</li>
+            <li>Backhaul Walmart: mas barato en local pero <strong>mas caro en foraneas</strong>. En noviembre (staple stock, <span class="data-highlight">~19,000 tarimas extra</span>) el factor se dispara.</li>
+            <li>Camiones siempre llenos. Trailer 48 ft = <span class="data-highlight">24 tarimas estandar</span>, hasta 28 con mix ligero.</li>
+            <li>Robos 2025: <span class="data-highlight">3 de 7,690 viajes</span>. Sin seguro &mdash; esquema de penalizacion progresiva al transportista.</li>
+            <li>Asignacion de viajes <strong>digitalizada</strong>: sistema automatico con regla de rotacion y notificacion con cita.</li>
+            <li>Costo de flete 2025: <span class="data-highlight">~$163M MXN</span> total anual.</li>
+        </ul>
+    </section>
+
+    <!-- ── Pilar 12 ── -->
+    <section class="pillar-section" id="pilar12">
+        <div class="pillar-header">
+            <span class="pillar-num">12</span>
+            <span class="pillar-title">Estructura, Gobierno y Capital Humano</span>
+        </div>
+        <ul class="finding-list">
+            <li><span class="data-alert">Vacantes criticas:</span> Gerente de Produccion y Jefe de Produccion. La operacion la sostiene un supervisor (Enrique Tellez). Vulnerabilidad operativa significativa.</li>
+            <li>Rodolfo tambien reporta no tener asistente.</li>
+            <li>Organigrama presentado tenia errores: faltaban 2 jefaturas (infraestructura y proyectos), linea de reporte de lab de agua equivocada, plantilla real mas robusta que lo mostrado.</li>
+            <li><strong>Politica de bienestar laboral</strong> (mayoria mujeres): solo turno matutino L-V, fin de semana libre. Politica historica de la familia duena.</li>
+            <li>Se realizan evaluaciones de personal, capacitaciones (en paros programados) y medicion de ausentismo.</li>
+            <li>Rodolfo = <span class="data-highlight">21 anos de experiencia</span> &mdash; pilar institucional. Pero <span class="data-alert">concentracion de conocimiento</span> en una persona con posiciones vacantes debajo es un riesgo.</li>
+            <li>Posible viaje de Rodolfo a China y Marco fuera simultaneamente &mdash; <span class="data-alert">riesgo de vacio de liderazgo</span> en semanas clave.</li>
+        </ul>
+    </section>
+
+</div><!-- .container -->
+
+<!-- ════════ DATOS DUROS ════════ -->
+<div class="section-block" id="datos">
+    <div class="section-title-bar">Datos Duros Obtenidos</div>
+    <div class="section-body">
+        <div class="data-table-wrap">
+            <table class="data-table">
+                <thead>
+                    <tr><th>Dato</th><th>Valor</th><th>Contexto</th><th>Pilar</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Antiguedad de Rodolfo</td><td><strong>21 anos</strong></td><td>Pilar institucional de la operacion</td><td>12</td></tr>
+                    <tr><td>Personal produccion temp. baja</td><td><strong>~220</strong></td><td>160 T1 + 55-60 T3</td><td>04</td></tr>
+                    <tr><td>Personal produccion temp. alta</td><td><strong>~310-320</strong></td><td>210 T1 + 100 T3</td><td>04</td></tr>
+                    <tr><td>Capacidad disponible turno actual</td><td><strong>~40%</strong></td><td>Holgura significativa para crecimiento</td><td>04</td></tr>
+                    <tr><td>Capacidad adicional de turnos</td><td><strong>2 turnos mas</strong></td><td>Podria crecer a 3 turnos completos</td><td>04</td></tr>
+                    <tr><td>Fill rate 2025</td><td><strong>99.8%</strong></td><td>In full &mdash; pedidos surtidos completos</td><td>10</td></tr>
+                    <tr><td>On-time delivery</td><td><strong>~50%</strong></td><td>Penalizado por entregas anticipadas</td><td>10</td></tr>
+                    <tr><td>Factor logistico 2025</td><td><strong>9.14%</strong></td><td>Meta: 8% | Ref. historica: 5%</td><td>10</td></tr>
+                    <tr><td>Costo de flete 2025</td><td><strong>~$163M MXN</strong></td><td>Total anual</td><td>10</td></tr>
+                    <tr><td>Factor logistico Merida</td><td><strong>&gt;20%</strong></td><td>Destino mas costoso</td><td>10</td></tr>
+                    <tr><td>Total viajes 2025</td><td><strong>~7,690</strong></td><td>Incl. backhaul y transportistas</td><td>10</td></tr>
+                    <tr><td>Staple stock Walmart Nov 2025</td><td><strong>~19,000 tarimas</strong></td><td>Extra, fuera del volumen mensual</td><td>10</td></tr>
+                    <tr><td>Mix transporte</td><td><strong>80/20</strong></td><td>80% transportistas / 20% backhaul Walmart</td><td>10</td></tr>
+                    <tr><td>Robos 2025</td><td><strong>3 de 7,690</strong></td><td>Sin seguro, esquema de penalizacion</td><td>10</td></tr>
+                    <tr><td>Paros de linea 2025</td><td><strong>2,089 horas</strong></td><td>~2.18% del tiempo productivo</td><td>04</td></tr>
+                    <tr><td>Paros por mantenimiento</td><td><strong>~522 horas</strong></td><td>~25% del total de paros</td><td>05</td></tr>
+                    <tr><td>Cumpl. mtto preventivo 2025</td><td><strong>97.22%</strong></td><td>Bajon en junio por disponibilidad</td><td>05</td></tr>
+                    <tr><td>Defectos calidad 2025</td><td><strong>135 eventos</strong></td><td>~1.76% incidencia en ~7,690 viajes</td><td>06</td></tr>
+                    <tr><td>Personal almacen MP</td><td><strong>~26 personas</strong></td><td>&mdash;</td><td>09</td></tr>
+                    <tr><td>Personal logistica PT</td><td><strong>~36 personas</strong></td><td>&mdash;</td><td>10</td></tr>
+                    <tr><td>Personal almacen refacciones</td><td><strong>4-5 personas</strong></td><td>&mdash;</td><td>05</td></tr>
+                    <tr><td>Total almacenes + logistica</td><td><strong>~67 personas</strong></td><td>26 + 36 + 5</td><td>09,10</td></tr>
+                    <tr><td>CMMS</td><td><strong>MP v10 &rarr; Fractal</strong></td><td>Iniciado 2025, bloqueado por licencias</td><td>05,11</td></tr>
+                    <tr><td>Cumpl. programa produccion</td><td><strong>~106%</strong></td><td>Produce 6% mas de lo planeado</td><td>03,04</td></tr>
+                    <tr><td>Cap. lineas det. 10L (9 y 12)</td><td><strong>~4,560 tar/mes</strong></td><td>Al 85% eficiencia</td><td>04</td></tr>
+                    <tr><td>Prog. real det. 10L</td><td><strong>~3,357 tar/mes</strong></td><td>~70% capacidad utilizada</td><td>03</td></tr>
+                    <tr><td>S&M desviacion vs contrato</td><td><strong>250%+</strong></td><td>Demanda real excede dramaticamente</td><td>03</td></tr>
+                    <tr><td>ROI enmangadora (S&M)</td><td><strong>8 meses vs 3 anos</strong></td><td>Recuperada en 8 meses</td><td>07</td></tr>
+                    <tr><td>Precio sin incremento desde</td><td><strong>Finales 2023</strong></td><td>~2 anos sin ajuste al cliente</td><td>01</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ════════ ALERTAS ════════ -->
+<div class="section-block" id="alertas">
+    <div class="section-title-bar" style="background: var(--red-alert);">Banderas / Alertas</div>
+    <div class="section-body">
+        <div class="alert-card">
+            <h4>Vacantes criticas en produccion</h4>
+            <p>No hay gerente ni jefe de produccion. El supervisor Enrique Tellez sostiene la operacion directa. Riesgo operativo alto que limita la capacidad de mejora continua estructurada.</p>
+        </div>
+        <div class="alert-card">
+            <h4>Separacion planeacion-ejecucion</h4>
+            <p>Planeacion reporta a Contraloria, no a Operaciones. Puede generar desconexion entre capacidad real y programacion, y dificulta la optimizacion integral del recurso productivo.</p>
+        </div>
+        <div class="alert-card">
+            <h4>No se mide productividad de MO vs costo</h4>
+            <p>Rodolfo gestiona volumen y cumplimiento pero no tiene visibilidad sobre el costo de produccion por unidad. Desconexion entre operaciones y costos limita identificacion de ineficiencias.</p>
+        </div>
+        <div class="alert-card">
+            <h4>No existe reporte formal de utilizacion de capacidad</h4>
+            <p>El ~40% de capacidad disponible es una estimacion, no un indicador gestionado. No hay reporte de produccion real vs capacidad estandar.</p>
+        </div>
+        <div class="alert-card">
+            <h4>Factor logistico 9.14% vs meta de 8%</h4>
+            <p>Erosion de margen por falta de incremento de precios y por mix de destinos foraneos costosos. ~$20M MXN de brecha anual vs meta.</p>
+        </div>
+        <div class="alert-card">
+            <h4>2 anos sin incremento de precios al cliente</h4>
+            <p>Costos de flete suben anualmente. La erosion del margen de distribucion es acumulativa y medible.</p>
+        </div>
+        <div class="alert-card">
+            <h4>Implementacion Fractal (CMMS) bloqueada</h4>
+            <p>El proyecto lleva mas de un ano y la falta de licencias es el cuello de botella que impide el despliegue completo. Sin Fractal no hay indicadores automaticos ni gestion avanzada de mantenimiento.</p>
+        </div>
+        <div class="alert-card">
+            <h4>Riesgo de vacio de liderazgo</h4>
+            <p>Posible viaje simultaneo de Rodolfo (China) y Marco fuera de PI Group en semanas clave del prediagnostico.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ════════ OPORTUNIDADES ════════ -->
+<div class="section-block" id="opps">
+    <div class="section-title-bar">Oportunidades Identificadas</div>
+    <div class="section-body">
+        <div class="opp-grid">
+            <div class="opp-card">
+                <h4>Activacion de capacidad ociosa</h4>
+                <div class="opp-pillar">Pilar 04, 03</div>
+                <p>Con ~40% de capacidad disponible y posibilidad de 2 turnos adicionales, existe potencial enorme de crecimiento sin CAPEX en lineas adicionales. Habilita diversificacion comercial.</p>
+                <span class="opp-impact">Estrategico &mdash; Habilitador de crecimiento</span>
+            </div>
+            <div class="opp-card">
+                <h4>Optimizacion del factor logistico</h4>
+                <div class="opp-pillar">Pilar 10</div>
+                <p>Factor de 9.14% vs meta de 8% sobre ~$1,800M de facturacion. Mecanismos: renegociacion de precios, optimizacion de mix backhaul/transportistas en foraneos, evaluacion de TMS.</p>
+                <span class="opp-impact">$20-40M MXN / ano</span>
+            </div>
+            <div class="opp-card">
+                <h4>Integracion planeacion-operaciones</h4>
+                <div class="opp-pillar">Pilar 03, 04</div>
+                <p>Alinear planeacion con operaciones para optimizar utilizacion de capacidad (hoy ~60%), reducir cambios diarios y mejorar productividad de plantilla.</p>
+                <span class="opp-impact">Habilitador de eficiencia</span>
+            </div>
+            <div class="opp-card">
+                <h4>Medicion de productividad de MO</h4>
+                <div class="opp-pillar">Pilar 04, 12</div>
+                <p>Implementar costo MO / unidad producida y MO / ventas. Hoy no existe visibilidad cruzada entre volumen y costo. Conecta con OPP-003 existente.</p>
+                <span class="opp-impact">Habilitador &mdash; Dimensiona OPP-003</span>
+            </div>
+            <div class="opp-card">
+                <h4>Cobertura de vacantes criticas</h4>
+                <div class="opp-pillar">Pilar 12, 04</div>
+                <p>Las vacantes de gerente y jefe de produccion son riesgo operativo y cuello de botella para implementacion de mejoras.</p>
+                <span class="opp-impact">Habilitador &mdash; Urgente</span>
+            </div>
+            <div class="opp-card">
+                <h4>Aceleracion de Fractal CMMS</h4>
+                <div class="opp-pillar">Pilar 05, 11</div>
+                <p>Resolver licencias y completar migracion: asignacion de costos por equipo, MTBF/MTTR automaticos, productividad por tecnico, gestion de refacciones optimizada.</p>
+                <span class="opp-impact">Habilitador &mdash; Reduccion costos mtto</span>
+            </div>
+            <div class="opp-card">
+                <h4>Negociacion de incremento de precios</h4>
+                <div class="opp-pillar">Pilar 01, 10</div>
+                <p>2 anos sin ajuste con costos crecientes. Recuperar al menos la inflacion acumulada de flete tendria impacto directo en margen.</p>
+                <span class="opp-impact">Componente bridge EBITDA</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ════════ INFORMACION PARA VALIDAR ════════ -->
+<div class="section-block" id="validar">
+    <div class="section-title-bar">Informacion para Validar</div>
+    <div class="section-body">
+        <ul class="checklist">
+            <li>
+                <strong>Capacidad disponible real por linea</strong> &mdash; Rodolfo dice ~40%, pero no existe reporte formal. Necesita validacion con datos de programacion vs capacidad estandar.
+                <span class="checklist-source">Fuente: Planeacion (Contraloria) + Produccion</span>
+            </li>
+            <li>
+                <strong>Costo de mano de obra operativa detallado</strong> &mdash; Cruzar headcount (220-320 personas) con Labour COGS de los estados financieros ($57M en 2025).
+                <span class="checklist-source">Fuente: Marco Barcenas / Contraloria</span>
+            </li>
+            <li>
+                <strong>Productividad por turno y por linea</strong> &mdash; No existe reporte de eficiencia real vs estandar. Obtener durante visita de planta el 15 de abril.
+                <span class="checklist-source">Fuente: Enrique Tellez (supervisor produccion)</span>
+            </li>
+            <li>
+                <strong>Detalle de paros por linea y causa raiz</strong> &mdash; El reporte muestra totales; hay que profundizar en patrones por linea.
+                <span class="checklist-source">Fuente: Reporte de paros detallado (solicitar a Rodolfo)</span>
+            </li>
+            <li>
+                <strong>Estado real de implementacion de Fractal</strong> &mdash; Licencias necesarias vs actuales, modulos activos, timeline realista.
+                <span class="checklist-source">Fuente: Ismael Hernandez (Gte. Mantenimiento)</span>
+            </li>
+            <li>
+                <strong>Valor del inventario de refacciones y su crecimiento</strong> &mdash; Rodolfo menciono incremento progresivo. Cuantificar.
+                <span class="checklist-source">Fuente: Almacen de refacciones / Finanzas</span>
+            </li>
+            <li>
+                <strong>On-time delivery real</strong> &mdash; El ~50% es por entregas anticipadas. El cliente lo ve como problema o beneficio? Sam's penaliza early delivery?
+                <span class="checklist-source">Fuente: Hugo Ambrosi (Dir. Comercial)</span>
+            </li>
+            <li>
+                <strong>Detalle contrato y volumenes Sanchez y Martin</strong> &mdash; Contrato actual, volumen comprometido vs real, precio, margenes.
+                <span class="checklist-source">Fuente: Marco Barcenas / Hugo Ambrosi</span>
+            </li>
+            <li>
+                <strong>Organigrama actualizado de Operaciones</strong> &mdash; El presentado tenia errores (jefaturas faltantes, linea de reporte de lab de agua, plantilla desactualizada).
+                <span class="checklist-source">Fuente: Rodolfo Vega / RRHH</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- ════════ CITAS RELEVANTES ════════ -->
+<div class="section-block" id="citas">
+    <div class="section-title-bar">Citas Relevantes</div>
+    <div class="section-body" style="background: transparent; box-shadow: none; padding: 24px 0;">
+        <div class="quote-block">
+            <p>Si me piden que incremente la produccion, puedo crecer a 3 turnos. Incluso en el turno que mantengo ahora tengo disponible como un 40% todavia de capacidad.</p>
+            <div class="quote-author">&mdash; Rodolfo Vega, sobre el potencial productivo no utilizado</div>
+        </div>
+        <div class="quote-block">
+            <p>La mayoria del personal operativo es mujer. Hace mucho tiempo, como beneficio para ellos, se establecio que solo trabajarian un turno de lunes a viernes, para que en la tarde atiendan a su familia.</p>
+            <div class="quote-author">&mdash; Rodolfo Vega, sobre la politica de turnos en produccion</div>
+        </div>
+        <div class="quote-block">
+            <p>Si me mides on-time siempre voy a quedar mal. Uno de los problemas que tienen las otras areas conmigo es que siempre me adelanto.</p>
+            <div class="quote-author">&mdash; Rodolfo Vega, sobre el OTIF de ~50% pese a fill rate de 99.8%</div>
+        </div>
+        <div class="quote-block">
+            <p>Yo no manejo costos. Todo lo que tiene que ver con cuanto cuesta la mano de obra, el material, la luz, lo maneja el area administrativa. Nosotros solo nos enfocamos en dar cumplimiento a las actividades operativas.</p>
+            <div class="quote-author">&mdash; Rodolfo Vega, sobre la desconexion entre operaciones y costos</div>
+        </div>
+        <div class="quote-block">
+            <p>Sanchez y Martin me dice que va a comprar 100, luego me programa 150, y termina llevandose 200.</p>
+            <div class="quote-author">&mdash; Rodolfo Vega, sobre la demanda impredecible de S&M</div>
+        </div>
+        <div class="quote-block">
+            <p>La maquina enmangadora la compramos especificamente para Sanchez y Martin. Se supone que el retorno era en 3 anos. La recuperamos en 8 meses por el volumen que nos mandaron fabricar.</p>
+            <div class="quote-author">&mdash; Marco Barcenas, sobre el exito de inversion en capacidad para S&M</div>
+        </div>
+        <div class="quote-block">
+            <p>Merida tiene un costo muy elevado, pero mis entregas son menores. Es un tema de que uno cargue al otro.</p>
+            <div class="quote-author">&mdash; Rodolfo Vega, sobre el subsidio cruzado entre destinos</div>
+        </div>
+        <div class="quote-block">
+            <p>Llevamos 2 anos sin incrementar al cliente, pero el flete si me lo incrementan cada ano.</p>
+            <div class="quote-author">&mdash; Rodolfo Vega, sobre la erosion del margen logistico</div>
+        </div>
+    </div>
+</div>
+
+<!-- ════════ DOCUMENTOS ════════ -->
+<div class="section-block" id="docs">
+    <div class="section-title-bar">Documentos Recibidos o Comprometidos</div>
+    <div class="section-body">
+        <div class="data-table-wrap">
+            <table class="data-table">
+                <thead>
+                    <tr><th>Documento</th><th>Tipo</th><th>Status</th><th>Pilar</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Reporte de indicadores de direccion (presentacion de Rodolfo)</td>
+                        <td>INDICADOR</td>
+                        <td><span class="status-badge status-committed">Comprometido</span></td>
+                        <td>03-06, 09, 10</td>
+                    </tr>
+                    <tr>
+                        <td>Tiempos de ciclo estandar por linea y nave</td>
+                        <td>TECNICO</td>
+                        <td><span class="status-badge status-seen">Visto en pantalla</span></td>
+                        <td>04</td>
+                    </tr>
+                    <tr>
+                        <td>Programa de produccion (ejemplo mensual)</td>
+                        <td>HERRAMIENTA</td>
+                        <td><span class="status-badge status-pending">Pendiente</span></td>
+                        <td>03</td>
+                    </tr>
+                    <tr>
+                        <td>Reporte de paros de linea detallado 2025</td>
+                        <td>INDICADOR</td>
+                        <td><span class="status-badge status-seen">Visto en pantalla</span></td>
+                        <td>04, 05</td>
+                    </tr>
+                    <tr>
+                        <td>Factor logistico por destino y mes 2025</td>
+                        <td>INDICADOR</td>
+                        <td><span class="status-badge status-seen">Visto en pantalla</span></td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Fill rate mensual 2024-2025</td>
+                        <td>INDICADOR</td>
+                        <td><span class="status-badge status-seen">Visto en pantalla</span></td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Cumplimiento de mantenimiento preventivo 2024-2025</td>
+                        <td>INDICADOR</td>
+                        <td><span class="status-badge status-seen">Visto en pantalla</span></td>
+                        <td>05</td>
+                    </tr>
+                    <tr>
+                        <td>Reporte de defectos de calidad por linea 2025</td>
+                        <td>INDICADOR</td>
+                        <td><span class="status-badge status-seen">Visto en pantalla</span></td>
+                        <td>06</td>
+                    </tr>
+                    <tr>
+                        <td>Plantillas de personal por temporada</td>
+                        <td>HERRAMIENTA</td>
+                        <td><span class="status-badge status-pending">Pendiente</span></td>
+                        <td>04, 12</td>
+                    </tr>
+                    <tr>
+                        <td>Detalle de inventario de refacciones</td>
+                        <td>INDICADOR</td>
+                        <td><span class="status-badge status-pending">Pendiente</span></td>
+                        <td>05</td>
+                    </tr>
+                    <tr>
+                        <td>Organigrama actualizado de Operaciones</td>
+                        <td>EVIDENCIA</td>
+                        <td><span class="status-badge status-pending">Pendiente</span></td>
+                        <td>12</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ════════ AGENDA DE SEGUIMIENTO ════════ -->
+<div class="section-block" id="agenda">
+    <div class="section-title-bar">Entrevistas de Seguimiento Agendadas</div>
+    <div class="section-body">
+        <p style="margin-bottom: 20px; color: #666; font-size: 14px;">Reportes directos de Rodolfo y visita de planta programados para abril 9-15, 2026.</p>
+        <div class="data-table-wrap">
+            <table class="data-table">
+                <thead>
+                    <tr><th>Fecha</th><th>Hora</th><th>Persona</th><th>Cargo</th><th>Pilares</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="schedule-row">
+                        <td>9 abril 2026</td>
+                        <td>10:00</td>
+                        <td>Ismael Hernandez</td>
+                        <td>Gerente de Mantenimiento</td>
+                        <td>05</td>
+                    </tr>
+                    <tr class="schedule-row">
+                        <td>9 abril 2026</td>
+                        <td>15:30</td>
+                        <td>Enrique Tellez</td>
+                        <td>Supervisor de Produccion</td>
+                        <td>04</td>
+                    </tr>
+                    <tr class="schedule-row">
+                        <td>11 abril 2026</td>
+                        <td>12:00</td>
+                        <td>Leticia Benitez</td>
+                        <td>Gerente de Logistica</td>
+                        <td>10</td>
+                    </tr>
+                    <tr class="schedule-row">
+                        <td>11 abril 2026</td>
+                        <td>13:00</td>
+                        <td>Orlando (Arturo?) Rodriguez</td>
+                        <td>Jefe de Almacen</td>
+                        <td>09</td>
+                    </tr>
+                    <tr class="schedule-row">
+                        <td>11 abril 2026</td>
+                        <td>14:00</td>
+                        <td>Raul Islas</td>
+                        <td>Jefe de Mezclas</td>
+                        <td>04</td>
+                    </tr>
+                    <tr class="schedule-row">
+                        <td>15 abril 2026</td>
+                        <td>Manana</td>
+                        <td>Fernando Sanchez (LCG)</td>
+                        <td>Visita de planta / observacion de piso</td>
+                        <td>03, 04</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ════════ FOOTER ════════ -->
+<footer class="footer">
+    London Consulting Group &nbsp;|&nbsp; Project Shine &nbsp;|&nbsp; Confidencial &nbsp;|&nbsp; Abril 2026
+</footer>
+
+<!-- ════════ JS: Active Nav ════════ -->
+<script>
+(function() {
+    const nav = document.getElementById('pillarNav');
+    const links = nav.querySelectorAll('a');
+    const sections = [];
+
+    links.forEach(function(link) {
+        const id = link.getAttribute('href').substring(1);
+        const el = document.getElementById(id);
+        if (el) sections.push({ id: id, el: el, link: link });
+    });
+
+    function updateActive() {
+        let current = '';
+        const offset = 80;
+        for (let i = sections.length - 1; i >= 0; i--) {
+            const rect = sections[i].el.getBoundingClientRect();
+            if (rect.top <= offset + 20) {
+                current = sections[i].id;
+                break;
+            }
+        }
+        links.forEach(function(l) { l.classList.remove('active'); });
+        sections.forEach(function(s) {
+            if (s.id === current) s.link.classList.add('active');
+        });
+    }
+
+    window.addEventListener('scroll', updateActive, { passive: true });
+    updateActive();
+
+    // Smooth scroll
+    links.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const id = this.getAttribute('href').substring(1);
+            const target = document.getElementById(id);
+            if (target) {
+                const y = target.getBoundingClientRect().top + window.pageYOffset - 60;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+        });
+    });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1970 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prediagnostico Operativo — PI Group | LCG</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Archivo:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest: #003D2D;
+  --teal: #009072;
+  --mint: #31EB97;
+  --sage: #CDDCC9;
+  --offwhite: #F3F3F3;
+  --near-black: #1D1D1B;
+  --red: #C0392B;
+  --orange: #E67E22;
+  --yellow: #F1C40F;
+  --green-score: #27AE60;
+  --sidebar-w: 280px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Archivo', sans-serif;
+  background: var(--offwhite);
+  color: var(--near-black);
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: var(--sidebar-w);
+  height: 100vh;
+  background: var(--forest);
+  color: #fff;
+  overflow-y: auto;
+  z-index: 100;
+  padding: 24px 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--teal) var(--forest);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 2px; }
+
+.sidebar-logo {
+  padding: 0 20px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  margin-bottom: 12px;
+}
+.sidebar-logo h2 {
+  font-family: 'DM Serif Text', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--mint);
+  letter-spacing: 0.5px;
+}
+.sidebar-logo p {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.nav-section {
+  padding: 8px 0;
+}
+.nav-section-title {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.35);
+  padding: 8px 20px 4px;
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 13px;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+.nav-link:hover {
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  border-left-color: var(--mint);
+}
+.nav-link.active {
+  background: rgba(49,235,151,0.08);
+  color: var(--mint);
+  border-left-color: var(--mint);
+}
+.nav-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  min-width: 22px;
+  color: rgba(255,255,255,0.4);
+}
+.nav-score {
+  margin-left: auto;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 1px 6px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.08);
+}
+.nav-score.red { color: #ff6b6b; }
+.nav-score.orange { color: #ffa94d; }
+.nav-score.green { color: var(--mint); }
+
+/* MAIN */
+.main {
+  margin-left: var(--sidebar-w);
+  min-height: 100vh;
+}
+
+/* HERO */
+.hero {
+  background: var(--forest);
+  color: #fff;
+  padding: 60px 60px 50px;
+}
+.hero-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--mint);
+  margin-bottom: 12px;
+}
+.hero h1 {
+  font-family: 'DM Serif Text', serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.hero .subtitle {
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 24px;
+}
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+}
+
+/* SECTIONS */
+.section {
+  padding: 48px 60px;
+  border-bottom: 1px solid #ddd;
+}
+.section:last-child { border-bottom: none; }
+.section-dark {
+  background: var(--forest);
+  color: #fff;
+  border-bottom-color: rgba(255,255,255,0.1);
+}
+
+.section-header {
+  margin-bottom: 36px;
+}
+.section-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--teal);
+  margin-bottom: 8px;
+}
+.section-dark .section-tag { color: var(--mint); }
+
+.section-title {
+  font-family: 'DM Serif Text', serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--forest);
+}
+.section-dark .section-title { color: #fff; }
+
+/* MATURITY SCORE */
+.maturity-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.score-circle {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid;
+}
+.score-circle .score-num {
+  font-family: 'DM Serif Text', serif;
+  font-size: 42px;
+  line-height: 1;
+}
+.score-circle .score-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+.score-red { border-color: var(--red); color: var(--red); background: rgba(192,57,43,0.06); }
+.score-orange { border-color: var(--orange); color: var(--orange); background: rgba(230,126,34,0.06); }
+.score-yellow { border-color: var(--yellow); color: #b8960f; background: rgba(241,196,15,0.06); }
+.score-green { border-color: var(--green-score); color: var(--green-score); background: rgba(39,174,96,0.06); }
+
+.submodule-bars {
+  flex: 1;
+  min-width: 300px;
+}
+.submodule-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 12px;
+}
+.submodule-bar .bar-label {
+  font-size: 12px;
+  width: 200px;
+  flex-shrink: 0;
+  text-align: right;
+  color: #666;
+}
+.submodule-bar .bar-track {
+  flex: 1;
+  height: 18px;
+  background: #e8e8e8;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+}
+.submodule-bar .bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+.submodule-bar .bar-val {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  min-width: 28px;
+}
+.bar-fill.red { background: var(--red); }
+.bar-fill.orange { background: var(--orange); }
+.bar-fill.yellow { background: var(--yellow); }
+.bar-fill.green { background: var(--green-score); }
+
+/* COLLAPSIBLE */
+.collapsible {
+  margin-bottom: 16px;
+}
+.collapsible-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 10px 16px;
+  background: rgba(0,61,45,0.04);
+  border: 1px solid rgba(0,61,45,0.1);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--forest);
+  transition: all 0.2s;
+  user-select: none;
+}
+.collapsible-header:hover { background: rgba(0,61,45,0.08); }
+.collapsible-header .arrow {
+  transition: transform 0.3s;
+  font-size: 10px;
+}
+.collapsible.open .collapsible-header .arrow { transform: rotate(90deg); }
+.collapsible-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.collapsible.open .collapsible-body { max-height: 2000px; }
+.collapsible-content {
+  padding: 16px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.collapsible-content ul {
+  padding-left: 20px;
+}
+.collapsible-content li {
+  margin-bottom: 6px;
+}
+
+/* CARDS */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 24px;
+  border: 1px solid #e2e2e2;
+}
+.card-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #999;
+  margin-bottom: 8px;
+}
+.card-value {
+  font-family: 'DM Serif Text', serif;
+  font-size: 36px;
+  color: var(--forest);
+  line-height: 1.1;
+}
+.card-value.small { font-size: 24px; }
+.card-detail {
+  font-size: 13px;
+  color: #666;
+  margin-top: 6px;
+}
+.section-dark .card {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.1);
+}
+.section-dark .card-value { color: var(--mint); }
+.section-dark .card-detail { color: rgba(255,255,255,0.6); }
+
+/* TABLE */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+  font-size: 13px;
+}
+.data-table th {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #999;
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 2px solid var(--forest);
+  font-weight: 500;
+}
+.data-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+}
+.data-table tr:hover td { background: rgba(0,144,114,0.03); }
+.data-table .num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+}
+
+/* TAGS */
+.tag {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tag-qw { background: rgba(39,174,96,0.12); color: #1a8a4a; }
+.tag-mp { background: rgba(230,126,34,0.12); color: #b35e13; }
+.tag-lp { background: rgba(142,68,173,0.12); color: #7d3c98; }
+.tag-red { background: rgba(192,57,43,0.1); color: var(--red); }
+.tag-orange { background: rgba(230,126,34,0.1); color: var(--orange); }
+.tag-green { background: rgba(39,174,96,0.1); color: var(--green-score); }
+
+/* OPP TABLE */
+.opp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+.opp-table th {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #999;
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 2px solid var(--forest);
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.opp-table th:hover { color: var(--teal); }
+.opp-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+.opp-table tr:hover td { background: rgba(0,144,114,0.04); }
+
+/* HIGHLIGHTS */
+.highlight-box {
+  background: rgba(0,144,114,0.06);
+  border-left: 4px solid var(--teal);
+  padding: 16px 20px;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.highlight-box strong { color: var(--forest); }
+
+/* FINDINGS */
+.finding {
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.finding:last-child { border-bottom: none; }
+.finding-source {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: #999;
+  margin-top: 2px;
+}
+
+/* GAPS */
+.gap-list {
+  list-style: none;
+  padding: 0;
+}
+.gap-list li {
+  padding: 8px 0 8px 24px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 13px;
+  position: relative;
+}
+.gap-list li::before {
+  content: '?';
+  position: absolute;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(230,126,34,0.15);
+  color: var(--orange);
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 10px;
+}
+
+/* OPP MINI LIST */
+.opp-mini {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+}
+.opp-mini:last-child { border-bottom: none; }
+.opp-id {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--teal);
+  white-space: nowrap;
+}
+.opp-impact {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: auto;
+  white-space: nowrap;
+  color: var(--forest);
+}
+
+/* RADAR CHART */
+.radar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+/* FOOTER */
+.footer {
+  background: var(--forest);
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+  padding: 24px 60px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .sidebar { width: 240px; }
+  :root { --sidebar-w: 240px; }
+  .section { padding: 36px 32px; }
+  .hero { padding: 40px 32px; }
+}
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    width: 280px;
+  }
+  .sidebar.open { transform: translateX(0); }
+  :root { --sidebar-w: 0px; }
+  .main { margin-left: 0; }
+  .mobile-toggle {
+    display: flex !important;
+  }
+  .hero h1 { font-size: 28px; }
+  .section-title { font-size: 24px; }
+  .maturity-header { flex-direction: column; }
+  .submodule-bar .bar-label { width: 140px; }
+}
+
+.mobile-toggle {
+  display: none;
+  position: fixed;
+  top: 16px; left: 16px;
+  z-index: 200;
+  width: 40px; height: 40px;
+  background: var(--forest);
+  color: var(--mint);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+/* Sub-sections */
+.sub-section {
+  margin-bottom: 32px;
+}
+.sub-title {
+  font-family: 'DM Serif Text', serif;
+  font-size: 20px;
+  color: var(--forest);
+  margin-bottom: 16px;
+}
+
+/* Bridge chart placeholder */
+.bridge-chart {
+  margin: 24px 0;
+}
+
+/* EBITDA trend cards */
+.trend-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+@media (max-width: 900px) {
+  .trend-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Pilar OPP badge */
+.pilar-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.pilar-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 2px;
+  background: rgba(0,144,114,0.1);
+  color: var(--teal);
+}
+
+h3.estado-title {
+  font-family: 'DM Serif Text', serif;
+  font-size: 18px;
+  color: var(--forest);
+  margin: 24px 0 12px;
+}
+.estado-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 16px;
+}
+</style>
+</head>
+<body>
+
+<button class="mobile-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">&#9776;</button>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <h2>London Consulting Group</h2>
+    <p>Project Shine | PI Group</p>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-title">General</div>
+    <a href="#resumen" class="nav-link"><span class="nav-num"></span>Resumen Ejecutivo</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-title">Pilares Comerciales</div>
+    <a href="#pilar01" class="nav-link"><span class="nav-num">01</span>Inteligencia Comercial<span class="nav-score red">1.7</span></a>
+    <a href="#pilar02" class="nav-link"><span class="nav-num">02</span>Ejecucion Comercial<span class="nav-score red">1.8</span></a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-title">Pilares Lean 4.0</div>
+    <a href="#pilar03" class="nav-link"><span class="nav-num">03</span>Planeacion<span class="nav-score orange">2.0</span></a>
+    <a href="#pilar04" class="nav-link"><span class="nav-num">04</span>Produccion<span class="nav-score red">1.9</span></a>
+    <a href="#pilar05" class="nav-link"><span class="nav-num">05</span>Mantenimiento<span class="nav-score orange">2.3</span></a>
+    <a href="#pilar06" class="nav-link"><span class="nav-num">06</span>Calidad<span class="nav-score orange">2.0</span></a>
+    <a href="#pilar07" class="nav-link"><span class="nav-num">07</span>Innovacion<span class="nav-score red">1.8</span></a>
+    <a href="#pilar08" class="nav-link"><span class="nav-num">08</span>Abastecimiento<span class="nav-score orange">2.2</span></a>
+    <a href="#pilar09" class="nav-link"><span class="nav-num">09</span>Almacenes<span class="nav-score red">1.8</span></a>
+    <a href="#pilar10" class="nav-link"><span class="nav-num">10</span>Distribucion<span class="nav-score orange">2.5</span></a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-title">Pilares de Soporte</div>
+    <a href="#pilar11" class="nav-link"><span class="nav-num">11</span>Digitalizacion / IT<span class="nav-score red">1.5</span></a>
+    <a href="#pilar12" class="nav-link"><span class="nav-num">12</span>Estructura y Gobierno<span class="nav-score red">1.8</span></a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-title">Consolidado</div>
+    <a href="#transversal" class="nav-link"><span class="nav-num"></span>Vista Transversal EBITDA</a>
+    <a href="#oportunidades" class="nav-link"><span class="nav-num"></span>Inventario de Oportunidades</a>
+  </div>
+</nav>
+
+<main class="main">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Prediagnostico Operativo</div>
+  <h1>PI Group SA de CV</h1>
+  <div class="subtitle">Resultados y Analisis — Modelo Macro de 12 Pilares LCG</div>
+  <div class="hero-meta">
+    <span>Abril 2026</span>
+    <span>3 entrevistas directivas + 2 analisis documentales</span>
+    <span>64 / 80 sub-modulos evaluados</span>
+    <span>Confidencial</span>
+  </div>
+</div>
+
+<!-- RESUMEN EJECUTIVO -->
+<section class="section section-dark" id="resumen">
+  <div class="section-header">
+    <div class="section-tag">Resumen Ejecutivo</div>
+    <div class="section-title">Diagnostico en una linea</div>
+  </div>
+
+  <div class="highlight-box" style="background:rgba(49,235,151,0.08);border-left-color:var(--mint);color:#fff;">
+    <strong style="color:var(--mint);">Empresa funcional pero fragil,</strong> sostenida por heroismo individual, con dependencia critica de un solo cliente y sin los procesos, datos ni gobierno para detectar y corregir la erosion a tiempo.
+  </div>
+
+  <div class="cards-grid" style="margin-top:32px;">
+    <div class="card">
+      <div class="card-label">Madurez Promedio CMM</div>
+      <div class="card-value">1.9<span style="font-size:18px;color:rgba(255,255,255,0.4);"> / 5.0</span></div>
+      <div class="card-detail">Reactivo-Gestionado</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Ingreso Neto 2025</div>
+      <div class="card-value">$1,807M</div>
+      <div class="card-detail">MXN | -14.5% vs pico 2023</div>
+    </div>
+    <div class="card">
+      <div class="card-label">EBITDA 2025</div>
+      <div class="card-value">$389M</div>
+      <div class="card-detail">-$301M vs 2023 (-44%)</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Oportunidades Identificadas</div>
+      <div class="card-value">$350-720M</div>
+      <div class="card-detail">MXN/ano | 20 oportunidades</div>
+    </div>
+  </div>
+
+  <!-- Radar Chart -->
+  <div class="sub-section">
+    <div class="sub-title" style="color:var(--mint);">Mapa de Madurez por Pilar</div>
+    <div class="radar-container">
+      <canvas id="radarChart" width="500" height="420"></canvas>
+    </div>
+  </div>
+
+  <!-- EBITDA Trend -->
+  <div class="sub-section">
+    <div class="sub-title" style="color:var(--mint);">Tendencia EBITDA 2022-2025</div>
+    <div class="trend-cards">
+      <div class="card" style="text-align:center;">
+        <div class="card-label">2022</div>
+        <div class="card-value">$516M</div>
+        <div class="card-detail">Margen: 29.2%</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div class="card-label">2023 (Pico)</div>
+        <div class="card-value">$690M</div>
+        <div class="card-detail">Margen: 32.6%</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div class="card-label">2024</div>
+        <div class="card-value">$504M</div>
+        <div class="card-detail">Margen: 25.4%</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div class="card-value" style="color:#ff6b6b;">$389M</div>
+        <div class="card-label" style="margin-top:4px;">2025</div>
+        <div class="card-detail">Margen: 21.5%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bridge -->
+  <div class="sub-section">
+    <div class="sub-title" style="color:var(--mint);">Bridge EBITDA 2023 &rarr; 2025: -$301M</div>
+    <div class="bridge-chart">
+      <canvas id="bridgeChart" width="700" height="300"></canvas>
+    </div>
+  </div>
+
+  <!-- Top 5 Findings -->
+  <div class="sub-section">
+    <div class="sub-title" style="color:var(--mint);">5 Hallazgos Criticos</div>
+    <div style="display:grid;gap:12px;">
+      <div class="card">
+        <div class="card-label">Concentracion de cliente</div>
+        <div class="card-value small" style="color:#ff6b6b;">96-99%</div>
+        <div class="card-detail">de ingresos provienen de Sam's Club. Perdida de 5 SKUs costo ~$400M/ano.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Erosion de EBITDA</div>
+        <div class="card-value small" style="color:#ff6b6b;">-$301M (-44%)</div>
+        <div class="card-detail">Caida de $690M a $389M en 2 anos. SG&A y devoluciones como principales drivers.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Devoluciones sin diagnostico</div>
+        <div class="card-value small" style="color:#ff6b6b;">$276M (13.2%)</div>
+        <div class="card-detail">Se duplicaron desde $143M (2022). Sin separacion de causa raiz: calidad vs comercial vs logistica.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Desconexion operaciones-costos</div>
+        <div class="card-value small" style="color:#ffa94d;">MO/litro: $0.41</div>
+        <div class="card-detail">Se duplico desde $0.18 (2022). "Yo no manejo costos" — Director de Operaciones.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Capacidad ociosa masiva</div>
+        <div class="card-value small" style="color:var(--mint);">~40% + 2 turnos</div>
+        <div class="card-detail">Capacidad productiva para triplicar produccion sin CAPEX en lineas. Activo clave para diversificacion.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Oportunidades summary -->
+  <div class="sub-section">
+    <div class="sub-title" style="color:var(--mint);">Magnitud de Oportunidades</div>
+    <div class="cards-grid">
+      <div class="card" style="text-align:center;">
+        <div class="card-label">Quick Wins (&lt;3 meses)</div>
+        <div class="card-value small">$90-150M</div>
+        <div class="card-detail">5 oportunidades | Inversion: $2-6M</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div class="card-label">Mediano Plazo (3-12 meses)</div>
+        <div class="card-value small">$275-540M</div>
+        <div class="card-detail">9 oportunidades | Inversion: $33-73M</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div class="card-label">Largo Plazo / Estrategico</div>
+        <div class="card-value small">$270-645M</div>
+        <div class="card-detail">6 oportunidades | Inversion: $46-92M</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLAR SECTIONS -->
+<!-- Helper: generate each pilar section -->
+
+<!-- PILAR 01 -->
+<section class="section" id="pilar01">
+  <div class="section-header">
+    <div class="section-tag">Pilar 01 &mdash; Comercial</div>
+    <div class="section-title">Inteligencia Comercial</div>
+  </div>
+
+  <div class="maturity-header">
+    <div class="score-circle score-red">
+      <div class="score-num">1.7</div>
+      <div class="score-label">Reactivo</div>
+    </div>
+    <div class="submodule-bars">
+      <div class="submodule-bar"><span class="bar-label">Mix de clientes</span><div class="bar-track"><div class="bar-fill red" style="width:20%"></div></div><span class="bar-val" style="color:var(--red)">1</span></div>
+      <div class="submodule-bar"><span class="bar-label">Mix de productos</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Venta cruzada</span><div class="bar-track"><div class="bar-fill red" style="width:20%"></div></div><span class="bar-val" style="color:var(--red)">1</span></div>
+      <div class="submodule-bar"><span class="bar-label">Prospeccion</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Precios</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Condiciones comerciales</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+    </div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Laggers Principales</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>Concentracion >96% en un solo cliente sin plan de mitigacion con metas concretas</li>
+      <li>Desconocimiento de rentabilidad real por cliente y por SKU</li>
+      <li>Sin CRM ni pipeline documentado para diversificacion</li>
+      <li>Devoluciones de 13.2% creciendo sin diagnostico de causa raiz</li>
+      <li>2 anos sin incremento de precios mientras costos suben</li>
+    </ul></div></div>
+  </div>
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Best Practices Aplicables</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>Meta estrategica: no mas de 30% de ingresos en un solo cliente a 5 anos</li>
+      <li>P&L por cliente actualizado mensualmente con costos asignados</li>
+      <li>Modelo de riesgo de concentracion con escenarios de impacto</li>
+      <li>Analisis ABC-XYZ cruzando rentabilidad con variabilidad; comite de portafolio trimestral</li>
+      <li>Separacion transparente de devoluciones: calidad vs comercial vs logistica</li>
+    </ul></div></div>
+  </div>
+
+  <h3 class="estado-title">Estado Actual</h3>
+  <p class="estado-text">PI Group opera como proveedor cautivo de Sam's Club Mexico, con ~96-99% de concentracion de ingresos en un solo cliente. La relacion comercial fue danada por un conflicto personal que detono la perdida de 5 SKUs clave con impacto de ~$400M/ano. El portafolio muestra doble concentracion: ademas de mono-cliente, los Top 5 SKUs representan 65.1% de la venta. El crecimiento es nulo: run-rate semanal 2026 vs 2025 de apenas +0.7%, que ajustado por inflacion implica contraccion real de ~4%.</p>
+
+  <h3 class="estado-title">Datos Duros</h3>
+  <table class="data-table">
+    <thead><tr><th>Metrica</th><th>Valor</th><th>Fuente</th></tr></thead>
+    <tbody>
+      <tr><td>% ingresos de Sam's Club</td><td class="num">~96-99%</td><td>Marco</td></tr>
+      <tr><td>Ventas brutas consolidadas 2025</td><td class="num">$2,403M</td><td>Excel-Fin</td></tr>
+      <tr><td>Ingreso neto consolidado 2025</td><td class="num">$1,807M</td><td>Excel-Fin</td></tr>
+      <tr><td>Caida de ingreso neto 2023-2025</td><td class="num">-$307M (-14.5%)</td><td>Excel-Fin</td></tr>
+      <tr><td>SKUs perdidos por licitacion</td><td class="num">5 SKUs (~$400M/ano)</td><td>Marco</td></tr>
+      <tr><td>Top 5 SKUs como % de venta</td><td class="num">65.1%</td><td>Excel-Com</td></tr>
+      <tr><td>Run-rate 2026 vs 2025</td><td class="num">+0.7% (plano)</td><td>Excel-Com</td></tr>
+      <tr><td>Anos sin incremento de precio</td><td class="num">~2 anos</td><td>Rodolfo</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="estado-title">Oportunidades del Pilar</h3>
+  <div class="opp-mini"><span class="opp-id">OPP-005</span><span>Diversificacion de clientes</span><span class="opp-impact">$200-500M (ingresos)</span></div>
+  <div class="opp-mini"><span class="opp-id">OPP-020</span><span>Negociacion de incremento de precios</span><span class="opp-impact">$30-60M/ano</span></div>
+  <div class="opp-mini"><span class="opp-id">OPP-010</span><span>Recuperacion de volumen en Sam's</span><span class="opp-impact">$30-60M/ano</span></div>
+  <div class="opp-mini"><span class="opp-id">OPP-001</span><span>Reduccion de devoluciones y descuentos</span><span class="opp-impact">$80-135M/ano</span></div>
+  <div class="opp-mini"><span class="opp-id">OPP-018</span><span>Racionalizacion portafolio automotriz</span><span class="opp-impact">$10-20M/ano</span></div>
+  <div class="opp-mini"><span class="opp-id">OPP-009</span><span>Explotacion datos Sam's (Madrid)</span><span class="opp-impact">$5-15M/ano</span></div>
+
+  <h3 class="estado-title">Gaps de Informacion</h3>
+  <ul class="gap-list">
+    <li>Costo de produccion por SKU (margen PI Group, no margen Sam's) — Marco Barcenas</li>
+    <li>Pipeline comercial activo fuera de Sam's con volumenes y margen — Hugo Ambrosi</li>
+    <li>Detalle de facturacion y margen por cliente no-Sam's — Hugo + Marco</li>
+    <li>Politica de incremento de precios: por que 2 anos sin ajustar — Marco + Hugo</li>
+  </ul>
+</section>
+
+<!-- PILAR 02 -->
+<section class="section" id="pilar02">
+  <div class="section-header">
+    <div class="section-tag">Pilar 02 &mdash; Comercial</div>
+    <div class="section-title">Ejecucion Comercial</div>
+  </div>
+
+  <div class="maturity-header">
+    <div class="score-circle score-red">
+      <div class="score-num">1.8</div>
+      <div class="score-label">Reactivo</div>
+    </div>
+    <div class="submodule-bars">
+      <div class="submodule-bar"><span class="bar-label">Recepcion de pedidos</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Promotoria</span><div class="bar-track"><div class="bar-fill red" style="width:20%"></div></div><span class="bar-val" style="color:var(--red)">1</span></div>
+      <div class="submodule-bar"><span class="bar-label">Gestion KAM</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">CPFR</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Fill rate / OTIF</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Estructura comercial</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+    </div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Laggers Principales</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>Discrepancia fill rate interno (99.8%) vs real del cliente (95.2%) — autoengano clasico</li>
+      <li>Fuerza de campo sin valor: 2 personas que solo toman fotos</li>
+      <li>KAM unico que no funciona; ningun otro cliente tiene KAM dedicado</li>
+      <li>Home Depot desatendido >1 ano</li>
+      <li>Devoluciones de $276M (13.2%) creciendo sin diagnostico</li>
+    </ul></div></div>
+  </div>
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Best Practices Aplicables</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>Single version of truth del OTIF conciliada con el cliente</li>
+      <li>War room semanal de servicio para semanas criticas ($45-55M perdidos/ano)</li>
+      <li>Checklist de ejecucion en tienda (12 puntos tipo PepsiCo)</li>
+      <li>KAMs con plan de cuenta formal para al menos top 3 clientes</li>
+      <li>CPFR con forecast accuracy como KPI compartido</li>
+    </ul></div></div>
+  </div>
+
+  <h3 class="estado-title">Estado Actual</h3>
+  <p class="estado-text">El area comercial esta en profesionalizacion acelerada bajo Hugo Ambrosi (3 meses de antiguedad). Antes no existia estructura comercial profesional. Hugo ha logrado: primer AOP, dashboards en Excel, CPFR formal con Sam's, estructura incipiente. PI Group atiende 176 tiendas Sam's desde 8 CEDIS. El fill rate en tienda (95.2% promedio) contrasta con el 99.8% reportado internamente — la brecha representa $45-55M en venta perdida anual.</p>
+
+  <h3 class="estado-title">Datos Duros</h3>
+  <table class="data-table">
+    <thead><tr><th>Metrica</th><th>Valor</th><th>Fuente</th></tr></thead>
+    <tbody>
+      <tr><td>Tiendas Sam's atendidas</td><td class="num">176</td><td>Hugo, Excel-Com</td></tr>
+      <tr><td>Fill rate promedio Sam's (52 sem)</td><td class="num">95.2%</td><td>Excel-Com</td></tr>
+      <tr><td>Fill rate in-full Operaciones</td><td class="num">99.8%</td><td>Rodolfo</td></tr>
+      <tr><td>On-time delivery</td><td class="num">~50%</td><td>Rodolfo</td></tr>
+      <tr><td>Venta perdida por desabastos</td><td class="num">$45-55M/ano</td><td>Excel-Com</td></tr>
+      <tr><td>Devoluciones 2025</td><td class="num">$276M (13.2%)</td><td>Excel-Fin</td></tr>
+      <tr><td>Descuentos comerciales 2025</td><td class="num">$263M (12.7%)</td><td>Excel-Fin</td></tr>
+      <tr><td>DDI Abrillantador Auto</td><td class="num">125 dias (ideal 18)</td><td>Excel-Com</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="estado-title">Oportunidades del Pilar</h3>
+  <div class="opp-mini"><span class="opp-id">OPP-001</span><span>Reduccion de devoluciones y descuentos</span><span class="opp-impact">$80-135M/ano</span></div>
+  <div class="opp-mini"><span class="opp-id">OPP-017</span><span>Mejora de fill rate en semanas criticas</span><span class="opp-impact">$45-55M/ano</span></div>
+  <div class="opp-mini"><span class="opp-id">OPP-008</span><span>Profesionalizacion del area comercial</span><span class="opp-impact">Habilitadora</span></div>
+  <div class="opp-mini"><span class="opp-id">OPP-011</span><span>Desarrollo de Home Depot</span><span class="opp-impact">$15-30M/ano</span></div>
+  <div class="opp-mini"><span class="opp-id">OPP-012</span><span>Activacion de e-commerce</span><span class="opp-impact">$5-15M/ano</span></div>
+
+  <h3 class="estado-title">Gaps de Informacion</h3>
+  <ul class="gap-list">
+    <li>Desglose de devoluciones por causa real — Marco + Hugo</li>
+    <li>Presupuesto necesario para estructura comercial objetivo — Hugo</li>
+    <li>Facturacion y margen por cliente no-Sam's — Hugo + Marco</li>
+    <li>Forecast accuracy formal — Hugo</li>
+  </ul>
+</section>
+
+<!-- PILAR 03 -->
+<section class="section" id="pilar03">
+  <div class="section-header">
+    <div class="section-tag">Pilar 03 &mdash; Lean 4.0</div>
+    <div class="section-title">Planeacion de Produccion</div>
+  </div>
+
+  <div class="maturity-header">
+    <div class="score-circle score-orange">
+      <div class="score-num">2.0</div>
+      <div class="score-label">Gestionado</div>
+    </div>
+    <div class="submodule-bars">
+      <div class="submodule-bar"><span class="bar-label">S&OP</span><div class="bar-track"><div class="bar-fill orange" style="width:40%"></div></div><span class="bar-val" style="color:var(--orange)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Pronostico de demanda</span><div class="bar-track"><div class="bar-fill orange" style="width:40%"></div></div><span class="bar-val" style="color:var(--orange)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Planeacion de materiales</span><div class="bar-track"><div class="bar-fill orange" style="width:40%"></div></div><span class="bar-val" style="color:var(--orange)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Capacity plan</span><div class="bar-track"><div class="bar-fill orange" style="width:40%"></div></div><span class="bar-val" style="color:var(--orange)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Programacion</span><div class="bar-track"><div class="bar-fill orange" style="width:40%"></div></div><span class="bar-val" style="color:var(--orange)">2</span></div>
+    </div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Laggers Principales</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>Planeacion reporta a Contraloria, no a Operaciones — desconexion quien planea vs quien ejecuta</li>
+      <li>No existe reporte formal de utilizacion de capacidad</li>
+      <li>Cambios al programa hasta nivel diario sin frozen period</li>
+      <li>Forecast accuracy no medido; desviacion dramatica en S&M (250%)</li>
+      <li>No se evidencia reunion S&OP formal</li>
+    </ul></div></div>
+  </div>
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Best Practices Aplicables</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>S&OP mensual formal con demand review, supply review y reconciliacion ejecutiva</li>
+      <li>Frozen period de 1-2 semanas sin cambios sin aprobacion de director</li>
+      <li>Capacity plan mensual formal por linea con dashboard visible</li>
+      <li>Forecast accuracy como KPI compartido entre ventas y planeacion</li>
+      <li>Proceso formal de rush orders con costo visible</li>
+    </ul></div></div>
+  </div>
+
+  <h3 class="estado-title">Estado Actual</h3>
+  <p class="estado-text">La planeacion opera en cascada mensual-semanal-diaria con ajustes frecuentes. La funcion reporta a Contraloria/Finanzas, no a Operaciones, generando desconexion. Existe holgura productiva significativa: ~40% disponible + posibilidad de 2 turnos adicionales, pero no se gestiona como indicador formal.</p>
+
+  <h3 class="estado-title">Datos Duros</h3>
+  <table class="data-table">
+    <thead><tr><th>Metrica</th><th>Valor</th><th>Fuente</th></tr></thead>
+    <tbody>
+      <tr><td>Capacidad disponible turno actual</td><td class="num">~40%</td><td>Rodolfo</td></tr>
+      <tr><td>Turnos adicionales posibles</td><td class="num">2</td><td>Rodolfo</td></tr>
+      <tr><td>Utilizacion det. 10L</td><td class="num">~70%</td><td>Rodolfo</td></tr>
+      <tr><td>Cumplimiento al programa</td><td class="num">~106%</td><td>Rodolfo</td></tr>
+      <tr><td>Litros producidos 2025</td><td class="num">~157M</td><td>Excel-Fin</td></tr>
+      <tr><td>Semanas con FR < 80%</td><td class="num">5/ano</td><td>Excel-Com</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="estado-title">Oportunidades del Pilar</h3>
+  <div class="opp-mini"><span class="opp-id">OPP-015</span><span>Activacion de capacidad ociosa</span><span class="opp-impact">Estrategica</span></div>
+  <div class="opp-mini"><span class="opp-id">OPP-016</span><span>Integracion planeacion-operaciones</span><span class="opp-impact">Habilitadora</span></div>
+  <div class="opp-mini"><span class="opp-id">OPP-017</span><span>Mejora de fill rate en semanas criticas</span><span class="opp-impact">$45-55M/ano</span></div>
+
+  <h3 class="estado-title">Gaps de Informacion</h3>
+  <ul class="gap-list">
+    <li>Capacidad real por linea (reporte formal) — Planeacion + visita planta 15 abril</li>
+    <li>Reunion S&OP: participantes, frecuencia, decisiones — Rodolfo + Marco</li>
+    <li>Estandares de produccion validados vs adherencia real — visita planta</li>
+  </ul>
+</section>
+
+<!-- PILAR 04 -->
+<section class="section" id="pilar04">
+  <div class="section-header">
+    <div class="section-tag">Pilar 04 &mdash; Lean 4.0</div>
+    <div class="section-title">Produccion (Control de Piso)</div>
+  </div>
+
+  <div class="maturity-header">
+    <div class="score-circle score-red">
+      <div class="score-num">1.9</div>
+      <div class="score-label">Reactivo</div>
+    </div>
+    <div class="submodule-bars">
+      <div class="submodule-bar"><span class="bar-label">OEE</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Trabajo estandar (SMED)</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">5S</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Kaizen</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Estandares de operacion</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Reto de productividad</span><div class="bar-track"><div class="bar-fill red" style="width:20%"></div></div><span class="bar-val" style="color:var(--red)">1</span></div>
+      <div class="submodule-bar"><span class="bar-label">Entrenamientos Lean</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+    </div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Laggers Principales</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>No se calcula OEE formal — solo paros y piezas/hora sin integracion</li>
+      <li>MO/litro se duplico en 3 anos sin alarma porque nadie cruza volumen con costo</li>
+      <li>Vacantes criticas: gerente y jefe de produccion vacantes</li>
+      <li>Desconexion operaciones-costos: "Yo no manejo costos" (Rodolfo)</li>
+      <li>Sin SMED evidenciado ni programa Kaizen con impacto cuantificado</li>
+    </ul></div></div>
+  </div>
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Best Practices Aplicables</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>OEE automatico con juntas diarias de 15 min en piso (tier 1 meeting)</li>
+      <li>Top 5 losses con dueno y fecha compromiso; SMED para lineas principales</li>
+      <li>Indicador de costo MO/unidad visible para Operaciones y Finanzas</li>
+      <li>Cubrir vacantes criticas como condicion habilitadora</li>
+      <li>Programa Kaizen: >1 idea/colaborador/ano con impacto cuantificado</li>
+    </ul></div></div>
+  </div>
+
+  <h3 class="estado-title">Estado Actual</h3>
+  <p class="estado-text">La produccion opera con T1 diurno L-V y T3 nocturno L-V (solo S&M). Personal: ~220-320 segun temporada. Los indicadores de volumetria son razonables pero los indicadores financieros revelan anomalia severa: gastos de fabricacion se duplicaron de $11.9M/mes a $20.0M/mes con produccion similar. La desconexion entre operaciones (volumen) y finanzas (costo) oculta la ineficiencia.</p>
+
+  <h3 class="estado-title">Datos Duros</h3>
+  <table class="data-table">
+    <thead><tr><th>Metrica</th><th>Valor</th><th>Fuente</th></tr></thead>
+    <tbody>
+      <tr><td>Personal produccion (baja/alta)</td><td class="num">~220 / ~310-320</td><td>Rodolfo</td></tr>
+      <tr><td>Paros de linea 2025</td><td class="num">2,089 hrs (~2.18%)</td><td>Rodolfo</td></tr>
+      <tr><td>Gastos fabricacion/mes 2025</td><td class="num">$20.0M (vs $11.9M en 2022)</td><td>Excel-Fin</td></tr>
+      <tr><td>MO/litro 2025</td><td class="num">$0.41 (vs $0.18 en 2022)</td><td>Excel-Fin</td></tr>
+      <tr><td>EBITDA/litro 2025</td><td class="num">$2.5 (vs $3.7 en 2023)</td><td>Excel-Fin</td></tr>
+      <tr><td>Margen neto PIMA 2025</td><td class="num">5.0% ($13.9M)</td><td>Excel-Fin</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="estado-title">Oportunidades del Pilar</h3>
+  <div class="opp-mini"><span class="opp-id">OPP-003</span><span>Productividad laboral y eficiencia de fabricacion</span><span class="opp-impact">$50-100M/ano</span></div>
+  <div class="opp-mini"><span class="opp-id">OPP-015</span><span>Activacion de capacidad ociosa</span><span class="opp-impact">Estrategica</span></div>
+
+  <h3 class="estado-title">Gaps de Informacion</h3>
+  <ul class="gap-list">
+    <li>Headcount x costo x produccion cruzado por linea — Marco + Rodolfo + visita planta</li>
+    <li>OEE por linea — visita planta 15 abril</li>
+    <li>Dotacion de personal por linea/turno actual vs hace 2 anos — Gerente Produccion (vacante)</li>
+  </ul>
+</section>
+
+<!-- PILAR 05 -->
+<section class="section" id="pilar05">
+  <div class="section-header">
+    <div class="section-tag">Pilar 05 &mdash; Lean 4.0</div>
+    <div class="section-title">Mantenimiento</div>
+  </div>
+
+  <div class="maturity-header">
+    <div class="score-circle score-orange">
+      <div class="score-num">2.3</div>
+      <div class="score-label">Gestionado</div>
+    </div>
+    <div class="submodule-bars">
+      <div class="submodule-bar"><span class="bar-label">Plan anual</span><div class="bar-track"><div class="bar-fill yellow" style="width:60%"></div></div><span class="bar-val" style="color:#b8960f">3</span></div>
+      <div class="submodule-bar"><span class="bar-label">CMMS</span><div class="bar-track"><div class="bar-fill orange" style="width:40%"></div></div><span class="bar-val" style="color:var(--orange)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Preventivo</span><div class="bar-track"><div class="bar-fill yellow" style="width:60%"></div></div><span class="bar-val" style="color:#b8960f">3</span></div>
+      <div class="submodule-bar"><span class="bar-label">Correctivo</span><div class="bar-track"><div class="bar-fill orange" style="width:40%"></div></div><span class="bar-val" style="color:var(--orange)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Predictivo</span><div class="bar-track"><div class="bar-fill red" style="width:20%"></div></div><span class="bar-val" style="color:var(--red)">1</span></div>
+      <div class="submodule-bar"><span class="bar-label">Gestion de refacciones</span><div class="bar-track"><div class="bar-fill orange" style="width:40%"></div></div><span class="bar-val" style="color:var(--orange)">2</span></div>
+    </div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Laggers Principales</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>CMMS obsoleto (MP v10) con migracion a Fractal bloqueada >1 ano</li>
+      <li>Cero mantenimiento predictivo</li>
+      <li>Gestion de refacciones sin clasificacion por criticidad</li>
+      <li>No se mide productividad por tecnico</li>
+    </ul></div></div>
+  </div>
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Best Practices Aplicables</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>Completar migracion a Fractal como prioridad (resolver licencias)</li>
+      <li>MTBF y MTTR como KPIs principales con metas</li>
+      <li>Iniciar predictivo en equipos criticos (vibracion, termografia)</li>
+      <li>Almacen de refacciones con min/max por criticidad</li>
+      <li>Mantenimiento autonomo: operadores con inspeccion diaria</li>
+    </ul></div></div>
+  </div>
+
+  <h3 class="estado-title">Estado Actual</h3>
+  <p class="estado-text">Mantenimiento es el pilar con mejor desempeno relativo dentro de Lean 4.0. Cumplimiento preventivo de 97.22% es solido. Paros por mantenimiento (~522 hrs, 25% del total) estan identificados. Sin embargo, CMMS (MP v10) esta obsoleto y migracion a Fractal lleva >1 ano bloqueada. No existe mantenimiento predictivo.</p>
+
+  <h3 class="estado-title">Datos Duros</h3>
+  <table class="data-table">
+    <thead><tr><th>Metrica</th><th>Valor</th><th>Fuente</th></tr></thead>
+    <tbody>
+      <tr><td>Cumplimiento preventivo 2025</td><td class="num">97.22%</td><td>Rodolfo</td></tr>
+      <tr><td>Paros por mantenimiento</td><td class="num">~522 hrs/ano (25% del total)</td><td>Rodolfo</td></tr>
+      <tr><td>CMMS actual</td><td class="num">MP v10 (obsoleto) &rarr; Fractal</td><td>Rodolfo</td></tr>
+      <tr><td>Status Fractal</td><td class="num">Bloqueado por licencias</td><td>Rodolfo</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="estado-title">Oportunidades del Pilar</h3>
+  <div class="opp-mini"><span class="opp-id">OPP-007</span><span>Digitalizacion de planta y BI (componente CMMS/Fractal)</span><span class="opp-impact">Habilitadora</span></div>
+</section>
+
+<!-- PILAR 06 -->
+<section class="section" id="pilar06">
+  <div class="section-header">
+    <div class="section-tag">Pilar 06 &mdash; Lean 4.0</div>
+    <div class="section-title">Calidad</div>
+  </div>
+
+  <div class="maturity-header">
+    <div class="score-circle score-orange">
+      <div class="score-num">2.0</div>
+      <div class="score-label">Gestionado</div>
+    </div>
+    <div class="submodule-bars">
+      <div class="submodule-bar"><span class="bar-label">Estandares de calidad</span><div class="bar-track"><div class="bar-fill orange" style="width:40%"></div></div><span class="bar-val" style="color:var(--orange)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Plan de inspecciones</span><div class="bar-track"><div class="bar-fill orange" style="width:40%"></div></div><span class="bar-val" style="color:var(--orange)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Inspeccion MP</span><div class="bar-track"><div class="bar-fill orange" style="width:40%"></div></div><span class="bar-val" style="color:var(--orange)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Control de calidad</span><div class="bar-track"><div class="bar-fill orange" style="width:40%"></div></div><span class="bar-val" style="color:var(--orange)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Quejas y devoluciones</span><div class="bar-track"><div class="bar-fill red" style="width:20%"></div></div><span class="bar-val" style="color:var(--red)">1</span></div>
+    </div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Laggers Principales</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>Devoluciones de 13.2% creciendo SIN diagnostico de causa raiz</li>
+      <li>Inspeccion de MP insuficiente: produccion detecta defectos que calidad no atrapo</li>
+      <li>Funcion de "Atencion y Quejas" no genera valor: solo fotos, sin RCA</li>
+      <li>135 defectos reportados sin evidencia de accion correctiva sistematica</li>
+    </ul></div></div>
+  </div>
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Best Practices Aplicables</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>COPQ (costo de no-calidad) cuantificado y reportado mensualmente</li>
+      <li>Separacion transparente de devoluciones por causa</li>
+      <li>8D para quejas de cliente con cierre en <30 dias</li>
+      <li>Inspeccion de MP con criterios claros de rechazo y penalizacion a proveedores</li>
+      <li>SPC en puntos criticos; FTQ medido por linea</li>
+    </ul></div></div>
+  </div>
+
+  <h3 class="estado-title">Estado Actual</h3>
+  <p class="estado-text">La calidad como funcion de produccion muestra niveles aceptables: 135 defectos en 7,690 viajes (1.76%). La gran bandera roja es la desconexion: los 135 defectos no explican ni el 15% de los $276M en devoluciones. La mayoria probablemente son por sobreinventario, cambios de portafolio y gestion de espacio — pero nadie lo ha diagnosticado formalmente.</p>
+
+  <h3 class="estado-title">Datos Duros</h3>
+  <table class="data-table">
+    <thead><tr><th>Metrica</th><th>Valor</th><th>Fuente</th></tr></thead>
+    <tbody>
+      <tr><td>Defectos calidad 2025</td><td class="num">135 en 7,690 viajes (1.76%)</td><td>Rodolfo</td></tr>
+      <tr><td>Devoluciones brutas 2025</td><td class="num">$276M (13.2%)</td><td>Excel-Fin</td></tr>
+      <tr><td>Devoluciones 2022</td><td class="num">$143M (7.4%)</td><td>Excel-Fin</td></tr>
+      <tr><td>Clubs con sobreinventario severo</td><td class="num">15 (DDI > 55 dias)</td><td>Excel-Com</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="estado-title">Oportunidades del Pilar</h3>
+  <div class="opp-mini"><span class="opp-id">OPP-001</span><span>Reduccion de devoluciones y descuentos (componente calidad)</span><span class="opp-impact">$80-135M/ano</span></div>
+</section>
+
+<!-- PILAR 07 -->
+<section class="section" id="pilar07">
+  <div class="section-header">
+    <div class="section-tag">Pilar 07 &mdash; Lean 4.0</div>
+    <div class="section-title">Innovacion</div>
+  </div>
+
+  <div class="maturity-header">
+    <div class="score-circle score-red">
+      <div class="score-num">1.8</div>
+      <div class="score-label">Reactivo</div>
+    </div>
+    <div class="submodule-bars">
+      <div class="submodule-bar"><span class="bar-label">Generacion de ideas</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Desarrollo de iniciativas</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Funnel de iniciativas</span><div class="bar-track"><div class="bar-fill red" style="width:20%"></div></div><span class="bar-val" style="color:var(--red)">1</span></div>
+    </div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Laggers Principales</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>Conocimiento de formulacion concentrado en pocas personas — bus factor critico</li>
+      <li>Sin proceso stage-gate: proyectos entran ad-hoc</li>
+      <li>Sin funnel de innovacion ni KPIs</li>
+      <li>Sin comite de innovacion formal</li>
+    </ul></div></div>
+  </div>
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Best Practices Aplicables</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>Base de datos de formulacion segura y documentada con control de versiones</li>
+      <li>Stage-gate con criterios claros de go/kill</li>
+      <li>% de ingresos de productos lanzados en ultimos 3 anos como KPI</li>
+      <li>Pipeline de innovacion con horizonte 1-3 anos</li>
+    </ul></div></div>
+  </div>
+
+  <h3 class="estado-title">Estado Actual</h3>
+  <p class="estado-text">PI Group tiene capacidad real de innovacion en formulacion y envases — molecula vegetal para suavizante, migracion LESS 28% a 70%, primer envase reciclado 10L en Mexico. Sin embargo, el proceso es completamente informal: proyectos ad-hoc por presion del cliente o relacion con proveedores. Las transiciones de portafolio tienen costos ocultos: costo de nuevos detergentes es 12% mayor ($50-83M/ano de erosion potencial).</p>
+
+  <h3 class="estado-title">Datos Duros</h3>
+  <table class="data-table">
+    <thead><tr><th>Metrica</th><th>Valor</th><th>Fuente</th></tr></thead>
+    <tbody>
+      <tr><td>Incremento costo nuevos detergentes</td><td class="num">+12%</td><td>Excel-Com</td></tr>
+      <tr><td>Impacto potencial en margen</td><td class="num">$50-83M/ano</td><td>Excel-Com</td></tr>
+      <tr><td>Productos sin reemplazo (retail)</td><td class="num">$149M/ano</td><td>Excel-Com</td></tr>
+      <tr><td>ROI maquina enmangadora</td><td class="num">6-8 meses vs 3 anos plan</td><td>Marco, Rodolfo</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="estado-title">Oportunidades del Pilar</h3>
+  <div class="opp-mini"><span class="opp-id">OPP-002</span><span>Optimizacion de formulacion y MP</span><span class="opp-impact">$30-80M/ano</span></div>
+</section>
+
+<!-- PILAR 08 -->
+<section class="section" id="pilar08">
+  <div class="section-header">
+    <div class="section-tag">Pilar 08 &mdash; Lean 4.0</div>
+    <div class="section-title">Abastecimiento</div>
+  </div>
+
+  <div class="maturity-header">
+    <div class="score-circle score-orange">
+      <div class="score-num">2.2</div>
+      <div class="score-label">Gestionado</div>
+    </div>
+    <div class="submodule-bars">
+      <div class="submodule-bar"><span class="bar-label">Planeacion de compra</span><div class="bar-track"><div class="bar-fill orange" style="width:40%"></div></div><span class="bar-val" style="color:var(--orange)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Seleccion y negociacion</span><div class="bar-track"><div class="bar-fill yellow" style="width:60%"></div></div><span class="bar-val" style="color:#b8960f">3</span></div>
+      <div class="submodule-bar"><span class="bar-label">Analisis de costos</span><div class="bar-track"><div class="bar-fill orange" style="width:40%"></div></div><span class="bar-val" style="color:var(--orange)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Desarrollo de proveedores</span><div class="bar-track"><div class="bar-fill yellow" style="width:60%"></div></div><span class="bar-val" style="color:#b8960f">3</span></div>
+      <div class="submodule-bar"><span class="bar-label">Comite de abastecimiento</span><div class="bar-track"><div class="bar-fill red" style="width:20%"></div></div><span class="bar-val" style="color:var(--red)">1</span></div>
+    </div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Laggers Principales</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>Centralizacion extrema en Marco Barcenas: negocia personalmente 70% del gasto</li>
+      <li>Vacante cronica de Gerente de Compras — solo 2 compradores + 1 coordinador</li>
+      <li>Sin comite de abastecimiento para decision colegiada</li>
+      <li>Sin total cost of ownership — gestion reactiva ante crisis</li>
+      <li>Anticipos a proveedores crecieron de $0.2M a $52M en 3 anos</li>
+    </ul></div></div>
+  </div>
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Best Practices Aplicables</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>Matriz de Kraljic para categorizar proveedores y definir estrategia</li>
+      <li>Dual sourcing para insumos criticos</li>
+      <li>Total cost of ownership como base de negociacion</li>
+      <li>Cubrir vacante de Gerente de Compras con perfil estrategico</li>
+      <li>Comite mensual con calidad, I+D y operaciones</li>
+    </ul></div></div>
+  </div>
+
+  <h3 class="estado-title">Estado Actual</h3>
+  <p class="estado-text">PI Group tiene excelente poder de negociacion con proveedores clave, construido sobre relaciones personales de largo plazo. Precios 15% debajo de mercado con proveedores clave. Sin embargo, esta capacidad esta concentrada en Marco y no hay estructura que la soporte. Crisis geopolitica activa: Estrecho de Ormuz, ADBS sin stock, envases +30%, agua +167%.</p>
+
+  <h3 class="estado-title">Datos Duros</h3>
+  <table class="data-table">
+    <thead><tr><th>Metrica</th><th>Valor</th><th>Fuente</th></tr></thead>
+    <tbody>
+      <tr><td>Concentracion top 10 proveedores</td><td class="num">~70% del gasto</td><td>Marco</td></tr>
+      <tr><td>Precio envase PI vs mercado</td><td class="num">-15% debajo</td><td>Marco</td></tr>
+      <tr><td>ADBS contrato vs spot</td><td class="num">$3.25 vs ~$6.04 MXN/kg</td><td>Marco</td></tr>
+      <tr><td>COGS consolidado 2025</td><td class="num">$1,049M (58.1%)</td><td>Excel-Fin</td></tr>
+      <tr><td>Equipo de compras</td><td class="num">2 compradores + 1 coordinador</td><td>Marco</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="estado-title">Oportunidades del Pilar</h3>
+  <div class="opp-mini"><span class="opp-id">OPP-002</span><span>Optimizacion de formulacion y MP (componente abastecimiento)</span><span class="opp-impact">$30-80M/ano</span></div>
+</section>
+
+<!-- PILAR 09 -->
+<section class="section" id="pilar09">
+  <div class="section-header">
+    <div class="section-tag">Pilar 09 &mdash; Lean 4.0</div>
+    <div class="section-title">Almacenes</div>
+  </div>
+
+  <div class="maturity-header">
+    <div class="score-circle score-red">
+      <div class="score-num">1.8</div>
+      <div class="score-label">Reactivo</div>
+    </div>
+    <div class="submodule-bars">
+      <div class="submodule-bar"><span class="bar-label">Control de inventarios</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Ubicacion y traslado</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Diseno de almacen</span><div class="bar-track"><div class="bar-fill red" style="width:20%"></div></div><span class="bar-val" style="color:var(--red)">1</span></div>
+      <div class="submodule-bar"><span class="bar-label">Recibo</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">KPIs y gobierno</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+    </div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Laggers Principales</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>Dias de inventario de ~17 a ~105 (+244%), con posible obsolescencia de $50-100M</li>
+      <li>Operacion dispersa en 11-12 naves sin diseno integrado</li>
+      <li>Sobreinventario cronico en automotriz: Abrillantador 125 DDI (618 dias max)</li>
+      <li>Sin gestion de obsolescencia ni conteos ciclicos estructurados</li>
+    </ul></div></div>
+  </div>
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Best Practices Aplicables</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>Exactitud de inventario >98% con conteos ciclicos diarios</li>
+      <li>Dashboard de inventario en tiempo real</li>
+      <li>Inventario de seguridad calculado estadisticamente</li>
+      <li>Programa de reduccion de sobreinventario con decision kill/reduce/discount</li>
+      <li>Layout optimizado por perfil de movimiento</li>
+    </ul></div></div>
+  </div>
+
+  <h3 class="estado-title">Estado Actual</h3>
+  <p class="estado-text">La bandera roja mas grave del balance: inventarios explotaron de $88M a $301M (+$214M, +244%) mientras ventas cayeron 12%. PISA/Solarri tienen $170M en almacen — anomalia sin explicar. En Sam's, inventario desbalanceado: sobreinventario en automotriz y lavatrastes, subinventario en temporales (0.4 semanas cobertura, 25% stockout).</p>
+
+  <h3 class="estado-title">Datos Duros</h3>
+  <table class="data-table">
+    <thead><tr><th>Metrica</th><th>Valor</th><th>Fuente</th></tr></thead>
+    <tbody>
+      <tr><td>Inventario dic 2025</td><td class="num">$301M (vs $88M en 2024)</td><td>Excel-Fin</td></tr>
+      <tr><td>Incremento inventarios</td><td class="num">+$214M (+244%)</td><td>Excel-Fin</td></tr>
+      <tr><td>Dias de inventario 2025</td><td class="num">~105 (vs ~17 en 2022)</td><td>Excel-Fin</td></tr>
+      <tr><td>PISA/Solarri inventario</td><td class="num">$170M (anomalia)</td><td>Excel-Fin</td></tr>
+      <tr><td>DDI Abrillantador Auto</td><td class="num">125 dias (max 618)</td><td>Excel-Com</td></tr>
+      <tr><td>Naves arrendadas</td><td class="num">11-12</td><td>Marco</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="estado-title">Oportunidades del Pilar</h3>
+  <div class="opp-mini"><span class="opp-id">OPP-019</span><span>Gestion de inventarios y capital de trabajo</span><span class="opp-impact">$15-25M + $150-200M WC</span></div>
+  <div class="opp-mini"><span class="opp-id">OPP-018</span><span>Racionalizacion portafolio automotriz</span><span class="opp-impact">$10-20M/ano</span></div>
+</section>
+
+<!-- PILAR 10 -->
+<section class="section" id="pilar10">
+  <div class="section-header">
+    <div class="section-tag">Pilar 10 &mdash; Lean 4.0</div>
+    <div class="section-title">Distribucion</div>
+  </div>
+
+  <div class="maturity-header">
+    <div class="score-circle score-orange">
+      <div class="score-num">2.5</div>
+      <div class="score-label">Gestionado</div>
+    </div>
+    <div class="submodule-bars">
+      <div class="submodule-bar"><span class="bar-label">Ultima milla</span><div class="bar-track"><div class="bar-fill yellow" style="width:60%"></div></div><span class="bar-val" style="color:#b8960f">3</span></div>
+      <div class="submodule-bar"><span class="bar-label">Capacidad y flota</span><div class="bar-track"><div class="bar-fill orange" style="width:40%"></div></div><span class="bar-val" style="color:var(--orange)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Eficiencia</span><div class="bar-track"><div class="bar-fill orange" style="width:40%"></div></div><span class="bar-val" style="color:var(--orange)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">TMS</span><div class="bar-track"><div class="bar-fill yellow" style="width:60%"></div></div><span class="bar-val" style="color:#b8960f">3</span></div>
+      <div class="submodule-bar"><span class="bar-label">Seguimiento de rutas</span><div class="bar-track"><div class="bar-fill orange" style="width:40%"></div></div><span class="bar-val" style="color:var(--orange)">2</span></div>
+    </div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Laggers Principales</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>Factor logistico 9.14% vs meta 8% = ~$20M oportunidad anual</li>
+      <li>2 anos sin incremento de precios erosiona margen logistico</li>
+      <li>On-time delivery ~50% (entregas anticipadas)</li>
+      <li>Sin GPS ni tracking en tiempo real</li>
+      <li>Sin analisis make-or-buy (flota propia vs terceros)</li>
+    </ul></div></div>
+  </div>
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Best Practices Aplicables</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>Costo por tarima entregada como KPI central</li>
+      <li>Negociacion inmediata de incremento de precios</li>
+      <li>Analisis make-or-buy por ruta</li>
+      <li>GPS/tracking en transportistas principales</li>
+      <li>Proof of delivery digital</li>
+    </ul></div></div>
+  </div>
+
+  <h3 class="estado-title">Estado Actual</h3>
+  <p class="estado-text">Distribucion es uno de los pilares mejor gestionados. Fill rate in-full de 99.8% es excelente, 176 tiendas desde 8 CEDIS, camiones siempre llenos. TMS digitalizado con asignacion automatica. Sin embargo, factor logistico (9.14%) esta por encima de meta (8%) y lejos de referencia historica (5%). Modelo de ~80% "hombre-camion" y ~20% backhaul Walmart.</p>
+
+  <h3 class="estado-title">Datos Duros</h3>
+  <table class="data-table">
+    <thead><tr><th>Metrica</th><th>Valor</th><th>Fuente</th></tr></thead>
+    <tbody>
+      <tr><td>Fill rate in-full</td><td class="num">99.8%</td><td>Rodolfo</td></tr>
+      <tr><td>Factor logistico 2025</td><td class="num">9.14% (meta 8%)</td><td>Rodolfo</td></tr>
+      <tr><td>Costo de flete 2025</td><td class="num">~$163M</td><td>Rodolfo</td></tr>
+      <tr><td>Total viajes 2025</td><td class="num">~7,690</td><td>Rodolfo</td></tr>
+      <tr><td>Robos 2025</td><td class="num">3 de 7,690 viajes</td><td>Rodolfo</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="estado-title">Oportunidades del Pilar</h3>
+  <div class="opp-mini"><span class="opp-id">OPP-014</span><span>Optimizacion del factor logistico</span><span class="opp-impact">$20-40M/ano</span></div>
+  <div class="opp-mini"><span class="opp-id">OPP-020</span><span>Negociacion de incremento de precios (componente logistico)</span><span class="opp-impact">$30-60M/ano</span></div>
+</section>
+
+<!-- PILAR 11 -->
+<section class="section" id="pilar11">
+  <div class="section-header">
+    <div class="section-tag">Pilar 11 &mdash; Soporte</div>
+    <div class="section-title">Digitalizacion / IT</div>
+  </div>
+
+  <div class="maturity-header">
+    <div class="score-circle score-red">
+      <div class="score-num">1.5</div>
+      <div class="score-label">Reactivo</div>
+    </div>
+    <div class="submodule-bars">
+      <div class="submodule-bar"><span class="bar-label">Data analytics</span><div class="bar-track"><div class="bar-fill red" style="width:20%"></div></div><span class="bar-val" style="color:var(--red)">1</span></div>
+      <div class="submodule-bar"><span class="bar-label">Automatizacion</span><div class="bar-track"><div class="bar-fill red" style="width:20%"></div></div><span class="bar-val" style="color:var(--red)">1</span></div>
+      <div class="submodule-bar"><span class="bar-label">Sistemas de informacion</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">IoT / Tech 4.0</span><div class="bar-track"><div class="bar-fill red" style="width:20%"></div></div><span class="bar-val" style="color:var(--red)">1</span></div>
+    </div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Laggers Principales</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>"Nuestro BI es Excel" — todo analisis en archivos pesados</li>
+      <li>Cero IoT en planta</li>
+      <li>Plataforma Madrid (Retail Link Sam's) no explotada</li>
+      <li>Reportes manuales a direccion; no hay dashboards en tiempo real</li>
+      <li>Migracion CMMS bloqueada por licencias — unico proyecto visible estancado</li>
+    </ul></div></div>
+  </div>
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Best Practices Aplicables</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>Power BI como primera ola de digitalizacion</li>
+      <li>Single source of truth para KPIs del negocio</li>
+      <li>Roadmap de digitalizacion con business case por proyecto</li>
+      <li>Explotar plataforma Madrid con analista de Sales Intelligence</li>
+      <li>Resolver licencias de Fractal como quick win</li>
+    </ul></div></div>
+  </div>
+
+  <h3 class="estado-title">Estado Actual</h3>
+  <p class="estado-text">La madurez digital es la mas baja de todos los pilares. Todo se hace en Excel. No hay Power BI, data warehouse, IoT ni captura automatica. La plataforma Madrid (Retail Link de Sam's) no se explota. El TMS de distribucion es la unica excepcion positiva.</p>
+
+  <h3 class="estado-title">Datos Duros</h3>
+  <table class="data-table">
+    <thead><tr><th>Metrica</th><th>Valor</th><th>Fuente</th></tr></thead>
+    <tbody>
+      <tr><td>Herramientas de BI</td><td class="num">Excel unicamente</td><td>Hugo</td></tr>
+      <tr><td>Plataforma Madrid</td><td class="num">No explotada</td><td>Hugo</td></tr>
+      <tr><td>CMMS</td><td class="num">Migrando (bloqueado)</td><td>Rodolfo</td></tr>
+      <tr><td>Dashboards en tiempo real</td><td class="num">No existen</td><td>Rodolfo</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="estado-title">Oportunidades del Pilar</h3>
+  <div class="opp-mini"><span class="opp-id">OPP-007</span><span>Digitalizacion de planta y BI</span><span class="opp-impact">Habilitadora ($8-15M inv.)</span></div>
+  <div class="opp-mini"><span class="opp-id">OPP-009</span><span>Explotacion de datos Sam's (Madrid)</span><span class="opp-impact">$5-15M/ano</span></div>
+</section>
+
+<!-- PILAR 12 -->
+<section class="section" id="pilar12">
+  <div class="section-header">
+    <div class="section-tag">Pilar 12 &mdash; Soporte</div>
+    <div class="section-title">Estructura, Gobierno y Capital Humano</div>
+  </div>
+
+  <div class="maturity-header">
+    <div class="score-circle score-red">
+      <div class="score-num">1.8</div>
+      <div class="score-label">Reactivo</div>
+    </div>
+    <div class="submodule-bars">
+      <div class="submodule-bar"><span class="bar-label">Desarrollo de lideres</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Manejo del cambio</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Gobierno operativo</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Indicadores de gestion</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+      <div class="submodule-bar"><span class="bar-label">Gestion de talento</span><div class="bar-track"><div class="bar-fill red" style="width:20%"></div></div><span class="bar-val" style="color:var(--red)">1</span></div>
+      <div class="submodule-bar"><span class="bar-label">Cultura organizacional</span><div class="bar-track"><div class="bar-fill red" style="width:40%"></div></div><span class="bar-val" style="color:var(--red)">2</span></div>
+    </div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Laggers Principales</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>Centralizacion extrema en Marco (finanzas + proveedores + compras). Riesgo persona-clave critico</li>
+      <li>Vacantes cronicas: Gte. Produccion, Jefe Produccion, Gte. Compras</li>
+      <li>Decision unilateral de David Padilla costo ~$400M/ano</li>
+      <li>Sin plan de sucesion ni BSC ni cascadeo de indicadores</li>
+      <li>Perfiles de equipo "coordinador hacia abajo"</li>
+    </ul></div></div>
+  </div>
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">&#9654;</span> Best Practices Aplicables</div>
+    <div class="collapsible-body"><div class="collapsible-content"><ul>
+      <li>Tier meetings formales: T1 diaria, T2 semanal, T3 mensual, T4 trimestral</li>
+      <li>Plan de sucesion inmediato para 3-4 posiciones mas criticas</li>
+      <li>BSC con cascadeo desde estrategia hasta indicadores operativos</li>
+      <li>Comite comercial formal con reglas de escalamiento</li>
+      <li>Programa de desarrollo de lideres</li>
+    </ul></div></div>
+  </div>
+
+  <h3 class="estado-title">Estado Actual</h3>
+  <p class="estado-text">Modelo de gobierno familiar donde las decisiones criticas dependen de 2-3 personas. Marco funciona como COO/CFO de facto. Rodolfo sostiene toda la operacion con 21 anos de conocimiento. Hugo trae vision de empresa grande pero tiene 3 meses. El evento mas revelador: David Padilla tuvo conflicto personal con comprador de Sam's que costo ~$400M/ano.</p>
+
+  <h3 class="estado-title">Datos Duros</h3>
+  <table class="data-table">
+    <thead><tr><th>Metrica</th><th>Valor</th><th>Fuente</th></tr></thead>
+    <tbody>
+      <tr><td>EBITDA 2023 (pico)</td><td class="num">$690M</td><td>Excel-Fin</td></tr>
+      <tr><td>EBITDA 2025</td><td class="num">$389M (-44%)</td><td>Excel-Fin</td></tr>
+      <tr><td>SG&A 2025</td><td class="num">$408M (22.6% vs 14.1% en 2023)</td><td>Excel-Fin</td></tr>
+      <tr><td>Gastos admin 2025</td><td class="num">$194M (vs $88M en 2022 / +121%)</td><td>Excel-Fin</td></tr>
+      <tr><td>PISA facturacion 2025</td><td class="num">$102M (vs $40M / +158%)</td><td>Excel-Fin</td></tr>
+      <tr><td>Caja + inversiones</td><td class="num">$863M (sin deuda)</td><td>Excel-Fin</td></tr>
+      <tr><td>Vacantes criticas</td><td class="num">6+ posiciones clave</td><td>Transversal</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="estado-title">Oportunidades del Pilar</h3>
+  <div class="opp-mini"><span class="opp-id">OPP-004</span><span>Racionalizacion de SG&A / PISA</span><span class="opp-impact">$50-100M/ano</span></div>
+  <div class="opp-mini"><span class="opp-id">OPP-006</span><span>Gobierno corporativo y KPIs</span><span class="opp-impact">Habilitadora</span></div>
+  <div class="opp-mini"><span class="opp-id">OPP-008</span><span>Profesionalizacion del area comercial</span><span class="opp-impact">Habilitadora</span></div>
+  <div class="opp-mini"><span class="opp-id">OPP-003</span><span>Productividad laboral (componente organizacional)</span><span class="opp-impact">$50-100M/ano</span></div>
+</section>
+
+<!-- VISTA TRANSVERSAL -->
+<section class="section section-dark" id="transversal">
+  <div class="section-header">
+    <div class="section-tag">Vista Transversal</div>
+    <div class="section-title">Rentabilidad y EBITDA</div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-title" style="color:var(--mint);">Bridge EBITDA 2023 &rarr; 2025: De $690M a $389M (-$301M, -44%)</div>
+    <table class="data-table" style="color:#fff;">
+      <thead><tr><th style="border-bottom-color:var(--teal);color:rgba(255,255,255,0.5);">Factor</th><th style="border-bottom-color:var(--teal);color:rgba(255,255,255,0.5);">Impacto</th><th style="border-bottom-color:var(--teal);color:rgba(255,255,255,0.5);">Pilar(es)</th><th style="border-bottom-color:var(--teal);color:rgba(255,255,255,0.5);">Mecanismo</th></tr></thead>
+      <tbody>
+        <tr><td>Caida de ingreso neto</td><td class="num" style="color:#ff6b6b;">($307M)</td><td>01, 02</td><td style="color:rgba(255,255,255,0.7);">Perdida de SKUs, contraccion real, sin incremento de precio</td></tr>
+        <tr><td>Incremento SG&A</td><td class="num" style="color:#ff6b6b;">($110M)</td><td>12</td><td style="color:rgba(255,255,255,0.7);">Gastos admin +121%, PISA +158%, reclasificaciones</td></tr>
+        <tr><td>Incremento devoluciones</td><td class="num" style="color:#ff6b6b;">($70M)</td><td>01, 02, 06</td><td style="color:rgba(255,255,255,0.7);">De $199M a $269M sin diagnostico</td></tr>
+        <tr><td>Caida resultado financiero</td><td class="num" style="color:#ff6b6b;">($53M)</td><td>Transversal</td><td style="color:rgba(255,255,255,0.7);">FX loss 2025 vs gain 2024</td></tr>
+        <tr><td>Mejora parcial COGS</td><td class="num" style="color:var(--mint);">+$47M</td><td>04, 08</td><td style="color:rgba(255,255,255,0.7);">Menores costos de MP parcialmente compensan</td></tr>
+        <tr><td>Otros</td><td class="num" style="color:var(--mint);">+$12M</td><td>Varios</td><td style="color:rgba(255,255,255,0.7);">Ajustes menores</td></tr>
+        <tr style="font-weight:700;"><td>Total</td><td class="num" style="color:#ff6b6b;">($301M)</td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-title" style="color:var(--mint);">Indicadores de Productividad</div>
+    <table class="data-table" style="color:#fff;">
+      <thead><tr><th style="border-bottom-color:var(--teal);color:rgba(255,255,255,0.5);">Indicador</th><th style="border-bottom-color:var(--teal);color:rgba(255,255,255,0.5);">2022</th><th style="border-bottom-color:var(--teal);color:rgba(255,255,255,0.5);">2023</th><th style="border-bottom-color:var(--teal);color:rgba(255,255,255,0.5);">2024</th><th style="border-bottom-color:var(--teal);color:rgba(255,255,255,0.5);">2025</th><th style="border-bottom-color:var(--teal);color:rgba(255,255,255,0.5);">Tendencia</th></tr></thead>
+      <tbody>
+        <tr><td>EBITDA/litro</td><td class="num">$2.9</td><td class="num">$3.7</td><td class="num">$3.2</td><td class="num" style="color:#ff6b6b;">$2.5</td><td><span class="tag tag-red">Deterioro</span></td></tr>
+        <tr><td>Gtos fabricacion/litro</td><td class="num">$0.78</td><td class="num">$1.35</td><td class="num">$1.53</td><td class="num" style="color:#ff6b6b;">$1.53</td><td><span class="tag tag-red">Duplicado</span></td></tr>
+        <tr><td>MO/litro</td><td class="num">$0.18</td><td class="num">$0.32</td><td class="num">$0.36</td><td class="num" style="color:#ff6b6b;">$0.41</td><td><span class="tag tag-red">+128%</span></td></tr>
+        <tr><td>Dias de inventario</td><td class="num">~17</td><td class="num">~17</td><td class="num">~27</td><td class="num" style="color:#ff6b6b;">~105</td><td><span class="tag tag-red">Explosion</span></td></tr>
+        <tr><td>Ciclo conv. efectivo</td><td class="num">~45</td><td class="num">~37</td><td class="num">~50</td><td class="num" style="color:#ff6b6b;">~118</td><td><span class="tag tag-red">Severo</span></td></tr>
+        <tr><td>SG&A % ing. neto</td><td class="num">17.1%</td><td class="num">14.1%</td><td class="num">15.4%</td><td class="num" style="color:#ff6b6b;">22.6%</td><td><span class="tag tag-red">Anomalia</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-title" style="color:var(--mint);">Conexion Pilares &rarr; Impacto Financiero</div>
+    <table class="data-table" style="color:#fff;">
+      <thead><tr><th style="border-bottom-color:var(--teal);color:rgba(255,255,255,0.5);">Hallazgo Operativo</th><th style="border-bottom-color:var(--teal);color:rgba(255,255,255,0.5);">Pilar</th><th style="border-bottom-color:var(--teal);color:rgba(255,255,255,0.5);">Impacto Financiero</th></tr></thead>
+      <tbody>
+        <tr><td>Concentracion en Sam's + perdida de SKUs</td><td>01</td><td class="num" style="color:#ff6b6b;">-$307M ingreso neto vs 2023</td></tr>
+        <tr><td>Devoluciones sin diagnostico</td><td>02, 06</td><td class="num" style="color:#ff6b6b;">$276M/ano (13.2%)</td></tr>
+        <tr><td>SG&A y PISA sin control</td><td>12</td><td class="num" style="color:#ff6b6b;">+$105M en gastos admin vs 2022</td></tr>
+        <tr><td>MO y gastos fabricacion duplicados</td><td>04</td><td class="num" style="color:#ff6b6b;">~$100M adicionales/ano vs 2022</td></tr>
+        <tr><td>2 anos sin incremento de precio</td><td>01, 10</td><td class="num" style="color:#ff6b6b;">~$36-54M/ano no capturados</td></tr>
+        <tr><td>Inventarios triplicados</td><td>09</td><td class="num" style="color:#ff6b6b;">+$214M en WC atrapado</td></tr>
+        <tr><td>Factor logistico deteriorado</td><td>10</td><td class="num" style="color:#ffa94d;">~$20M por encima de meta</td></tr>
+        <tr><td>Fill rate ciclico <80%</td><td>02, 03</td><td class="num" style="color:#ffa94d;">$45-55M venta perdida/ano</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- INVENTARIO DE OPORTUNIDADES -->
+<section class="section" id="oportunidades">
+  <div class="section-header">
+    <div class="section-tag">Inventario Consolidado</div>
+    <div class="section-title">20 Oportunidades Identificadas</div>
+  </div>
+
+  <div class="cards-grid" style="margin-bottom:40px;">
+    <div class="card" style="border-left:4px solid var(--green-score);text-align:center;">
+      <div class="card-label">Quick Wins (&lt;3 meses)</div>
+      <div class="card-value small" style="color:var(--green-score);">$90-150M</div>
+      <div class="card-detail">5 oportunidades | Inv: $2-6M</div>
+    </div>
+    <div class="card" style="border-left:4px solid var(--orange);text-align:center;">
+      <div class="card-label">Mediano Plazo (3-12 meses)</div>
+      <div class="card-value small" style="color:var(--orange);">$275-540M</div>
+      <div class="card-detail">9 oportunidades | Inv: $33-73M</div>
+    </div>
+    <div class="card" style="border-left:4px solid #7d3c98;text-align:center;">
+      <div class="card-label">Largo Plazo (12+ meses)</div>
+      <div class="card-value small" style="color:#7d3c98;">$270-645M</div>
+      <div class="card-detail">6 oportunidades | Inv: $46-92M</div>
+    </div>
+  </div>
+
+  <!-- Quick Wins -->
+  <h3 class="estado-title" style="display:flex;align-items:center;gap:8px;"><span class="tag tag-qw">Quick Win</span> Impacto rapido, baja complejidad</h3>
+  <table class="opp-table">
+    <thead><tr><th>ID</th><th>Oportunidad</th><th>Pilar(es)</th><th>Impacto</th><th>Inversion</th><th>Confianza</th></tr></thead>
+    <tbody>
+      <tr><td class="num">OPP-020</td><td>Incremento de precios</td><td><div class="pilar-badges"><span class="pilar-badge">01</span><span class="pilar-badge">10</span></div></td><td class="num">$30-60M</td><td class="num">$0</td><td><span class="tag tag-green">Alta</span></td></tr>
+      <tr><td class="num">OPP-017</td><td>Fill rate semanas criticas</td><td><div class="pilar-badges"><span class="pilar-badge">02</span><span class="pilar-badge">03</span></div></td><td class="num">$45-55M</td><td class="num">$1-3M</td><td><span class="tag tag-orange">Media-Alta</span></td></tr>
+      <tr><td class="num">OPP-009</td><td>Explotacion datos Sam's</td><td><div class="pilar-badges"><span class="pilar-badge">01</span><span class="pilar-badge">11</span></div></td><td class="num">$5-15M</td><td class="num">$1-3M</td><td><span class="tag tag-orange">Media</span></td></tr>
+      <tr><td class="num">OPP-018</td><td>Racionalizacion Automotriz</td><td><div class="pilar-badges"><span class="pilar-badge">01</span><span class="pilar-badge">09</span></div></td><td class="num">$10-20M</td><td class="num">$0</td><td><span class="tag tag-orange">Media</span></td></tr>
+    </tbody>
+  </table>
+
+  <!-- Mediano Plazo -->
+  <h3 class="estado-title" style="display:flex;align-items:center;gap:8px;"><span class="tag tag-mp">Mediano Plazo</span> 3-12 meses, impacto estructural</h3>
+  <table class="opp-table">
+    <thead><tr><th>ID</th><th>Oportunidad</th><th>Pilar(es)</th><th>Impacto</th><th>Inversion</th><th>Confianza</th></tr></thead>
+    <tbody>
+      <tr><td class="num">OPP-001</td><td>Reduccion devoluciones y descuentos</td><td><div class="pilar-badges"><span class="pilar-badge">01</span><span class="pilar-badge">02</span><span class="pilar-badge">06</span></div></td><td class="num">$80-135M</td><td class="num">$3-5M</td><td><span class="tag tag-orange">Media-Alta</span></td></tr>
+      <tr><td class="num">OPP-004</td><td>Racionalizacion SG&A / PISA</td><td><div class="pilar-badges"><span class="pilar-badge">12</span></div></td><td class="num">$50-100M</td><td class="num">$2-5M</td><td><span class="tag tag-orange">Media-Alta</span></td></tr>
+      <tr><td class="num">OPP-003</td><td>Productividad laboral y fabricacion</td><td><div class="pilar-badges"><span class="pilar-badge">03</span><span class="pilar-badge">04</span><span class="pilar-badge">12</span></div></td><td class="num">$50-100M</td><td class="num">$5-15M</td><td><span class="tag tag-orange">Media</span></td></tr>
+      <tr><td class="num">OPP-010</td><td>Recuperacion volumen Sam's</td><td><div class="pilar-badges"><span class="pilar-badge">01</span><span class="pilar-badge">02</span></div></td><td class="num">$30-60M</td><td class="num">$2-5M</td><td><span class="tag tag-orange">Media</span></td></tr>
+      <tr><td class="num">OPP-014</td><td>Optimizacion factor logistico</td><td><div class="pilar-badges"><span class="pilar-badge">10</span></div></td><td class="num">$20-40M</td><td class="num">$2-5M</td><td><span class="tag tag-orange">Media-Alta</span></td></tr>
+      <tr><td class="num">OPP-019</td><td>Gestion inventarios y WC</td><td><div class="pilar-badges"><span class="pilar-badge">09</span></div></td><td class="num">$15-25M + WC</td><td class="num">$3-5M</td><td><span class="tag tag-orange">Media</span></td></tr>
+      <tr><td class="num">OPP-002</td><td>Formulacion y MP</td><td><div class="pilar-badges"><span class="pilar-badge">07</span><span class="pilar-badge">08</span></div></td><td class="num">$30-80M</td><td class="num">$5-10M</td><td><span class="tag tag-orange">Media</span></td></tr>
+      <tr><td class="num">OPP-008</td><td>Profesionalizacion comercial</td><td><div class="pilar-badges"><span class="pilar-badge">02</span><span class="pilar-badge">12</span></div></td><td class="num">Habilitadora</td><td class="num">$8-15M</td><td><span class="tag tag-green">Alta</span></td></tr>
+      <tr><td class="num">OPP-006</td><td>Gobierno corporativo y KPIs</td><td><div class="pilar-badges"><span class="pilar-badge">12</span></div></td><td class="num">Habilitadora</td><td class="num">$3-8M</td><td><span class="tag tag-green">Alta</span></td></tr>
+    </tbody>
+  </table>
+
+  <!-- Largo Plazo -->
+  <h3 class="estado-title" style="display:flex;align-items:center;gap:8px;"><span class="tag tag-lp">Largo Plazo</span> 12+ meses, estrategico</h3>
+  <table class="opp-table">
+    <thead><tr><th>ID</th><th>Oportunidad</th><th>Pilar(es)</th><th>Impacto</th><th>Inversion</th><th>Confianza</th></tr></thead>
+    <tbody>
+      <tr><td class="num">OPP-005</td><td>Diversificacion de clientes</td><td><div class="pilar-badges"><span class="pilar-badge">01</span><span class="pilar-badge">02</span></div></td><td class="num">$200-500M ingresos</td><td class="num">$15-30M</td><td><span class="tag tag-orange">Media</span></td></tr>
+      <tr><td class="num">OPP-015</td><td>Activacion de capacidad ociosa</td><td><div class="pilar-badges"><span class="pilar-badge">03</span><span class="pilar-badge">04</span></div></td><td class="num">Estrategica</td><td class="num">$5-10M</td><td><span class="tag tag-green">Alta</span></td></tr>
+      <tr><td class="num">OPP-013</td><td>Expansion de tiendas propias</td><td><div class="pilar-badges"><span class="pilar-badge">02</span></div></td><td class="num">$50-100M</td><td class="num">$15-30M</td><td><span class="tag tag-red">Baja</span></td></tr>
+      <tr><td class="num">OPP-011</td><td>Desarrollo Home Depot</td><td><div class="pilar-badges"><span class="pilar-badge">02</span></div></td><td class="num">$15-30M</td><td class="num">$2-4M</td><td><span class="tag tag-orange">Media</span></td></tr>
+      <tr><td class="num">OPP-012</td><td>Activacion e-commerce</td><td><div class="pilar-badges"><span class="pilar-badge">02</span></div></td><td class="num">$5-15M</td><td class="num">$2-5M</td><td><span class="tag tag-red">Baja</span></td></tr>
+      <tr><td class="num">OPP-007</td><td>Digitalizacion de planta</td><td><div class="pilar-badges"><span class="pilar-badge">11</span></div></td><td class="num">Habilitadora</td><td class="num">$8-15M</td><td><span class="tag tag-orange">Media</span></td></tr>
+      <tr><td class="num">OPP-016</td><td>Integracion plan-operaciones</td><td><div class="pilar-badges"><span class="pilar-badge">03</span><span class="pilar-badge">04</span><span class="pilar-badge">12</span></div></td><td class="num">Habilitadora</td><td class="num">$1-3M</td><td><span class="tag tag-orange">Media</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box" style="margin-top:32px;">
+    <strong>Nota metodologica:</strong> Todas las cifras en MXN millones. Los rangos reflejan escenarios conservador-optimista. Las oportunidades "Habilitadoras" no tienen impacto financiero directo pero son condicion necesaria para capturar otras oportunidades. Fuentes: 3 entrevistas (Finanzas, Comercial, Operaciones), analisis financiero 2022-2025, analisis comercial Sam's Club. Cobertura pendiente: I+D, Mantenimiento, Logistica, Almacen, Compras, TI, Capital Humano, DG. Visita de planta 15 abril.
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  London Consulting Group | Project Shine | Confidencial | Abril 2026
+</div>
+
+</main>
+
+<script>
+// Active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+function setActiveNav() {
+  let current = '';
+  sections.forEach(s => {
+    const top = s.offsetTop - 100;
+    if (window.scrollY >= top) current = s.getAttribute('id');
+  });
+  navLinks.forEach(l => {
+    l.classList.remove('active');
+    if (l.getAttribute('href') === '#' + current) l.classList.add('active');
+  });
+}
+window.addEventListener('scroll', setActiveNav);
+setActiveNav();
+
+// Close mobile sidebar on link click
+navLinks.forEach(l => l.addEventListener('click', () => {
+  document.querySelector('.sidebar').classList.remove('open');
+}));
+
+// RADAR CHART
+(function() {
+  const canvas = document.getElementById('radarChart');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const cx = W / 2, cy = H / 2 + 10;
+  const R = 160;
+  const labels = [
+    '01 Intel.\nComercial','02 Ejec.\nComercial','03 Planeacion','04 Produccion',
+    '05 Mantenim.','06 Calidad','07 Innovacion','08 Abastec.',
+    '09 Almacenes','10 Distribucion','11 Digital./IT','12 Estructura'
+  ];
+  const scores = [1.7, 1.8, 2.0, 1.9, 2.3, 2.0, 1.8, 2.2, 1.8, 2.5, 1.5, 1.8];
+  const n = labels.length;
+
+  function getPoint(i, val) {
+    const angle = (Math.PI * 2 * i / n) - Math.PI / 2;
+    const r = (val / 5) * R;
+    return [cx + r * Math.cos(angle), cy + r * Math.sin(angle)];
+  }
+
+  // Grid
+  ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+  ctx.lineWidth = 1;
+  for (let level = 1; level <= 5; level++) {
+    ctx.beginPath();
+    for (let i = 0; i <= n; i++) {
+      const [x, y] = getPoint(i % n, level);
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+  }
+
+  // Spokes
+  for (let i = 0; i < n; i++) {
+    const [x, y] = getPoint(i, 5);
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(x, y);
+    ctx.stroke();
+  }
+
+  // Level labels
+  ctx.fillStyle = 'rgba(255,255,255,0.25)';
+  ctx.font = '10px IBM Plex Mono, monospace';
+  ctx.textAlign = 'left';
+  for (let level = 1; level <= 5; level++) {
+    const [x, y] = getPoint(0, level);
+    ctx.fillText(level.toString(), x + 4, y - 4);
+  }
+
+  // Data polygon
+  ctx.fillStyle = 'rgba(49,235,151,0.15)';
+  ctx.strokeStyle = '#31EB97';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  scores.forEach((s, i) => {
+    const [x, y] = getPoint(i, s);
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  });
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+
+  // Dots
+  scores.forEach((s, i) => {
+    const [x, y] = getPoint(i, s);
+    ctx.beginPath();
+    ctx.arc(x, y, 4, 0, Math.PI * 2);
+    ctx.fillStyle = s < 2 ? '#ff6b6b' : s < 3 ? '#ffa94d' : '#31EB97';
+    ctx.fill();
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  });
+
+  // Labels
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  labels.forEach((label, i) => {
+    const [x, y] = getPoint(i, 5.8);
+    const lines = label.split('\n');
+    ctx.fillStyle = 'rgba(255,255,255,0.7)';
+    ctx.font = '11px Archivo, sans-serif';
+    lines.forEach((line, li) => {
+      ctx.fillText(line, x, y + li * 14 - (lines.length - 1) * 7);
+    });
+    // Score
+    ctx.font = 'bold 11px IBM Plex Mono, monospace';
+    ctx.fillStyle = scores[i] < 2 ? '#ff6b6b' : scores[i] < 3 ? '#ffa94d' : '#31EB97';
+    ctx.fillText(scores[i].toFixed(1), x, y + lines.length * 14 - (lines.length - 1) * 7 + 2);
+  });
+})();
+
+// BRIDGE CHART
+(function() {
+  const canvas = document.getElementById('bridgeChart');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const pad = {top: 30, bottom: 60, left: 60, right: 20};
+  const chartW = W - pad.left - pad.right;
+  const chartH = H - pad.top - pad.bottom;
+
+  const items = [
+    {label: 'EBITDA\n2023', val: 690, type: 'total'},
+    {label: 'Caida\nIngreso', val: -307, type: 'neg'},
+    {label: 'SG&A', val: -110, type: 'neg'},
+    {label: 'Devoluc.', val: -70, type: 'neg'},
+    {label: 'Res.\nFinanc.', val: -53, type: 'neg'},
+    {label: 'Mejora\nCOGS', val: 47, type: 'pos'},
+    {label: 'Otros', val: 12, type: 'pos'},
+    {label: 'EBITDA\n2025', val: 389, type: 'total'}
+  ];
+
+  const n = items.length;
+  const barW = chartW / (n * 1.5);
+  const gap = (chartW - barW * n) / (n + 1);
+  const maxVal = 750;
+  const scale = chartH / maxVal;
+
+  function y(v) { return pad.top + chartH - v * scale; }
+
+  // Horizontal lines
+  ctx.strokeStyle = 'rgba(0,0,0,0.06)';
+  ctx.lineWidth = 1;
+  for (let v = 0; v <= 700; v += 100) {
+    ctx.beginPath();
+    ctx.moveTo(pad.left, y(v));
+    ctx.lineTo(W - pad.right, y(v));
+    ctx.stroke();
+    ctx.fillStyle = '#999';
+    ctx.font = '10px IBM Plex Mono, monospace';
+    ctx.textAlign = 'right';
+    ctx.fillText('$' + v + 'M', pad.left - 6, y(v) + 3);
+  }
+
+  let running = 0;
+  items.forEach((item, i) => {
+    const x = pad.left + gap + i * (barW + gap);
+    let top, bottom;
+
+    if (item.type === 'total') {
+      top = y(item.val);
+      bottom = y(0);
+      running = item.val;
+    } else {
+      const start = running;
+      running += item.val;
+      if (item.val < 0) {
+        top = y(start);
+        bottom = y(running);
+      } else {
+        top = y(running);
+        bottom = y(start);
+      }
+    }
+
+    // Bar
+    const color = item.type === 'total' ? '#003D2D' :
+                  item.type === 'neg' ? '#C0392B' : '#27AE60';
+    ctx.fillStyle = color;
+    const barTop = Math.min(top, bottom);
+    const barH = Math.abs(bottom - top);
+    ctx.fillRect(x, barTop, barW, barH);
+
+    // Value
+    ctx.fillStyle = '#333';
+    ctx.font = 'bold 11px IBM Plex Mono, monospace';
+    ctx.textAlign = 'center';
+    const valText = item.val > 0 ? (item.type === 'total' ? '$' + item.val + 'M' : '+$' + item.val + 'M') : '-$' + Math.abs(item.val) + 'M';
+    ctx.fillText(valText, x + barW / 2, barTop - 6);
+
+    // Label
+    ctx.fillStyle = '#666';
+    ctx.font = '10px Archivo, sans-serif';
+    const labelLines = item.label.split('\n');
+    labelLines.forEach((line, li) => {
+      ctx.fillText(line, x + barW / 2, y(0) + 16 + li * 13);
+    });
+
+    // Connector line
+    if (i > 0 && i < n - 1 && item.type !== 'total') {
+      ctx.strokeStyle = 'rgba(0,0,0,0.15)';
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
+      ctx.moveTo(x + barW, y(running));
+      const nextX = pad.left + gap + (i + 1) * (barW + gap);
+      ctx.lineTo(nextX, y(running));
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

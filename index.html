@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Shine — London Consulting Group</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --forest: #003D2D;
+  --teal: #009072;
+  --mint: #31EB97;
+  --sage: #CDDCC9;
+  --off-white: #F3F3F3;
+  --near-black: #1D1D1B;
+}
+body {
+  font-family: 'Archivo', sans-serif;
+  background: var(--forest);
+  color: var(--off-white);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.container {
+  max-width: 900px;
+  width: 100%;
+}
+.logo-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  opacity: 0.7;
+}
+.logo-bar span {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+.logo-bar .line {
+  flex: 1;
+  height: 1px;
+  background: var(--teal);
+  opacity: 0.4;
+}
+h1 {
+  font-family: 'DM Serif Text', serif;
+  font-size: 3.5rem;
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+h1 .accent {
+  color: var(--mint);
+}
+.subtitle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--sage);
+  margin-bottom: 3rem;
+  letter-spacing: 1px;
+}
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+.card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  text-decoration: none;
+  color: var(--off-white);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.card:hover {
+  background: rgba(49, 235, 151, 0.06);
+  border-color: var(--teal);
+  transform: translateY(-2px);
+}
+.card-number {
+  font-family: 'DM Serif Text', serif;
+  font-size: 2.5rem;
+  color: var(--mint);
+  min-width: 60px;
+  text-align: center;
+}
+.card-content h2 {
+  font-family: 'DM Serif Text', serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin-bottom: 0.35rem;
+}
+.card-content p {
+  font-size: 0.85rem;
+  color: var(--sage);
+  line-height: 1.5;
+}
+.card-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--teal);
+  color: var(--off-white);
+  white-space: nowrap;
+  margin-left: auto;
+}
+.card-tag.main {
+  background: var(--mint);
+  color: var(--forest);
+}
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--teal), transparent);
+  margin: 1rem 0 2rem;
+  opacity: 0.3;
+}
+.section-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--teal);
+  margin-bottom: 1rem;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.stat {
+  text-align: center;
+}
+.stat-value {
+  font-family: 'DM Serif Text', serif;
+  font-size: 2rem;
+  color: var(--mint);
+}
+.stat-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--sage);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.25rem;
+}
+footer {
+  text-align: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--sage);
+  opacity: 0.5;
+  margin-top: 2rem;
+  letter-spacing: 1px;
+}
+@media (max-width: 600px) {
+  h1 { font-size: 2.2rem; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .card { flex-direction: column; text-align: center; gap: 1rem; }
+  .card-tag { margin: 0 auto; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="logo-bar">
+    <span>London Consulting Group</span>
+    <div class="line"></div>
+    <span>Project Shine</span>
+  </div>
+
+  <h1>Prediagnóstico <span class="accent">Operativo</span></h1>
+  <p class="subtitle">PI Group SA de CV &mdash; Abril 2026 &mdash; Confidencial</p>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-value">1.9</div>
+      <div class="stat-label">Madurez CMM</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">12</div>
+      <div class="stat-label">Pilares</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">20</div>
+      <div class="stat-label">Oportunidades</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">$720M</div>
+      <div class="stat-label">Potencial MXN/año</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <p class="section-label">Documento Integrador</p>
+  <div class="cards">
+    <a href="prediagnostico/index.html" class="card">
+      <div class="card-number">&#9670;</div>
+      <div class="card-content">
+        <h2>Resultados del Prediagnóstico</h2>
+        <p>Análisis integrado por los 12 pilares del Modelo Macro LCG. Evaluación de madurez CMM, hallazgos clave, datos duros, inventario de 20 oportunidades y vista transversal de EBITDA.</p>
+      </div>
+      <span class="card-tag main">Documento Central</span>
+    </a>
+  </div>
+
+  <div class="divider"></div>
+
+  <p class="section-label">Entrevistas Procesadas</p>
+  <div class="cards">
+    <a href="entrevistas/presentaciones/2026-03-18_dir_finanzas_marco_barcenas.html" class="card">
+      <div class="card-number">01</div>
+      <div class="card-content">
+        <h2>Marco Bárcenas &mdash; Dir. Finanzas</h2>
+        <p>EBITDA bridge, concentración de clientes, estructura de proveedores, gobierno financiero, crisis de suministro activa.</p>
+      </div>
+      <span class="card-tag">18 Mar 2026</span>
+    </a>
+    <a href="entrevistas/presentaciones/2026-04-06_dir_comercial_hugo_ambrosi.html" class="card">
+      <div class="card-number">02</div>
+      <div class="card-content">
+        <h2>Hugo Ambrosi &mdash; Dir. Comercial</h2>
+        <p>Estructura comercial desde cero, Sam's Club 176 tiendas, diversificación, fill rate, e-commerce, Home Depot.</p>
+      </div>
+      <span class="card-tag">06 Abr 2026</span>
+    </a>
+    <a href="entrevistas/presentaciones/2026-04-08_dir_operaciones_rodolfo_vega.html" class="card">
+      <div class="card-number">03</div>
+      <div class="card-content">
+        <h2>Rodolfo Vega &mdash; Dir. Operaciones</h2>
+        <p>Capacidad productiva, mantenimiento, logística, calidad, vacantes críticas, factor logístico 9.14%.</p>
+      </div>
+      <span class="card-tag">08 Abr 2026</span>
+    </a>
+  </div>
+
+  <footer>
+    London Consulting Group &middot; Project Shine &middot; Confidencial &middot; Abril 2026
+  </footer>
+</div>
+
+</body>
+</html>
