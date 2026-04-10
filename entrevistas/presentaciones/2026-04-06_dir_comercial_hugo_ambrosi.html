@@ -4,1471 +4,1952 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Entrevista: Director Comercial — Hugo Daniel Ambrosi Alcocer | Project Shine</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=DM+Serif+Text&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Archivo:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --forest: #003D2D;
-    --teal: #009072;
-    --mint: #31EB97;
-    --sage: #CDDCC9;
-    --off-white: #F3F3F3;
-    --near-black: #1D1D1B;
-    --navy: #1F426E;
-    --blue: #4178E6;
-    --yellow: #E8FE41;
-    --silver: #9DC4D5;
-  }
+:root {
+  --lcg-dark: #003D2D;
+  --lcg-teal: #009672;
+  --lcg-mint: #31EB97;
+  --lcg-sage: #CDDCC9;
+  --lcg-navy: #1F426E;
+  --warm-bg: #F3F3F3;
+  --warm-light: #EAF5EE;
+  --text: #1D1D1B;
+  --text-light: #4a4a4a;
+  --border: #CDDCC9;
+  --red: #c62828;
+  --red-light: #FFEBEE;
+}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-  body {
-    font-family: 'Archivo', sans-serif;
-    background: var(--off-white);
-    color: var(--near-black);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
+body {
+  font-family: 'Archivo', sans-serif;
+  color: var(--text);
+  background: #e8e8e8;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
 
-  /* ─── HERO ─── */
-  .hero {
-    background: var(--forest);
-    color: var(--off-white);
-    padding: 80px 0 64px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -120px;
-    right: -80px;
-    width: 400px;
-    height: 400px;
-    border: 3px solid rgba(49,235,151,0.15);
-    border-radius: 50%;
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -60px;
-    right: 120px;
-    width: 200px;
-    height: 200px;
-    background: linear-gradient(135deg, rgba(49,235,151,0.08), transparent);
-    transform: rotate(45deg);
-  }
-  .hero .container { position: relative; z-index: 1; }
-  .hero-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--mint);
-    margin-bottom: 20px;
-  }
-  .hero h1 {
-    font-family: 'DM Serif Text', serif;
-    font-size: clamp(32px, 5vw, 48px);
-    font-weight: 400;
-    line-height: 1.15;
-    margin-bottom: 8px;
-  }
-  .hero h1 span { color: var(--mint); }
-  .hero-subtitle {
-    font-family: 'Archivo', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    color: var(--sage);
-    margin-bottom: 28px;
-  }
-  .hero-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-  }
-  .hero-meta-item {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 13px;
-    color: var(--sage);
-  }
-  .hero-meta-item strong {
-    color: var(--off-white);
-    font-weight: 500;
-  }
+/* ======== COVER ======== */
+.cover {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #001A13 0%, #003D2D 40%, #00523B 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 30% 50%, rgba(49,235,151,0.06) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 80%, rgba(0,150,114,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+.cover-logos {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 1;
+}
+.cover-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: var(--lcg-mint);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+.cover h1 {
+  font-family: 'DM Serif Text', serif;
+  font-size: 56px;
+  color: #fff;
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+.cover h1 span { color: var(--lcg-mint); }
+.cover-sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.7);
+  max-width: 640px;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+.cover-stats {
+  display: flex;
+  gap: 48px;
+  margin-top: 48px;
+  position: relative;
+  z-index: 1;
+}
+.cover-stat { text-align: center; }
+.cover-stat-num {
+  font-family: 'DM Serif Text', serif;
+  font-size: 42px;
+  color: var(--lcg-mint);
+  line-height: 1.1;
+}
+.cover-stat-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 6px;
+}
+.cover-footer {
+  position: absolute;
+  bottom: 32px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 48px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  z-index: 1;
+}
 
-  /* ─── CONTAINER ─── */
-  .container {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
+/* ======== CONTENT PAGE ======== */
+.content-page {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 56px 72px 48px;
+  background: white;
+  margin-bottom: 2px;
+  position: relative;
+}
+.page-logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.page-footer {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: #999;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
 
-  /* ─── NAV ─── */
-  .nav-bar {
-    background: #fff;
-    border-bottom: 1px solid #e0e0e0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  }
-  .nav-inner {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 0 32px;
-    max-width: 1120px;
-    margin: 0 auto;
-    overflow-x: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .nav-inner::-webkit-scrollbar { display: none; }
-  .nav-link {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.5px;
-    text-decoration: none;
-    color: var(--forest);
-    padding: 14px 12px;
-    white-space: nowrap;
-    border-bottom: 2px solid transparent;
-    transition: all 0.2s;
-  }
-  .nav-link:hover, .nav-link.active {
-    color: var(--teal);
-    border-bottom-color: var(--mint);
-  }
-  .nav-link.nav-special {
-    color: var(--teal);
-    font-weight: 500;
-  }
+/* ======== MACRO MAP ======== */
+.macro-map {
+  display: flex;
+  gap: 2px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.macro-step {
+  flex: 1;
+  padding: 10px 4px;
+  background: var(--lcg-dark);
+  color: rgba(255,255,255,0.5);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+.macro-step.active {
+  background: var(--lcg-teal);
+  color: white;
+  font-weight: 800;
+  transform: scaleY(1.12);
+}
 
-  /* ─── EXECUTIVE SUMMARY CARD ─── */
-  .exec-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 40px 48px;
-    margin: 48px auto;
-    max-width: 1120px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-    border-left: 4px solid var(--teal);
-  }
-  .exec-card h2 {
-    font-family: 'DM Serif Text', serif;
-    font-size: 24px;
-    color: var(--forest);
-    margin-bottom: 20px;
-    font-weight: 400;
-  }
-  .exec-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-  @media (max-width: 768px) { .exec-grid { grid-template-columns: 1fr; } }
-  .exec-block h3 {
-    font-family: 'Archivo', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--teal);
-    margin-bottom: 8px;
-  }
-  .exec-block p {
-    font-size: 15px;
-    color: var(--near-black);
-    line-height: 1.7;
-  }
-  .exec-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 20px;
-  }
-  .exec-tag {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    padding: 4px 12px;
-    border-radius: 100px;
-    background: var(--sage);
-    color: var(--forest);
-  }
-  .exec-tag.highlight {
-    background: var(--mint);
-    color: var(--forest);
-    font-weight: 500;
-  }
+/* ======== SECTION HEADER ======== */
+.section-header {
+  padding-bottom: 18px;
+  border-bottom: 3px solid var(--lcg-teal);
+  margin-bottom: 32px;
+}
+.section-number {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--lcg-teal);
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.section-title {
+  font-family: 'DM Serif Text', serif;
+  font-size: 34px;
+  color: var(--lcg-dark);
+  margin: 8px 0;
+  font-weight: 400;
+}
+.section-subtitle {
+  font-size: 14px;
+  color: var(--text-light);
+  font-weight: 400;
+}
 
-  /* ─── SECTIONS ─── */
-  .section {
-    padding: 56px 0;
-  }
-  .section:nth-child(even) {
-    background: #fff;
-  }
-  .section-header {
-    margin-bottom: 36px;
-  }
-  .section-header .pillar-num {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 13px;
-    color: var(--teal);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-  .section-header h2 {
-    font-family: 'DM Serif Text', serif;
-    font-size: 32px;
-    color: var(--forest);
-    font-weight: 400;
-  }
-  .section-header .section-line {
-    width: 48px;
-    height: 3px;
-    background: var(--mint);
-    margin-top: 12px;
-    border-radius: 2px;
-  }
+/* ======== KPI BANNER ======== */
+.kpi-banner {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+.kpi-item {
+  flex: 1;
+  min-width: 150px;
+  background: var(--lcg-dark);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+.kpi-item.red-bg { background: var(--red); }
+.kpi-item.teal-bg { background: var(--lcg-teal); }
+.kpi-value {
+  font-family: 'DM Serif Text', serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+.kpi-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+  margin-top: 6px;
+}
 
-  /* ─── FINDING CARDS ─── */
-  .finding {
-    background: var(--off-white);
-    border-radius: 8px;
-    padding: 24px 28px;
-    margin-bottom: 16px;
-    border-left: 3px solid var(--teal);
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--near-black);
-  }
-  .finding.critical {
-    border-left-color: var(--mint);
-    background: rgba(49,235,151,0.06);
-  }
-  .finding strong { color: var(--forest); }
-  .finding .data-highlight {
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 500;
-    color: var(--teal);
-  }
+/* ======== MATURITY BOX ======== */
+.maturity-box {
+  background: var(--warm-bg);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin: 20px 0;
+}
+.maturity-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.maturity-score {
+  font-family: 'DM Serif Text', serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1;
+}
+.maturity-score.red { color: var(--red); }
+.maturity-score.orange { color: #E65100; }
+.maturity-score.yellow { color: #F9A825; }
+.maturity-score.green { color: var(--lcg-teal); }
+.maturity-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
 
-  /* Sub-section headers inside pillar */
-  .sub-header {
-    font-family: 'Archivo', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--forest);
-    margin: 32px 0 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--sage);
-  }
+/* ======== FINDING CARDS ======== */
+.finding-card {
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--lcg-teal);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 12px 0;
+}
+.finding-card.critical {
+  border-left-color: var(--red);
+  background: var(--red-light);
+}
+.finding-card.positive {
+  border-left-color: var(--lcg-mint);
+  background: var(--warm-light);
+}
+.finding-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.finding-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  color: white;
+  flex-shrink: 0;
+}
+.finding-card.critical .finding-icon { background: var(--red); }
+.finding-card.positive .finding-icon { background: var(--lcg-teal); }
+.finding-card .finding-icon { background: var(--lcg-teal); }
+.finding-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+}
+.finding-text {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+.finding-kpi {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+.finding-kpi.red { background: var(--red-light); color: var(--red); }
+.finding-kpi.green { background: var(--warm-light); color: var(--lcg-teal); }
 
-  /* ─── DATA TABLES ─── */
-  .data-table-wrapper {
-    overflow-x: auto;
-    margin: 24px 0;
-  }
-  .data-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-  }
-  .data-table thead th {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--off-white);
-    background: var(--forest);
-    padding: 12px 16px;
-    text-align: left;
-  }
-  .data-table thead th:first-child { border-radius: 6px 0 0 0; }
-  .data-table thead th:last-child { border-radius: 0 6px 0 0; }
-  .data-table tbody td {
-    padding: 12px 16px;
-    border-bottom: 1px solid #e8e8e8;
-    vertical-align: top;
-  }
-  .data-table tbody tr:hover { background: rgba(0,144,114,0.03); }
-  .data-table .num {
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 500;
-    color: var(--teal);
-  }
-  .data-table .pilar-tag {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 4px;
-    background: var(--sage);
-    color: var(--forest);
-    white-space: nowrap;
-  }
+/* ======== CALLOUTS ======== */
+.callout {
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+.callout-red { background: var(--red-light); border-left: 4px solid var(--red); }
+.callout-green { background: #E8F5E9; border-left: 4px solid var(--lcg-mint); }
+.callout-amber { background: var(--warm-light); border-left: 4px solid var(--lcg-teal); }
+.callout-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 6px;
+}
+.callout p, .callout ul { font-size: 14px; line-height: 1.65; color: var(--text-light); }
+.callout ul { padding-left: 18px; margin-top: 4px; }
+.callout li { margin-bottom: 4px; }
 
-  /* ─── METRIC CARDS ─── */
-  .metrics-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    margin: 28px 0;
-  }
-  .metric-card {
-    background: var(--forest);
-    border-radius: 10px;
-    padding: 28px 24px;
-    text-align: center;
-  }
-  .metric-card .metric-value {
-    font-family: 'DM Serif Text', serif;
-    font-size: 42px;
-    color: var(--mint);
-    line-height: 1.1;
-  }
-  .metric-card .metric-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    color: var(--sage);
-    margin-top: 8px;
-    letter-spacing: 0.5px;
-  }
-  .metric-card.light {
-    background: #fff;
-    border: 1px solid var(--sage);
-  }
-  .metric-card.light .metric-value { color: var(--teal); }
-  .metric-card.light .metric-label { color: var(--near-black); }
-  .metric-card.alert {
-    background: var(--forest);
-    border: 2px solid var(--yellow);
-  }
-  .metric-card.alert .metric-value { color: var(--yellow); }
+/* ======== TABLES ======== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14px;
+}
+th {
+  background: var(--lcg-dark);
+  color: white;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 12px 14px;
+  text-align: left;
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+th:first-child { border-radius: 6px 0 0 0; }
+th:last-child { border-radius: 0 6px 0 0; }
+td {
+  padding: 11px 14px;
+  border-bottom: 1px solid #eee;
+  color: var(--text);
+}
+tr:nth-child(even) { background: #fafafa; }
+.num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  color: var(--lcg-teal);
+}
+.pilar-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--lcg-sage);
+  color: var(--lcg-dark);
+  white-space: nowrap;
+}
 
-  /* ─── ALERTS ─── */
-  .alert-section {
-    background: var(--forest);
-    padding: 56px 0;
-  }
-  .alert-section h2 {
-    font-family: 'DM Serif Text', serif;
-    font-size: 32px;
-    color: var(--off-white);
-    font-weight: 400;
-    margin-bottom: 8px;
-  }
-  .alert-section .section-line {
-    width: 48px;
-    height: 3px;
-    background: var(--yellow);
-    margin-bottom: 36px;
-    border-radius: 2px;
-  }
-  .alert-card {
-    background: rgba(255,255,255,0.05);
-    border-left: 3px solid var(--yellow);
-    border-radius: 0 8px 8px 0;
-    padding: 20px 24px;
-    margin-bottom: 14px;
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--sage);
-  }
-  .alert-card strong { color: var(--off-white); }
+/* ======== OPPORTUNITY CARDS ======== */
+.opp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.opp-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.opp-card-header {
+  background: var(--lcg-dark);
+  padding: 16px 20px;
+}
+.opp-id {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--lcg-mint);
+  margin-bottom: 4px;
+}
+.opp-name {
+  font-family: 'DM Serif Text', serif;
+  font-size: 20px;
+  color: white;
+  font-weight: 400;
+}
+.opp-card-body {
+  padding: 20px;
+  background: white;
+}
+.opp-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-light);
+  margin-bottom: 16px;
+}
+.opp-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #eee;
+}
+.opp-meta-item { font-size: 12px; }
+.opp-meta-label {
+  font-family: 'IBM Plex Mono', monospace;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 10px;
+  display: block;
+}
+.opp-meta-value {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  color: var(--lcg-teal);
+  font-size: 14px;
+}
+.opp-meta-value.large {
+  font-size: 18px;
+  color: var(--lcg-dark);
+}
 
-  /* ─── OPPORTUNITY CARDS ─── */
-  .opp-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 24px;
-    margin-top: 32px;
-  }
-  .opp-card {
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    display: flex;
-    flex-direction: column;
-  }
-  .opp-card-header {
-    background: var(--forest);
-    padding: 20px 24px;
-  }
-  .opp-card-id {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    color: var(--mint);
-    margin-bottom: 4px;
-  }
-  .opp-card-title {
-    font-family: 'DM Serif Text', serif;
-    font-size: 20px;
-    color: var(--off-white);
-    font-weight: 400;
-  }
-  .opp-card-body {
-    padding: 24px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  .opp-card-desc {
-    font-size: 14px;
-    color: var(--near-black);
-    line-height: 1.65;
-    flex: 1;
-    margin-bottom: 16px;
-  }
-  .opp-card-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding-top: 16px;
-    border-top: 1px solid #eee;
-  }
-  .opp-meta-item {
-    font-size: 12px;
-  }
-  .opp-meta-item .opp-meta-label {
-    font-family: 'IBM Plex Mono', monospace;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-size: 10px;
-    display: block;
-  }
-  .opp-meta-item .opp-meta-value {
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 500;
-    color: var(--teal);
-    font-size: 14px;
-  }
-  .opp-meta-item .opp-meta-value.large {
-    font-size: 18px;
-    color: var(--forest);
-  }
+.opp-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.opp-badge.qw { background: #E8F5E9; color: var(--lcg-teal); }
+.opp-badge.mp { background: #FFF3E0; color: #E65100; }
+.opp-badge.lp { background: #E3F2FD; color: var(--lcg-navy); }
 
-  /* ─── VALIDATION CHECKLIST ─── */
-  .checklist {
-    list-style: none;
-    margin: 24px 0;
-  }
-  .checklist li {
-    padding: 12px 16px 12px 44px;
-    position: relative;
-    font-size: 15px;
-    line-height: 1.6;
-    border-bottom: 1px solid #eee;
-  }
-  .checklist li::before {
-    content: '';
-    position: absolute;
-    left: 16px;
-    top: 16px;
-    width: 16px;
-    height: 16px;
-    border: 2px solid var(--teal);
-    border-radius: 3px;
-  }
+/* ======== VERBATIM ======== */
+.verbatim {
+  background: linear-gradient(135deg, #f0f5f2, #e8efe9);
+  padding: 20px 24px;
+  border-left: 4px solid var(--lcg-teal);
+  border-radius: 10px;
+  margin: 16px 0;
+  position: relative;
+}
+.verbatim::before {
+  content: '\201C';
+  font-family: 'DM Serif Text', serif;
+  font-size: 48px;
+  color: var(--lcg-teal);
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  opacity: 0.3;
+}
+.verbatim-text {
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.7;
+  padding-left: 24px;
+  color: var(--text);
+}
+.verbatim-source {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 8px;
+  padding-left: 24px;
+  color: var(--lcg-teal);
+}
 
-  /* ─── QUOTES ─── */
-  .quote-block {
-    background: var(--sage);
-    border-radius: 10px;
-    padding: 28px 32px;
-    margin-bottom: 20px;
-    position: relative;
-  }
-  .quote-block::before {
-    content: '\201C';
-    font-family: 'DM Serif Text', serif;
-    font-size: 72px;
-    color: var(--teal);
-    opacity: 0.25;
-    position: absolute;
-    top: -8px;
-    left: 20px;
-    line-height: 1;
-  }
-  .quote-text {
-    font-family: 'DM Serif Text', serif;
-    font-size: 17px;
-    color: var(--forest);
-    font-weight: 400;
-    line-height: 1.6;
-    padding-left: 8px;
-  }
-  .quote-context {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    color: var(--teal);
-    margin-top: 12px;
-    padding-left: 8px;
-  }
+/* ======== SECTION DIVIDER ======== */
+.section-divider {
+  min-height: 80px;
+  background: linear-gradient(160deg, #001A13, #003D2D);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1340px;
+  margin: 0 auto 2px;
+}
+.section-divider-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: var(--lcg-mint);
+  text-transform: uppercase;
+}
 
-  /* ─── DOCUMENTS TABLE ─── */
-  .status-badge {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    padding: 3px 10px;
-    border-radius: 100px;
-    white-space: nowrap;
-  }
-  .status-badge.pending {
-    background: rgba(232,254,65,0.2);
-    color: #8a7a00;
-    border: 1px solid rgba(232,254,65,0.4);
-  }
-  .status-badge.shown {
-    background: rgba(0,144,114,0.1);
-    color: var(--teal);
-    border: 1px solid rgba(0,144,114,0.2);
-  }
+/* ======== STATUS TAGS ======== */
+.status-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+.status-tag.comprometido { background: #FFF3E0; color: #E65100; }
+.status-tag.mostrado { background: #E8F5E9; color: var(--lcg-teal); }
+.status-tag.recibido { background: #E3F2FD; color: var(--lcg-navy); }
 
-  /* ─── FOOTER ─── */
-  .footer {
-    background: var(--forest);
-    color: var(--sage);
-    text-align: center;
-    padding: 32px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.5px;
-  }
+/* ======== CHECKLIST ======== */
+.checklist {
+  list-style: none;
+  margin: 16px 0;
+}
+.checklist li {
+  padding: 12px 16px 12px 44px;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-light);
+  border-bottom: 1px solid #eee;
+}
+.checklist li::before {
+  content: '';
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--lcg-teal);
+  border-radius: 3px;
+}
 
-  /* ─── SMOOTH SCROLL ─── */
-  html { scroll-behavior: smooth; }
-  :target { scroll-margin-top: 64px; }
+/* ======== TWO COLUMN ======== */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
 
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 640px) {
-    .hero { padding: 48px 0 40px; }
-    .hero h1 { font-size: 28px; }
-    .hero-meta { gap: 16px; }
-    .exec-card { padding: 28px 24px; }
-    .section { padding: 40px 0; }
-    .section-header h2 { font-size: 26px; }
-    .opp-grid { grid-template-columns: 1fr; }
-    .metrics-row { grid-template-columns: 1fr 1fr; }
-    .metric-card .metric-value { font-size: 32px; }
-  }
+/* ======== HEADINGS ======== */
+h3 {
+  font-family: 'DM Serif Text', serif;
+  font-size: 22px;
+  color: var(--lcg-dark);
+  margin: 28px 0 12px;
+  font-weight: 400;
+}
+h4 {
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 20px 0 8px;
+}
+p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+/* ======== PROFILE CARD ======== */
+.profile-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.profile-block h4 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--lcg-teal);
+  margin-bottom: 8px;
+}
+.profile-block p {
+  font-size: 15px;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+.profile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+.profile-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  background: var(--lcg-sage);
+  color: var(--lcg-dark);
+}
+.profile-tag.highlight {
+  background: var(--lcg-mint);
+  color: var(--lcg-dark);
+  font-weight: 600;
+}
+
+/* ======== PRINT BUTTON ======== */
+.print-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--lcg-teal);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  transition: all 0.2s;
+}
+.print-btn:hover { background: var(--lcg-dark); transform: translateY(-2px); }
+
+/* ======== PRINT ======== */
+@media print {
+  .print-btn { display: none; }
+  .content-page { break-inside: avoid; padding: 36px 48px; }
+  .cover { break-after: page; }
+  body { background: white; }
+  .section-divider { break-before: page; }
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 900px) {
+  .content-page { padding: 32px 24px; }
+  .section-title { font-size: 26px; }
+  .cover h1 { font-size: 36px; }
+  .cover-stats { flex-direction: column; gap: 20px; }
+  .kpi-banner { flex-direction: column; }
+  .two-col { grid-template-columns: 1fr; }
+  .profile-card { grid-template-columns: 1fr; }
+  .macro-map { overflow-x: auto; }
+  .macro-step { min-width: 70px; }
+  .opp-grid { grid-template-columns: 1fr; }
+  .cover-footer { flex-direction: column; text-align: center; gap: 4px; }
+}
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════ HERO ═══════════════════ -->
-<header class="hero">
-  <div class="container">
-    <div style="display:flex; align-items:center; gap:14px; margin-bottom:12px;">
-      <img src="../../assets/logo_lcg.png" alt="LCG" style="height:22px; filter:brightness(10);">
-      <span style="color:rgba(255,255,255,0.3);">|</span>
-      <img src="../../assets/logo_pi.jpeg" alt="PI" style="height:42px; border-radius:6px;">
+<!-- ============================================================ -->
+<!-- COVER -->
+<!-- ============================================================ -->
+<div class="cover">
+  <div class="cover-logos">
+    <img src="../../assets/logo_lcg.png" alt="LCG" height="36" style="filter:brightness(10)">
+    <img src="../../assets/logo_pi.jpeg" alt="PI Group" height="52" style="border-radius:8px">
+  </div>
+  <div class="cover-tag">Entrevista &bull; Director Comercial</div>
+  <h1>Hugo Daniel <span>Ambrosi Alcocer</span></h1>
+  <div class="cover-sub">Ex-PepsiCo (10 anos, Category Development &amp; KAM LATAM) &bull; Ex-Walmart/Sam's Club (3 anos) &bull; 9 meses en PI Group &bull; Construyo el area comercial desde cero</div>
+  <div class="cover-stats">
+    <div class="cover-stat">
+      <div class="cover-stat-num">176</div>
+      <div class="cover-stat-label">Tiendas Sam's</div>
     </div>
-    <div class="hero-label">Project Shine &mdash; Prediagnóstico Operativo PI Group</div>
-    <h1>Entrevista: <span>Director Comercial</span><br>Hugo Daniel Ambrosi Alcocer</h1>
-    <p class="hero-subtitle">La entrevista comercial clave: de un area sin estructura a una vision profesional de ventas</p>
-    <div class="hero-meta">
-      <div class="hero-meta-item"><strong>Fecha:</strong> 6 de abril de 2026</div>
-      <div class="hero-meta-item"><strong>Duracion:</strong> 1h 24m 24s</div>
-      <div class="hero-meta-item"><strong>Entrevistador:</strong> Fernando Sanchez Andrade</div>
-      <div class="hero-meta-item"><strong>Presente:</strong> Marco A. Barcenas (parcial)</div>
+    <div class="cover-stat">
+      <div class="cover-stat-num">14</div>
+      <div class="cover-stat-label">SKUs Activos</div>
+    </div>
+    <div class="cover-stat">
+      <div class="cover-stat-num">-$60M</div>
+      <div class="cover-stat-label">MXN/Mes Codigos Perdidos</div>
+    </div>
+    <div class="cover-stat">
+      <div class="cover-stat-num">$0</div>
+      <div class="cover-stat-label">E-commerce</div>
     </div>
   </div>
-</header>
-
-<!-- ═══════════════════ NAV ═══════════════════ -->
-<nav class="nav-bar">
-  <div class="nav-inner">
-    <a href="#resumen" class="nav-link nav-special">Resumen</a>
-    <a href="#pilar01" class="nav-link">01 Inteligencia</a>
-    <a href="#pilar02" class="nav-link">02 Ejecucion</a>
-    <a href="#pilar03" class="nav-link">03 Planeacion</a>
-    <a href="#pilar-otros" class="nav-link">Otros Pilares</a>
-    <a href="#datos" class="nav-link">Datos Duros</a>
-    <a href="#alertas" class="nav-link nav-special">Alertas</a>
-    <a href="#oportunidades" class="nav-link nav-special">Oportunidades</a>
-    <a href="#validar" class="nav-link">Validar</a>
-    <a href="#citas" class="nav-link">Citas</a>
-    <a href="#documentos" class="nav-link">Documentos</a>
-  </div>
-</nav>
-
-<!-- ═══════════════════ EXEC SUMMARY ═══════════════════ -->
-<div class="container" id="resumen">
-  <div class="exec-card">
-    <h2>Resumen Ejecutivo</h2>
-    <div class="exec-grid">
-      <div class="exec-block">
-        <h3>Perfil del Entrevistado</h3>
-        <p>Hugo Ambrosi lleva <strong>~9 meses en PI Group</strong> (desde agosto 2025). Entro como Director de Business Development and Market Research &mdash; una posicion completamente nueva. En <strong>enero 2026</strong> absorbio tambien Comercializacion y Ventas, convirtiendose en el <strong>Director Comercial</strong> de facto del grupo.</p>
-      </div>
-      <div class="exec-block">
-        <h3>Background Profesional</h3>
-        <p><strong>10 anos en PepsiCo Alimentos</strong> &mdash; Category Development, KAM Mexico, equipo de sector para LATAM (botanas y galletas, todos los formatos). <strong>3 anos en Walmart/Sam's Club</strong> &mdash; Asistente de compras en helados y congelados. Mantiene relaciones vigentes: su contacto de entonces es hoy comprador de limpieza en Sam's.</p>
-      </div>
-      <div class="exec-block">
-        <h3>Hallazgo Central</h3>
-        <p>El area comercial <strong>no tenia estructura profesional</strong> antes de Hugo. No existia AOP, no habia seguimiento de sellout, no habia dashboards, no habia objetivos claros. Las decisiones se tomaban "con el dedo". En 3 meses ha construido un primer nivel de inteligencia y estructura, pero el camino es largo.</p>
-      </div>
-      <div class="exec-block">
-        <h3>Contexto Critico</h3>
-        <p>La concentracion en <strong>Sam's Club (~99% de facturacion organizada)</strong> persiste. Se perdieron <strong>~5 codigos descatalogados</strong> que representaban <strong>~$60M MXN/mes</strong>. El volumen real cae <strong>8-10%</strong> encubierto por incrementos de precio. Home Depot, e-commerce y tiendas propias estan desatendidos.</p>
-      </div>
-    </div>
-    <div class="exec-tags">
-      <span class="exec-tag highlight">Pilar 01</span>
-      <span class="exec-tag highlight">Pilar 02</span>
-      <span class="exec-tag">Pilar 03</span>
-      <span class="exec-tag">Pilar 06</span>
-      <span class="exec-tag">Pilar 07</span>
-      <span class="exec-tag">Pilar 08</span>
-      <span class="exec-tag">Pilar 09</span>
-      <span class="exec-tag">Pilar 10</span>
-      <span class="exec-tag">Pilar 11</span>
-      <span class="exec-tag">Pilar 12</span>
-    </div>
+  <div class="cover-footer">
+    <div>6 de abril de 2026 &bull; 1h 24m 24s</div>
+    <div>Entrevistador: Fernando Sanchez Andrade &bull; Confidencial</div>
   </div>
 </div>
 
-<!-- ═══════════════════ KEY METRICS ═══════════════════ -->
-<div class="container">
-  <div class="metrics-row">
-    <div class="metric-card">
-      <div class="metric-value">176</div>
-      <div class="metric-label">Tiendas Sam's atendidas</div>
+<!-- ============================================================ -->
+<!-- RESUMEN DEL ENTREVISTADO -->
+<!-- ============================================================ -->
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Perfil del Entrevistado</div>
+    <h2 class="section-title">Resumen Ejecutivo</h2>
+    <div class="section-subtitle">Hugo Ambrosi &bull; Director Comercial &bull; PI Group SA de CV</div>
+  </div>
+
+  <div class="profile-card">
+    <div class="profile-block">
+      <h4>Perfil y Trayectoria</h4>
+      <p>Hugo Ambrosi ingreso a PI Group en <strong>agosto 2025</strong> (~9 meses de antiguedad). Entro como Director de Business Development and Market Research &mdash; una posicion completamente nueva. En <strong>enero 2026</strong> absorbio Comercializacion y Ventas, convirtiendose en el <strong>Director Comercial</strong> de facto del grupo.</p>
     </div>
-    <div class="metric-card">
-      <div class="metric-value">14</div>
-      <div class="metric-label">SKUs en Sam's Club</div>
+    <div class="profile-block">
+      <h4>Background Profesional</h4>
+      <p><strong>10 anos en PepsiCo Alimentos</strong> &mdash; Category Development, KAM Mexico, equipo de sector para LATAM (botanas y galletas, todos los formatos). <strong>3 anos en Walmart/Sam's Club</strong> &mdash; Asistente de compras en helados y congelados. Mantiene relaciones vigentes con el comprador actual de limpieza en Sam's.</p>
     </div>
-    <div class="metric-card alert">
-      <div class="metric-value">-$60M</div>
-      <div class="metric-label">MXN/mes perdidos (codigos descatalogados)</div>
+    <div class="profile-block">
+      <h4>Hallazgo Central</h4>
+      <p>El area comercial <strong>no tenia estructura profesional</strong> antes de Hugo. No existia AOP, no habia seguimiento de sellout, no habia dashboards, no habia objetivos claros. Las decisiones se tomaban "con el dedo". En 3 meses ha construido un primer nivel de inteligencia y estructura, pero el camino es largo.</p>
     </div>
-    <div class="metric-card">
-      <div class="metric-value">$0</div>
-      <div class="metric-label">Ventas e-commerce (MeLi + Amazon)</div>
+    <div class="profile-block">
+      <h4>Contexto Critico</h4>
+      <p>La concentracion en <strong>Sam's Club (~99% de facturacion organizada)</strong> persiste. Se perdieron <strong>~5 codigos descatalogados</strong> que representaban <strong>~$60M MXN/mes</strong>. El volumen real cae <strong>8-10%</strong> encubierto por incrementos de precio. Home Depot, e-commerce y tiendas propias estan desatendidos.</p>
     </div>
   </div>
-  <div class="metrics-row">
-    <div class="metric-card light">
-      <div class="metric-value">-32%</div>
-      <div class="metric-label">Enero 2026 vs. ano anterior</div>
-    </div>
-    <div class="metric-card light">
-      <div class="metric-value">-7%</div>
-      <div class="metric-label">Febrero 2026 vs. ano anterior</div>
-    </div>
-    <div class="metric-card light">
-      <div class="metric-value" style="color: var(--mint);">+2%</div>
-      <div class="metric-label">Marzo 2026 vs. LY (primer mes limpio)</div>
-    </div>
-    <div class="metric-card light">
-      <div class="metric-value">1</div>
-      <div class="metric-label">KAM (solo para Sam's)</div>
-    </div>
+
+  <div class="profile-tags">
+    <span class="profile-tag highlight">Pilar 01</span>
+    <span class="profile-tag highlight">Pilar 02</span>
+    <span class="profile-tag">Pilar 03</span>
+    <span class="profile-tag">Pilar 06</span>
+    <span class="profile-tag">Pilar 07</span>
+    <span class="profile-tag">Pilar 08</span>
+    <span class="profile-tag">Pilar 09</span>
+    <span class="profile-tag">Pilar 10</span>
+    <span class="profile-tag">Pilar 11</span>
+    <span class="profile-tag">Pilar 12</span>
   </div>
+
+  <div class="page-footer">London Consulting Group &bull; Project Shine &bull; Confidencial &bull; Abril 2026</div>
 </div>
 
-<!-- ═══════════════════ PILAR 01 ═══════════════════ -->
-<section class="section" id="pilar01">
-  <div class="container">
-    <div class="section-header">
-      <div class="pillar-num">Pilar 01</div>
-      <h2>Inteligencia Comercial</h2>
-      <div class="section-line"></div>
-    </div>
+<!-- ============================================================ -->
+<!-- PILAR 01: INTELIGENCIA COMERCIAL -->
+<!-- ============================================================ -->
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
+  </div>
 
-    <div class="finding critical">
-      <strong>No existia inteligencia comercial antes de enero 2026.</strong> El area comercial no tenia conocimiento ni mision de alcanzar un numero de manera semanal o mensual. No habia AOP, no habia objetivos de venta, no habia seguimiento de sellout.
-    </div>
+  <div class="macro-map">
+    <div class="macro-step active">01 Intel.</div>
+    <div class="macro-step">02 Ejec.</div>
+    <div class="macro-step">03 Plan.</div>
+    <div class="macro-step">04 Prod.</div>
+    <div class="macro-step">05 Mant.</div>
+    <div class="macro-step">06 Calid.</div>
+    <div class="macro-step">07 Innov.</div>
+    <div class="macro-step">08 Abast.</div>
+    <div class="macro-step">09 Almac.</div>
+    <div class="macro-step">10 Dist.</div>
+    <div class="macro-step">11 IT</div>
+    <div class="macro-step">12 Gob.</div>
+  </div>
 
-    <div class="finding">
-      <strong>Hugo ha construido en 3 meses un primer set de dashboards en Excel</strong> (reconoce que son "rudimentarios") que incluyen: seguimiento diario de OC vs. facturacion vs. AOP mensual para Sam's, sellout por codigo/tienda/dia/semana, dias de inventario por producto/estado/tienda, in-stock y fill rate por las ultimas 4 semanas, forecast de sellout semana a semana vs. LY, precios promedio por codigo, comparativo pesos vs. piezas.
-    </div>
+  <div class="section-header">
+    <div class="section-number">Pilar 01</div>
+    <h2 class="section-title">Inteligencia Comercial</h2>
+    <div class="section-subtitle">Mix de clientes &bull; Mix de productos &bull; Precios &bull; Condiciones comerciales</div>
+  </div>
 
-    <div class="finding">
-      <strong>La plataforma de datos de Sam's (Madrid/Retail Link)</strong> no se esta explotando a su potencial. Hugo reconoce: "nos ha hecho falta explotarlo todavia muchisimo mas".
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">No existia inteligencia comercial antes de enero 2026</div>
     </div>
+    <div class="finding-text">El area comercial no tenia conocimiento ni mision de alcanzar un numero de manera semanal o mensual. No habia AOP, no habia objetivos de venta, no habia seguimiento de sellout.</div>
+  </div>
 
-    <div class="finding critical">
-      <strong>No existe seguimiento estructurado para clientes distintos a Sam's.</strong> Hugo indica que "todavia no he podido desarrollar el resto de los clientes" y que "no hay un orden como lo tiene Sam's, que nosotros lo deberiamos de poner".
+  <div class="finding-card positive">
+    <div class="finding-header">
+      <div class="finding-icon">+</div>
+      <div class="finding-title">Primer set de dashboards construido en 3 meses</div>
     </div>
+    <div class="finding-text">Hugo ha armado dashboards en Excel (reconoce que son "rudimentarios") que incluyen: seguimiento diario de OC vs. facturacion vs. AOP mensual para Sam's, sellout por codigo/tienda/dia/semana, dias de inventario por producto/estado/tienda, in-stock y fill rate por las ultimas 4 semanas, forecast de sellout vs. LY, precios promedio por codigo, comparativo pesos vs. piezas.</div>
+    <div class="finding-kpi green">Avance significativo</div>
+  </div>
 
-    <div class="finding">
-      <strong>Alerta de volumen vs. precio detectada:</strong> En febrero, el detergente 10L cayo <span class="data-highlight">-9.6% en unidades</span> pero crecio <span class="data-highlight">+0.9% en pesos</span>, evidenciando que un incremento de precio esta erosionando volumen.
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Plataforma Madrid/Retail Link subutilizada</div>
     </div>
+    <div class="finding-text">La plataforma de datos de Sam's no se esta explotando a su potencial. Hugo reconoce: "nos ha hecho falta explotarlo todavia muchisimo mas". Ofrece informacion granular que podria generar insights de pricing, promociones y quiebres de inventario.</div>
+  </div>
 
-    <div class="finding">
-      <strong>Falta un area de Sales Intelligence / Desarrollo de Ventas</strong> que consolide data, arme dashboards y genere insights accionables. Hugo la identifica como "segunda fase" y actualmente la posicion esta vacante.
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Sin seguimiento para clientes distintos a Sam's</div>
     </div>
+    <div class="finding-text">Hugo indica que "todavia no he podido desarrollar el resto de los clientes" y que "no hay un orden como lo tiene Sam's, que nosotros lo deberiamos de poner". Cero inteligencia comercial para Home Depot, Garraton, Aeromexico y otros.</div>
+  </div>
 
-    <div class="finding">
-      <strong>No hay Power BI ni herramientas avanzadas de BI.</strong> Todo se maneja en Excel con archivos pesados que tardan en cargar.
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Alerta de volumen vs. precio detectada</div>
+    </div>
+    <div class="finding-text">En febrero, el detergente 10L cayo -9.6% en unidades pero crecio +0.9% en pesos, evidenciando que un incremento de precio esta erosionando volumen. Este tipo de alertas no existian antes de Hugo.</div>
+    <div class="finding-kpi red">-9.6% unidades / +0.9% pesos</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Falta area de Sales Intelligence</div>
+    </div>
+    <div class="finding-text">Se necesita un area que consolide data, arme dashboards y genere insights accionables. Hugo la identifica como "segunda fase" y actualmente la posicion esta vacante. No hay Power BI ni herramientas avanzadas de BI &mdash; todo se maneja en Excel con archivos pesados.</div>
+  </div>
+
+  <div class="page-footer">London Consulting Group &bull; Project Shine &bull; Confidencial &bull; Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PILAR 02: EJECUCION COMERCIAL -->
+<!-- ============================================================ -->
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
+  </div>
+
+  <div class="macro-map">
+    <div class="macro-step">01 Intel.</div>
+    <div class="macro-step active">02 Ejec.</div>
+    <div class="macro-step">03 Plan.</div>
+    <div class="macro-step">04 Prod.</div>
+    <div class="macro-step">05 Mant.</div>
+    <div class="macro-step">06 Calid.</div>
+    <div class="macro-step">07 Innov.</div>
+    <div class="macro-step">08 Abast.</div>
+    <div class="macro-step">09 Almac.</div>
+    <div class="macro-step">10 Dist.</div>
+    <div class="macro-step">11 IT</div>
+    <div class="macro-step">12 Gob.</div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Pilar 02</div>
+    <h2 class="section-title">Ejecucion Comercial</h2>
+    <div class="section-subtitle">Estructura comercial &bull; Gestion Sam's Club &bull; Otros clientes &bull; Promotoria</div>
+  </div>
+
+  <h3>Estructura Comercial</h3>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Antes de Hugo: sin estructura profesional</div>
+    </div>
+    <div class="finding-text">Una sola persona (directora de comercializacion) era simultaneamente KAM, CPFR y directora. No habia estructura de Key Account Management ni CPFR formal. El dueno de la empresa era quien daba la cara ante los clientes.</div>
+  </div>
+
+  <div class="finding-card positive">
+    <div class="finding-header">
+      <div class="finding-icon">+</div>
+      <div class="finding-title">Estructura actual construida en 3 meses</div>
+    </div>
+    <div class="finding-text">Hugo (Director), Cesar (Gerente/CPFR Sam's), Klaus (KAM Sam's &mdash; <em>no esta funcionando</em>), Azael (CPFR Junior, enlace interno), Eduardo Cruz (CPFR Jr.), Cesar Barrios (Atencion GDL), Ivan Cantu (Atencion CDMX + asistente), Eric (tienda propia), Erika Iser (Diseno y Comunicacion Digital + 2 personas).</div>
+  </div>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Solo 1 KAM (para Sam's)</div>
+    </div>
+    <div class="finding-text">No existe KAM para Home Depot, Garraton, Aeromexico, Sanchez y Martin ni otros clientes. Hugo mismo atiende al resto. Plan de estructura objetivo (6 meses): subdireccion comercial, KAMs dedicados por bloque, CPFR para todos los clientes, area de Sales Intelligence.</div>
+  </div>
+
+  <h3>Gestion de Sam's Club</h3>
+
+  <div class="kpi-banner">
+    <div class="kpi-item">
+      <div class="kpi-value">176</div>
+      <div class="kpi-label">Tiendas Atendidas</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-value">11+3</div>
+      <div class="kpi-label">SKUs: Limpieza + Automotriz</div>
+    </div>
+    <div class="kpi-item teal-bg">
+      <div class="kpi-value">24-25d</div>
+      <div class="kpi-label">Dias Inv. Limpieza</div>
+    </div>
+    <div class="kpi-item red-bg">
+      <div class="kpi-value">+100d</div>
+      <div class="kpi-label">Dias Inv. Automotriz</div>
     </div>
   </div>
-</section>
 
-<!-- ═══════════════════ PILAR 02 ═══════════════════ -->
-<section class="section" id="pilar02">
-  <div class="container">
-    <div class="section-header">
-      <div class="pillar-num">Pilar 02</div>
-      <h2>Ejecucion Comercial</h2>
-      <div class="section-line"></div>
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">~5 codigos descatalogados: -$60M MXN/mes</div>
     </div>
+    <div class="finding-text">Impacto severo en enero 2026: -32% vs. ano anterior. Febrero mejoro a -7% (93% de alcance, con $32M de base perdida). Marzo 2026 fue el primer mes "limpio" sin base de codigos perdidos: +2% vs. LY en pesos.</div>
+    <div class="finding-kpi red">-32% ene &rarr; -7% feb &rarr; +2% mar</div>
+  </div>
 
-    <!-- Estructura Comercial -->
-    <div class="sub-header">Estructura Comercial</div>
-
-    <div class="finding critical">
-      <strong>Antes de Hugo:</strong> Una sola persona (directora de comercializacion) era simultaneamente KAM, CPFR y directora. No habia estructura de Key Account Management ni CPFR formal. El dueno de la empresa era quien daba la cara ante los clientes.
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Volumen real ~8-10% abajo</div>
     </div>
+    <div class="finding-text">Aun en meses "limpios", el volumen en piezas esta por debajo del ano anterior, compensado parcialmente por incrementos de precio. Relacion on-hand saludable: 70% on-hand / 30% ordenado en pipeline.</div>
+  </div>
 
-    <div class="finding">
-      <strong>Estructura actual (3 meses de antiguedad):</strong> Hugo (Director), Cesar (Gerente/CPFR Sam's), Klaus (KAM Sam's &mdash; <em>no esta funcionando</em>), Azael (CPFR Junior, enlace interno), Eduardo Cruz (CPFR Jr.), Cesar Barrios (Atencion GDL), Ivan Cantu (Atencion CDMX + asistente), Eric (tienda propia), Erika Iser (Diseno y Comunicacion + 2 personas).
+  <div class="finding-card positive">
+    <div class="finding-header">
+      <div class="finding-icon">+</div>
+      <div class="finding-title">CPFR formal con Sam's Club</div>
     </div>
+    <div class="finding-text">Avance significativo: se firmo convenio de confidencialidad, se formalizo la posicion de CPFR. Se trabaja en un scorecard semanal para business review con el comprador, pero aun no esta listo. La relacion con Sam's esta cambiando de "dueno como cara al cliente" a equipo profesional.</div>
+    <div class="finding-kpi green">Avance extraordinario</div>
+  </div>
 
-    <div class="finding critical">
-      <strong>Solo hay 1 KAM (para Sam's).</strong> No existe KAM para Home Depot, Garraton, Aeromexico, Sanchez y Martin ni otros clientes. Hugo mismo atiende al resto.
+  <h3>Gestion de Otros Clientes</h3>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Home Depot: 23 productos, mal atendidos</div>
     </div>
+    <div class="finding-text">"Llevamos un ano y cacho atendiendolos no de la manera correcta." Problemas logisticos: pedidos pequenos que se acumulan. Hay potencial de ampliar catalogo para consolidar pedidos. Visita a planta programada.</div>
+  </div>
 
-    <div class="finding">
-      <strong>Plan de estructura objetivo (6 meses):</strong> Subdireccion comercial, KAMs dedicados por bloque de clientes, CPFR para todos los clientes (no solo Sam's), area de Sales Intelligence, y evolucionar Diseno a Marketing y Diseno como habilitador estrategico.
-    </div>
-
-    <!-- Gestion Sam's -->
-    <div class="sub-header">Gestion de Sam's Club</div>
-
-    <div class="metrics-row">
-      <div class="metric-card">
-        <div class="metric-value">176</div>
-        <div class="metric-label">Tiendas en la Republica</div>
+  <div class="two-col">
+    <div class="finding-card">
+      <div class="finding-header">
+        <div class="finding-icon">i</div>
+        <div class="finding-title">Tienda propia</div>
       </div>
-      <div class="metric-card">
-        <div class="metric-value">11+3</div>
-        <div class="metric-label">SKUs: 11 limpieza + 3 automotriz</div>
+      <div class="finding-text">Factura ~$700K-$1M MXN/mes. Una tienda del centro cerro hace un mes. Se explora abrir en central de abastos de Tultitlan. Margenes superiores a maquila.</div>
+    </div>
+    <div class="finding-card critical">
+      <div class="finding-header">
+        <div class="finding-icon">!</div>
+        <div class="finding-title">E-commerce: $0 ventas</div>
       </div>
-      <div class="metric-card light">
-        <div class="metric-value">24-25d</div>
-        <div class="metric-label">Dias inv. limpieza (target: 20)</div>
+      <div class="finding-text">Cuentas abiertas en Mercado Libre y Amazon, pero "no las atendemos". Cero venta por e-commerce actualmente. Canal completamente abandonado.</div>
+    </div>
+  </div>
+
+  <h3>Promotoria / Fuerza de Campo</h3>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Fuerza de campo sin valor agregado</div>
+    </div>
+    <div class="finding-text">Dos personas en campo (Cesar Barrios en GDL, Ivan Cantu en CDMX) con rol actual limitado: visitan tiendas, toman fotos de producto, competencia, precios, promociones. "Es todo, no hay un mas alla." No llegan preparados con datos de desempeno por tienda. No hay checklist de ejecucion.</div>
+  </div>
+
+  <div class="finding-card positive">
+    <div class="finding-header">
+      <div class="finding-icon">+</div>
+      <div class="finding-title">Vision de transformacion</div>
+    </div>
+    <div class="finding-text">Hugo quiere transformar estos roles a un doble mandato: (1) ejecucion y disciplina en tienda con metricas y checklist tipo "12 puntos de ejecucion" de PepsiCo, y (2) crecimiento y desarrollo de clientes regionales (prospectar Soriana, Arteli, etc.).</div>
+  </div>
+
+  <div class="page-footer">London Consulting Group &bull; Project Shine &bull; Confidencial &bull; Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PILAR 03: PLANEACION DE PRODUCCION -->
+<!-- ============================================================ -->
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
+  </div>
+
+  <div class="macro-map">
+    <div class="macro-step">01 Intel.</div>
+    <div class="macro-step">02 Ejec.</div>
+    <div class="macro-step active">03 Plan.</div>
+    <div class="macro-step">04 Prod.</div>
+    <div class="macro-step">05 Mant.</div>
+    <div class="macro-step">06 Calid.</div>
+    <div class="macro-step">07 Innov.</div>
+    <div class="macro-step">08 Abast.</div>
+    <div class="macro-step">09 Almac.</div>
+    <div class="macro-step">10 Dist.</div>
+    <div class="macro-step">11 IT</div>
+    <div class="macro-step">12 Gob.</div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Pilar 03</div>
+    <h2 class="section-title">Planeacion de Produccion</h2>
+    <div class="section-subtitle">S&amp;OP &bull; Pronostico de demanda &bull; Planeacion de materiales</div>
+  </div>
+
+  <div class="finding-card positive">
+    <div class="finding-header">
+      <div class="finding-icon">+</div>
+      <div class="finding-title">Primer AOP creado</div>
+    </div>
+    <div class="finding-text">Se creo un AOP anual dividido por meses, validado con Marco (Finanzas) y la Direccion General. Es el primer AOP que tiene el area comercial en la historia de PI Group.</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Alineacion forecast-produccion en proceso</div>
+    </div>
+    <div class="finding-text">Se esta alineando el forecast de sellout con la planeacion de produccion. Hugo menciona que "hoy en dia tenemos una planeacion en la produccion, en el forecast para poder cumplirle al cliente al 100%."</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">CPFR Junior como enlace interno</div>
+    </div>
+    <div class="finding-text">Azael (CPFR Junior) es el enlace interno con planeacion y compras &mdash; coordina la demanda del cliente con las areas productivas.</div>
+  </div>
+
+  <div class="page-footer">London Consulting Group &bull; Project Shine &bull; Confidencial &bull; Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PILARES 06, 07, 08, 09, 10 -->
+<!-- ============================================================ -->
+<div class="section-divider">
+  <div class="section-divider-text">Otros Pilares Tocados</div>
+</div>
+
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
+  </div>
+
+  <!-- PILAR 06 -->
+  <div class="macro-map">
+    <div class="macro-step">01 Intel.</div>
+    <div class="macro-step">02 Ejec.</div>
+    <div class="macro-step">03 Plan.</div>
+    <div class="macro-step">04 Prod.</div>
+    <div class="macro-step">05 Mant.</div>
+    <div class="macro-step active">06 Calid.</div>
+    <div class="macro-step">07 Innov.</div>
+    <div class="macro-step">08 Abast.</div>
+    <div class="macro-step">09 Almac.</div>
+    <div class="macro-step">10 Dist.</div>
+    <div class="macro-step">11 IT</div>
+    <div class="macro-step">12 Gob.</div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Pilar 06</div>
+    <h2 class="section-title">Calidad</h2>
+    <div class="section-subtitle">Quejas y devoluciones &bull; Aseguramiento</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Gestion de quejas embebida en roles comerciales</div>
+    </div>
+    <div class="finding-text">Cesar Barrios e Ivan Cantu tienen el titulo de "Gerente Regional de Atencion y Quejas", lo que sugiere que parte de su rol involucra gestion de quejas y devoluciones, aunque Hugo quiere redefinir estos puestos hacia ejecucion comercial.</div>
+  </div>
+
+  <!-- PILAR 07 -->
+  <div class="macro-map" style="margin-top:40px">
+    <div class="macro-step">01 Intel.</div>
+    <div class="macro-step">02 Ejec.</div>
+    <div class="macro-step">03 Plan.</div>
+    <div class="macro-step">04 Prod.</div>
+    <div class="macro-step">05 Mant.</div>
+    <div class="macro-step">06 Calid.</div>
+    <div class="macro-step active">07 Innov.</div>
+    <div class="macro-step">08 Abast.</div>
+    <div class="macro-step">09 Almac.</div>
+    <div class="macro-step">10 Dist.</div>
+    <div class="macro-step">11 IT</div>
+    <div class="macro-step">12 Gob.</div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Pilar 07</div>
+    <h2 class="section-title">Innovacion</h2>
+    <div class="section-subtitle">Generacion de ideas &bull; Desarrollo de iniciativas</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Exploracion de productos concentrados</div>
+    </div>
+    <div class="finding-text">Hugo exploro productos concentrados para sector institucional/industrial en sus primeros meses (ago-dic 2025). Asistieron a una feria en Las Vegas para presentar producto concentrado.</div>
+  </div>
+
+  <div class="finding-card positive">
+    <div class="finding-header">
+      <div class="finding-icon">+</div>
+      <div class="finding-title">I+D con gestion directa hacia cliente</div>
+    </div>
+    <div class="finding-text">La subdirectora de I+D, Aide Gomez, ya tiene gestion directa con Sam's Club para temas tecnicos y quimicos de productos. Antes todo se filtraba por una sola persona.</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Oportunidad de ampliar catalogo en Home Depot</div>
+    </div>
+    <div class="finding-text">Ampliar catálogo para consolidar pedidos y mejorar el servicio logistico con este cliente. Potencial de desarrollo de productos especificos para el canal.</div>
+  </div>
+
+  <!-- PILAR 08 -->
+  <div class="macro-map" style="margin-top:40px">
+    <div class="macro-step">01 Intel.</div>
+    <div class="macro-step">02 Ejec.</div>
+    <div class="macro-step">03 Plan.</div>
+    <div class="macro-step">04 Prod.</div>
+    <div class="macro-step">05 Mant.</div>
+    <div class="macro-step">06 Calid.</div>
+    <div class="macro-step">07 Innov.</div>
+    <div class="macro-step active">08 Abast.</div>
+    <div class="macro-step">09 Almac.</div>
+    <div class="macro-step">10 Dist.</div>
+    <div class="macro-step">11 IT</div>
+    <div class="macro-step">12 Gob.</div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Pilar 08</div>
+    <h2 class="section-title">Abastecimiento</h2>
+    <div class="section-subtitle">Planeacion de compra &bull; Proveedores</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Anticipos a proveedores en crecimiento</div>
+    </div>
+    <div class="finding-text">Anticipos a proveedores crecieron significativamente ($0.2M en 2022 a $52M en 2025 &mdash; dato de KB/Marco), lo cual puede estar conectado con las dinamicas de compra que el area comercial genera al exigir forecast mas preciso.</div>
+    <div class="finding-kpi red">$0.2M &rarr; $52M (2022-2025)</div>
+  </div>
+
+  <!-- PILAR 09 -->
+  <div class="macro-map" style="margin-top:40px">
+    <div class="macro-step">01 Intel.</div>
+    <div class="macro-step">02 Ejec.</div>
+    <div class="macro-step">03 Plan.</div>
+    <div class="macro-step">04 Prod.</div>
+    <div class="macro-step">05 Mant.</div>
+    <div class="macro-step">06 Calid.</div>
+    <div class="macro-step">07 Innov.</div>
+    <div class="macro-step">08 Abast.</div>
+    <div class="macro-step active">09 Almac.</div>
+    <div class="macro-step">10 Dist.</div>
+    <div class="macro-step">11 IT</div>
+    <div class="macro-step">12 Gob.</div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Pilar 09</div>
+    <h2 class="section-title">Almacenes</h2>
+    <div class="section-subtitle">Control de inventarios &bull; Diseno de almacen</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Tienda propia con potencial de expansion</div>
+    </div>
+    <div class="finding-text">La tienda propia factura ~$700K-$1M/mes con potencial de expansion. Se cerro una tienda en el centro y se planea abrir en central de abastos de Tultitlan.</div>
+  </div>
+
+  <!-- PILAR 10 -->
+  <div class="macro-map" style="margin-top:40px">
+    <div class="macro-step">01 Intel.</div>
+    <div class="macro-step">02 Ejec.</div>
+    <div class="macro-step">03 Plan.</div>
+    <div class="macro-step">04 Prod.</div>
+    <div class="macro-step">05 Mant.</div>
+    <div class="macro-step">06 Calid.</div>
+    <div class="macro-step">07 Innov.</div>
+    <div class="macro-step">08 Abast.</div>
+    <div class="macro-step">09 Almac.</div>
+    <div class="macro-step active">10 Dist.</div>
+    <div class="macro-step">11 IT</div>
+    <div class="macro-step">12 Gob.</div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Pilar 10</div>
+    <h2 class="section-title">Distribucion</h2>
+    <div class="section-subtitle">Ultima milla &bull; Eficiencia</div>
+  </div>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Problemas logisticos con Home Depot</div>
+    </div>
+    <div class="finding-text">Pedidos pequenos que se acumulan y luego "a veces les surtimos, a veces no". Esto esta deteriorando la relacion con el cliente. Necesita resolucion urgente para no perder este canal.</div>
+  </div>
+
+  <div class="page-footer">London Consulting Group &bull; Project Shine &bull; Confidencial &bull; Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PILARES 11 y 12 -->
+<!-- ============================================================ -->
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
+  </div>
+
+  <!-- PILAR 11 -->
+  <div class="macro-map">
+    <div class="macro-step">01 Intel.</div>
+    <div class="macro-step">02 Ejec.</div>
+    <div class="macro-step">03 Plan.</div>
+    <div class="macro-step">04 Prod.</div>
+    <div class="macro-step">05 Mant.</div>
+    <div class="macro-step">06 Calid.</div>
+    <div class="macro-step">07 Innov.</div>
+    <div class="macro-step">08 Abast.</div>
+    <div class="macro-step">09 Almac.</div>
+    <div class="macro-step">10 Dist.</div>
+    <div class="macro-step active">11 IT</div>
+    <div class="macro-step">12 Gob.</div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Pilar 11</div>
+    <h2 class="section-title">Digitalizacion / IT</h2>
+    <div class="section-subtitle">Data analytics &bull; Sistemas de informacion &bull; Automatizacion</div>
+  </div>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Todo el analisis comercial se hace en Excel</div>
+    </div>
+    <div class="finding-text">Los archivos son pesados y tardan en cargar. Hugo reconoce la necesidad de Power BI y dashboards mas completos. No hay herramientas avanzadas de BI en toda el area comercial.</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Plataforma Madrid (Retail Link) no se explota</div>
+    </div>
+    <div class="finding-text">Es la herramienta clave de datos del retailer y PI Group no la esta aprovechando. Contiene datos granulares de sellout, inventario y categoria que podrian transformar las decisiones comerciales.</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">No existe infraestructura de Sales Intelligence</div>
+    </div>
+    <div class="finding-text">Hugo la ha tenido que construir el mismo junto con Cesar, de forma manual y en Excel. No hay equipo, no hay herramientas, no hay proceso formalizado.</div>
+  </div>
+
+  <!-- PILAR 12 -->
+  <div class="macro-map" style="margin-top:40px">
+    <div class="macro-step">01 Intel.</div>
+    <div class="macro-step">02 Ejec.</div>
+    <div class="macro-step">03 Plan.</div>
+    <div class="macro-step">04 Prod.</div>
+    <div class="macro-step">05 Mant.</div>
+    <div class="macro-step">06 Calid.</div>
+    <div class="macro-step">07 Innov.</div>
+    <div class="macro-step">08 Abast.</div>
+    <div class="macro-step">09 Almac.</div>
+    <div class="macro-step">10 Dist.</div>
+    <div class="macro-step">11 IT</div>
+    <div class="macro-step active">12 Gob.</div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Pilar 12</div>
+    <h2 class="section-title">Estructura, Gobierno y Capital Humano</h2>
+    <div class="section-subtitle">Desarrollo de lideres &bull; Gobierno operativo &bull; Talento</div>
+  </div>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Direccion comercial nueva en su forma actual</div>
+    </div>
+    <div class="finding-text">Antes no existia estructura profesional de ventas. Las decisiones se tomaban "con el dedo" &mdash; sin data, sin proceso, sin gobierno. El dueno era quien daba la cara a los clientes.</div>
+  </div>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">KAM de Sam's (Klaus) no funciona</div>
+    </div>
+    <div class="finding-text">Hugo planea hacer un cambio a menos de 3 meses de haberlo incorporado. Esto sugiere un problema de proceso de seleccion o de claridad en el perfil requerido. Es la posicion mas critica del area.</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Talento de bajo calibre en el equipo</div>
+    </div>
+    <div class="finding-text">La mayoria de los perfiles del equipo comercial son de nivel "coordinador hacia abajo"; Hugo senala que "muchos no llegan ni analista ni coordinador". No hay subdirector comercial &mdash; Hugo es director sin capa intermedia de gestion.</div>
+  </div>
+
+  <div class="finding-card positive">
+    <div class="finding-header">
+      <div class="finding-icon">+</div>
+      <div class="finding-title">Mentalidad de empresa grande</div>
+    </div>
+    <div class="finding-text">Hugo trae mentalidad de PepsiCo e intenta implementar procesos y estructuras que no existian. Roadmap de 90 dias: data minima viable (logrado parcialmente), relacion estrategica con el cliente (avanzando), ejecucion/talento/control (en proceso), modelo de subdireccion (pendiente).</div>
+  </div>
+
+  <div class="page-footer">London Consulting Group &bull; Project Shine &bull; Confidencial &bull; Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- DATOS DUROS -->
+<!-- ============================================================ -->
+<div class="section-divider">
+  <div class="section-divider-text">Datos Duros</div>
+</div>
+
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Referencia</div>
+    <h2 class="section-title">Datos Duros Obtenidos</h2>
+    <div class="section-subtitle">Cifras, metricas e indicadores mencionados durante la entrevista</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Dato</th>
+        <th>Valor</th>
+        <th>Contexto</th>
+        <th>Pilar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Antiguedad de Hugo en PI Group</td>
+        <td class="num">~9 meses</td>
+        <td>Desde agosto 2025; absorbio comercial en enero 2026</td>
+        <td><span class="pilar-tag">12</span></td>
+      </tr>
+      <tr>
+        <td>Background Hugo</td>
+        <td class="num">10a PepsiCo + 3a Walmart</td>
+        <td>Category Development, KAM, sector LATAM en PepsiCo</td>
+        <td><span class="pilar-tag">12</span></td>
+      </tr>
+      <tr>
+        <td>Tiendas Sam's atendidas</td>
+        <td class="num">176 tiendas</td>
+        <td>Cobertura nacional</td>
+        <td><span class="pilar-tag">02</span></td>
+      </tr>
+      <tr>
+        <td>SKUs en Sam's &mdash; Limpieza</td>
+        <td class="num">11 codigos</td>
+        <td>Con comprador de categoria limpieza</td>
+        <td><span class="pilar-tag">01</span></td>
+      </tr>
+      <tr>
+        <td>SKUs en Sam's &mdash; Automotriz</td>
+        <td class="num">3 codigos</td>
+        <td>Otro comprador, rotacion mucho mas lenta</td>
+        <td><span class="pilar-tag">01</span></td>
+      </tr>
+      <tr>
+        <td>Dias de inventario &mdash; Limpieza</td>
+        <td class="num">~24-25 dias</td>
+        <td>Target sano: ~20 dias</td>
+        <td><span class="pilar-tag">02</span></td>
+      </tr>
+      <tr>
+        <td>Dias de inventario &mdash; Automotriz</td>
+        <td class="num">+100 dias</td>
+        <td>Rotacion muy lenta en algunas tiendas</td>
+        <td><span class="pilar-tag">02</span></td>
+      </tr>
+      <tr>
+        <td>Relacion on-hand vs. ordenado</td>
+        <td class="num">70% / 30%</td>
+        <td>Considerado saludable</td>
+        <td><span class="pilar-tag">02</span></td>
+      </tr>
+      <tr>
+        <td>Codigos descatalogados Sam's</td>
+        <td class="num">~5 codigos</td>
+        <td>Representaban ~$60M MXN/mes</td>
+        <td><span class="pilar-tag">01</span> <span class="pilar-tag">02</span></td>
+      </tr>
+      <tr>
+        <td>Impacto enero 2026 vs. LY</td>
+        <td class="num">-32%</td>
+        <td>68% de alcance, por base de codigos perdidos</td>
+        <td><span class="pilar-tag">02</span></td>
+      </tr>
+      <tr>
+        <td>Impacto febrero 2026 vs. LY</td>
+        <td class="num">-7%</td>
+        <td>93% de alcance, $32M de base perdida</td>
+        <td><span class="pilar-tag">02</span></td>
+      </tr>
+      <tr>
+        <td>Marzo 2026 vs. LY</td>
+        <td class="num">+2%</td>
+        <td>Primer mes limpio sin base de codigos perdidos</td>
+        <td><span class="pilar-tag">02</span></td>
+      </tr>
+      <tr>
+        <td>Caida volumen real estimada</td>
+        <td class="num">~8-10% abajo</td>
+        <td>Aun en meses limpios, compensado por precio</td>
+        <td><span class="pilar-tag">01</span> <span class="pilar-tag">02</span></td>
+      </tr>
+      <tr>
+        <td>Productos en Home Depot</td>
+        <td class="num">23 productos</td>
+        <td>Mal atendidos, pedidos irregulares</td>
+        <td><span class="pilar-tag">02</span></td>
+      </tr>
+      <tr>
+        <td>Facturacion tienda propia</td>
+        <td class="num">~$700K-$1M/mes</td>
+        <td>Una sola tienda operando (la del centro cerro)</td>
+        <td><span class="pilar-tag">02</span></td>
+      </tr>
+      <tr>
+        <td>E-commerce</td>
+        <td class="num">$0 ventas</td>
+        <td>Cuentas abiertas en MeLi y Amazon pero no se atienden</td>
+        <td><span class="pilar-tag">02</span></td>
+      </tr>
+      <tr>
+        <td>Equipo comercial total</td>
+        <td class="num">~12-15 personas</td>
+        <td>Incluyendo tienda, diseno, campo</td>
+        <td><span class="pilar-tag">12</span></td>
+      </tr>
+      <tr>
+        <td>KAMs existentes</td>
+        <td class="num">1</td>
+        <td>Solo para Sam's; el resto los atiende Hugo</td>
+        <td><span class="pilar-tag">02</span></td>
+      </tr>
+      <tr>
+        <td>Sellout suavizante 10L marzo</td>
+        <td class="num">~27,000 uds</td>
+        <td>Dato parcial de primeros dias de marzo</td>
+        <td><span class="pilar-tag">01</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">London Consulting Group &bull; Project Shine &bull; Confidencial &bull; Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- BANDERAS / ALERTAS -->
+<!-- ============================================================ -->
+<div class="section-divider">
+  <div class="section-divider-text">Banderas / Alertas</div>
+</div>
+
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Alertas</div>
+    <h2 class="section-title">Banderas / Alertas</h2>
+    <div class="section-subtitle">Hallazgos que requieren atencion inmediata o seguimiento prioritario</div>
+  </div>
+
+  <div class="callout callout-red">
+    <div class="callout-label" style="color:var(--red)">Critica</div>
+    <p><strong>El KAM de Sam's (Klaus) no funciona y sera reemplazado.</strong> A menos de 3 meses de incorporacion, esto sugiere un problema de proceso de seleccion o de claridad en el perfil requerido. Es la posicion mas critica del area.</p>
+  </div>
+
+  <div class="callout callout-red">
+    <div class="callout-label" style="color:var(--red)">Critica</div>
+    <p><strong>Caida de volumen real (~8-10%) encubierta por incrementos de precio.</strong> El sellout en piezas cae mientras pesos se mantiene o sube ligeramente. Esto es insostenible si la elasticidad sigue castigando volumen.</p>
+  </div>
+
+  <div class="callout callout-red">
+    <div class="callout-label" style="color:var(--red)">Alta</div>
+    <p><strong>Home Depot desatendido durante mas de un ano.</strong> Es un cliente con "mucho potencial" que puede perderse. Problemas logisticos (pedidos pequenos, surtido irregular) deterioran la relacion.</p>
+  </div>
+
+  <div class="callout callout-red">
+    <div class="callout-label" style="color:var(--red)">Alta</div>
+    <p><strong>Fuerza de campo sin valor agregado.</strong> Dos personas en nomina (GDL y CDMX) cuyo aporte actual es tomar fotos. Sin metricas, sin checklist, sin conexion con datos de sellout.</p>
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-label" style="color:var(--lcg-teal)">Estructural</div>
+    <p><strong>Concentracion extrema en Sam's Club persiste.</strong> Todo el esfuerzo de inteligencia comercial y estructura esta enfocado en un solo cliente. Los demas no tienen ni seguimiento basico.</p>
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-label" style="color:var(--lcg-teal)">Estructural</div>
+    <p><strong>No hay estructura para escalar la diversificacion.</strong> Hugo tiene la vision pero no los recursos. Sin subdirector, sin KAMs adicionales, sin Sales Intelligence, sin marketing estrategico.</p>
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-label" style="color:var(--lcg-teal)">Riesgo</div>
+    <p><strong>Dependencia de relacion personal de Hugo con comprador de Sam's.</strong> Su ex-companero de Walmart es actualmente el comprador de limpieza en Sam's. Ventaja tactica pero riesgo si cualquiera de los dos cambia de posicion.</p>
+  </div>
+
+  <div class="two-col">
+    <div class="callout callout-amber">
+      <div class="callout-label" style="color:var(--lcg-teal)">Monitorear</div>
+      <p><strong>Tienda del centro cerro hace un mes.</strong> Posible senal de que el modelo de tienda propia tiene limitaciones o no estaba bien gestionado.</p>
+    </div>
+    <div class="callout callout-red">
+      <div class="callout-label" style="color:var(--red)">Abandono</div>
+      <p><strong>E-commerce completamente abandonado.</strong> Cuentas abiertas en MeLi y Amazon sin atender, en una era donde el canal digital crece aceleradamente.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">London Consulting Group &bull; Project Shine &bull; Confidencial &bull; Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- OPORTUNIDADES -->
+<!-- ============================================================ -->
+<div class="section-divider">
+  <div class="section-divider-text">Oportunidades Identificadas</div>
+</div>
+
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Inventario de Oportunidades</div>
+    <h2 class="section-title">Oportunidades Identificadas</h2>
+    <div class="section-subtitle">OPP-005 (refuerzo) + 6 nuevas oportunidades de esta entrevista</div>
+  </div>
+
+  <div class="opp-grid">
+
+    <!-- OPP-005 -->
+    <div class="opp-card">
+      <div class="opp-card-header">
+        <div class="opp-id">OPP-005 (refuerzo)</div>
+        <div class="opp-name">Diversificacion de Clientes</div>
       </div>
-      <div class="metric-card alert">
-        <div class="metric-value">+100d</div>
-        <div class="metric-label">Dias inv. automotriz (algunas tiendas)</div>
-      </div>
-    </div>
-
-    <div class="finding critical">
-      <strong>Se perdieron ~5 codigos descatalogados</strong> que representaban <span class="data-highlight">~$60M MXN/mes</span> en ventas. Impacto severo en enero 2026: <span class="data-highlight">-32% vs. LY</span>. Febrero mejoro a -7%. <strong>Marzo 2026 fue el primer mes "limpio": +2% vs. LY en pesos.</strong>
-    </div>
-
-    <div class="finding">
-      <strong>En volumen real, PI probablemente esta ~8-10% abajo</strong> aun en meses "limpios", compensado parcialmente por incrementos de precio.
-    </div>
-
-    <div class="finding">
-      <strong>CPFR formal con Sam's Club</strong> es un avance significativo. Se firmo convenio de confidencialidad, se formalizo la posicion. Relacion 70% on-hand / 30% ordenado en pipeline (considerado saludable).
-    </div>
-
-    <div class="finding">
-      <strong>Se trabaja en un scorecard semanal</strong> para compartir con el comprador de Sam's (business review), pero aun no esta listo.
-    </div>
-
-    <!-- Otros Clientes -->
-    <div class="sub-header">Gestion de Otros Clientes</div>
-
-    <div class="finding">
-      <strong>Home Depot:</strong> <span class="data-highlight">23 productos</span> listados. "Llevamos un ano y cacho atendiendolos no de la manera correcta." Problemas logisticos: pedidos pequenos que se acumulan. Visita a planta programada.
-    </div>
-
-    <div class="finding">
-      <strong>Garraton:</strong> Cliente de Puerto Rico (export via PIMA). Tiene cierto orden y objetivo de ventas.
-    </div>
-
-    <div class="finding">
-      <strong>Aeromexico, Sanchez y Martin:</strong> Clientes pequenos pero relevantes. Sin KAM dedicado.
-    </div>
-
-    <div class="finding">
-      <strong>Tienda propia:</strong> Factura <span class="data-highlight">~$700K-$1M MXN/mes</span>. Una tienda del centro cerro hace un mes. Se explora abrir en central de abastos de Tultitlan. Margenes superiores a maquila.
-    </div>
-
-    <div class="finding critical">
-      <strong>E-commerce:</strong> Cuentas abiertas en Mercado Libre y Amazon, pero "no las atendemos". <span class="data-highlight">$0 venta por e-commerce</span> actualmente.
-    </div>
-
-    <!-- Promotoria -->
-    <div class="sub-header">Promotoria / Fuerza de Campo</div>
-
-    <div class="finding critical">
-      <strong>Dos personas en campo</strong> (Cesar Barrios en GDL, Ivan Cantu en CDMX) con rol actual limitado: visitan tiendas, toman fotos de producto, competencia, precios, promociones. <strong>"Es todo, no hay un mas alla."</strong>
-    </div>
-
-    <div class="finding">
-      <strong>No llegan preparados a las visitas</strong> con datos de desempeno por tienda. No hay checklist de ejecucion (tipo "12 puntos de ejecucion" de PepsiCo).
-    </div>
-
-    <div class="finding">
-      <strong>Hugo quiere transformar estos roles:</strong> (1) ejecucion y disciplina en tienda con metricas y checklist, y (2) crecimiento y desarrollo de clientes regionales (prospectar Soriana, Arteli, etc.).
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ PILAR 03 ═══════════════════ -->
-<section class="section" id="pilar03">
-  <div class="container">
-    <div class="section-header">
-      <div class="pillar-num">Pilar 03</div>
-      <h2>Planeacion de Produccion</h2>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="finding">
-      <strong>Se creo un AOP anual dividido por meses</strong>, validado con Marco (Finanzas) y la Direccion General. Es el primer AOP que tiene el area comercial.
-    </div>
-
-    <div class="finding">
-      <strong>Se esta alineando el forecast de sellout con la planeacion de produccion.</strong> Hugo menciona que "hoy en dia tenemos una planeacion en la produccion, en el forecast para poder cumplirle al cliente al 100%."
-    </div>
-
-    <div class="finding">
-      <strong>El CPFR Junior (Azael) es el enlace interno</strong> con planeacion y compras &mdash; coordina la demanda del cliente con las areas productivas.
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ OTROS PILARES ═══════════════════ -->
-<section class="section" id="pilar-otros">
-  <div class="container">
-    <div class="section-header">
-      <div class="pillar-num">Pilares 06, 07, 08, 09, 10, 11, 12</div>
-      <h2>Hallazgos en Otros Pilares</h2>
-      <div class="section-line"></div>
-    </div>
-
-    <!-- 06 -->
-    <div class="sub-header">Pilar 06: Calidad</div>
-    <div class="finding">
-      Cesar Barrios e Ivan Cantu tienen el titulo de "Gerente Regional de Atencion y Quejas", lo que sugiere que parte de su rol involucra <strong>gestion de quejas y devoluciones</strong>, aunque Hugo quiere redefinir estos puestos hacia ejecucion comercial.
-    </div>
-
-    <!-- 07 -->
-    <div class="sub-header">Pilar 07: Innovacion</div>
-    <div class="finding">
-      Hugo exploro <strong>productos concentrados para sector institucional/industrial</strong> en sus primeros meses (ago-dic 2025). Asistieron a una feria en Las Vegas para presentar producto concentrado.
-    </div>
-    <div class="finding">
-      La subdirectora de I+D, <strong>Aide Gomez</strong>, ya tiene gestion directa con Sam's Club para temas tecnicos y quimicos de productos. Antes todo se filtraba por una sola persona.
-    </div>
-    <div class="finding">
-      Oportunidad de <strong>ampliar catalogo en Home Depot</strong> para consolidar pedidos y mejorar servicio.
-    </div>
-
-    <!-- 08 -->
-    <div class="sub-header">Pilar 08: Abastecimiento</div>
-    <div class="finding">
-      <strong>Anticipos a proveedores crecieron significativamente</strong> (<span class="data-highlight">$0.2M en 2022 a $52M en 2025</span>), lo cual puede estar conectado con las dinamicas de compra que el area comercial genera al exigir forecast mas preciso.
-    </div>
-
-    <!-- 09 -->
-    <div class="sub-header">Pilar 09: Almacenes</div>
-    <div class="finding">
-      La <strong>tienda propia factura ~$700K-$1M/mes</strong> con potencial de expansion. Se cerro una tienda en el centro y se planea abrir en central de abastos de Tultitlan.
-    </div>
-
-    <!-- 10 -->
-    <div class="sub-header">Pilar 10: Distribucion</div>
-    <div class="finding critical">
-      <strong>Problemas logisticos con Home Depot:</strong> pedidos pequenos que se acumulan y luego "a veces les surtimos, a veces no". Esto esta deteriorando la relacion con el cliente.
-    </div>
-
-    <!-- 11 -->
-    <div class="sub-header">Pilar 11: Digitalizacion / IT</div>
-    <div class="finding">
-      <strong>Todo el analisis comercial se hace en Excel.</strong> Archivos pesados que tardan en cargar. Hugo reconoce la necesidad de Power BI y dashboards mas completos.
-    </div>
-    <div class="finding">
-      <strong>La plataforma Madrid (Retail Link de Sam's) no se explota.</strong> Es la herramienta clave de datos del retailer y PI Group no la esta aprovechando.
-    </div>
-    <div class="finding">
-      <strong>No existe infraestructura de Sales Intelligence.</strong> Hugo la ha tenido que construir el mismo junto con Cesar.
-    </div>
-
-    <!-- 12 -->
-    <div class="sub-header">Pilar 12: Estructura, Gobierno y Capital Humano</div>
-    <div class="finding critical">
-      <strong>La direccion comercial es nueva en su forma actual.</strong> Antes no existia estructura profesional de ventas. Las decisiones se tomaban "con el dedo" &mdash; sin data, sin proceso, sin gobierno.
-    </div>
-    <div class="finding critical">
-      <strong>El KAM de Sam's (Klaus) no esta funcionando</strong> y Hugo planea hacer un cambio. Esto a menos de 3 meses de haberlo incorporado.
-    </div>
-    <div class="finding">
-      La mayoria de los perfiles del equipo comercial son de nivel <strong>"coordinador hacia abajo"</strong>; Hugo senala que "muchos no llegan ni analista ni coordinador". Falta talento de alto calibre.
-    </div>
-    <div class="finding">
-      <strong>No hay subdirector comercial.</strong> Hugo es director sin capa intermedia de gestion. Antes, el dueno era quien daba la cara a los clientes.
-    </div>
-    <div class="finding">
-      <strong>Roadmap de 90 dias de Hugo:</strong> Data minima viable (logrado parcialmente), relacion estrategica con el cliente (avanzando), ejecucion/talento/control (en proceso), modelo de subdireccion (pendiente).
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ DATOS DUROS ═══════════════════ -->
-<section class="section" id="datos">
-  <div class="container">
-    <div class="section-header">
-      <div class="pillar-num">Referencia</div>
-      <h2>Datos Duros Obtenidos</h2>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="data-table-wrapper">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Dato</th>
-            <th>Valor</th>
-            <th>Contexto</th>
-            <th>Pilar</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Antiguedad de Hugo en PI Group</td>
-            <td class="num">~9 meses</td>
-            <td>Desde agosto 2025; absorbio comercial en enero 2026</td>
-            <td><span class="pilar-tag">12</span></td>
-          </tr>
-          <tr>
-            <td>Background Hugo</td>
-            <td class="num">10a PepsiCo + 3a Walmart</td>
-            <td>Category Development, KAM, sector LATAM en PepsiCo</td>
-            <td><span class="pilar-tag">12</span></td>
-          </tr>
-          <tr>
-            <td>Tiendas Sam's atendidas</td>
-            <td class="num">176 tiendas</td>
-            <td>Cobertura nacional</td>
-            <td><span class="pilar-tag">02</span></td>
-          </tr>
-          <tr>
-            <td>SKUs en Sam's &mdash; Limpieza</td>
-            <td class="num">11 codigos</td>
-            <td>Con comprador de categoria limpieza</td>
-            <td><span class="pilar-tag">01</span></td>
-          </tr>
-          <tr>
-            <td>SKUs en Sam's &mdash; Automotriz</td>
-            <td class="num">3 codigos</td>
-            <td>Otro comprador, rotacion mucho mas lenta</td>
-            <td><span class="pilar-tag">01</span></td>
-          </tr>
-          <tr>
-            <td>Dias de inventario &mdash; Limpieza</td>
-            <td class="num">~24-25 dias</td>
-            <td>Target sano: ~20 dias</td>
-            <td><span class="pilar-tag">02</span></td>
-          </tr>
-          <tr>
-            <td>Dias de inventario &mdash; Automotriz</td>
-            <td class="num">+100 dias</td>
-            <td>Rotacion muy lenta en algunas tiendas</td>
-            <td><span class="pilar-tag">02</span></td>
-          </tr>
-          <tr>
-            <td>Relacion on-hand vs. ordenado</td>
-            <td class="num">70% / 30%</td>
-            <td>Considerado saludable</td>
-            <td><span class="pilar-tag">02</span></td>
-          </tr>
-          <tr>
-            <td>Codigos descatalogados Sam's</td>
-            <td class="num">~5 codigos</td>
-            <td>Representaban ~$60M MXN/mes</td>
-            <td><span class="pilar-tag">01</span> <span class="pilar-tag">02</span></td>
-          </tr>
-          <tr>
-            <td>Impacto enero 2026 vs. LY</td>
-            <td class="num">-32%</td>
-            <td>68% de alcance, por base de codigos perdidos</td>
-            <td><span class="pilar-tag">02</span></td>
-          </tr>
-          <tr>
-            <td>Impacto febrero 2026 vs. LY</td>
-            <td class="num">-7%</td>
-            <td>93% de alcance, $32M de base perdida</td>
-            <td><span class="pilar-tag">02</span></td>
-          </tr>
-          <tr>
-            <td>Marzo 2026 vs. LY</td>
-            <td class="num">+2%</td>
-            <td>Primer mes limpio sin base de codigos perdidos</td>
-            <td><span class="pilar-tag">02</span></td>
-          </tr>
-          <tr>
-            <td>Caida volumen real estimada</td>
-            <td class="num">~8-10% abajo</td>
-            <td>Aun en meses limpios, compensado por precio</td>
-            <td><span class="pilar-tag">01</span> <span class="pilar-tag">02</span></td>
-          </tr>
-          <tr>
-            <td>Productos en Home Depot</td>
-            <td class="num">23 productos</td>
-            <td>Mal atendidos, pedidos irregulares</td>
-            <td><span class="pilar-tag">02</span></td>
-          </tr>
-          <tr>
-            <td>Facturacion tienda propia</td>
-            <td class="num">~$700K-$1M/mes</td>
-            <td>Una sola tienda operando (la del centro cerro)</td>
-            <td><span class="pilar-tag">02</span></td>
-          </tr>
-          <tr>
-            <td>E-commerce</td>
-            <td class="num">$0 ventas</td>
-            <td>Cuentas abiertas en MeLi y Amazon pero no se atienden</td>
-            <td><span class="pilar-tag">02</span></td>
-          </tr>
-          <tr>
-            <td>Equipo comercial total</td>
-            <td class="num">~12-15 personas</td>
-            <td>Incluyendo tienda, diseno, campo</td>
-            <td><span class="pilar-tag">12</span></td>
-          </tr>
-          <tr>
-            <td>KAMs existentes</td>
-            <td class="num">1</td>
-            <td>Solo para Sam's; el resto los atiende Hugo</td>
-            <td><span class="pilar-tag">02</span></td>
-          </tr>
-          <tr>
-            <td>Sellout suavizante 10L marzo</td>
-            <td class="num">~27,000 uds</td>
-            <td>Dato parcial de primeros dias de marzo</td>
-            <td><span class="pilar-tag">01</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ ALERTAS ═══════════════════ -->
-<section class="alert-section" id="alertas">
-  <div class="container">
-    <h2>Banderas / Alertas</h2>
-    <div class="section-line"></div>
-
-    <div class="alert-card">
-      <strong>El KAM de Sam's (Klaus) no funciona y sera reemplazado.</strong> A menos de 3 meses de incorporacion, esto sugiere un problema de proceso de seleccion o de claridad en el perfil requerido. Es la posicion mas critica del area.
-    </div>
-    <div class="alert-card">
-      <strong>Caida de volumen real (~8-10%) encubierta por incrementos de precio.</strong> El sellout en piezas cae mientras pesos se mantiene o sube ligeramente. Esto es insostenible si la elasticidad sigue castigando volumen.
-    </div>
-    <div class="alert-card">
-      <strong>Home Depot desatendido durante mas de un ano.</strong> Es un cliente con "mucho potencial" que puede perderse. Problemas logisticos deterioran la relacion.
-    </div>
-    <div class="alert-card">
-      <strong>Fuerza de campo sin valor agregado.</strong> Dos personas en nomina (GDL y CDMX) cuyo aporte actual es tomar fotos. Sin metricas, sin checklist, sin conexion con datos de sellout.
-    </div>
-    <div class="alert-card">
-      <strong>Concentracion extrema en Sam's Club persiste.</strong> Todo el esfuerzo de inteligencia comercial y estructura esta enfocado en un solo cliente. Los demas no tienen ni seguimiento basico.
-    </div>
-    <div class="alert-card">
-      <strong>No hay estructura para escalar la diversificacion.</strong> Hugo tiene la vision pero no los recursos. Sin subdirector, sin KAMs adicionales, sin Sales Intelligence, sin marketing estrategico.
-    </div>
-    <div class="alert-card">
-      <strong>Dependencia de relacion personal de Hugo con comprador de Sam's.</strong> Ventaja tactica pero riesgo si cualquiera de los dos cambia de posicion.
-    </div>
-    <div class="alert-card">
-      <strong>Tienda del centro cerro hace un mes.</strong> Posible senal de que el modelo de tienda propia tiene limitaciones o no estaba bien gestionado.
-    </div>
-    <div class="alert-card">
-      <strong>E-commerce completamente abandonado.</strong> Cuentas abiertas en MeLi y Amazon sin atender, en una era donde el canal digital crece aceleradamente.
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ OPORTUNIDADES ═══════════════════ -->
-<section class="section" id="oportunidades">
-  <div class="container">
-    <div class="section-header">
-      <div class="pillar-num">Inventario de Oportunidades</div>
-      <h2>Oportunidades Identificadas</h2>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="opp-grid">
-
-      <!-- OPP-005 -->
-      <div class="opp-card">
-        <div class="opp-card-header">
-          <div class="opp-card-id">OPP-005 (refuerzo)</div>
-          <div class="opp-card-title">Diversificacion de Clientes</div>
-        </div>
-        <div class="opp-card-body">
-          <p class="opp-card-desc">Hugo tiene vision clara de expandir a cadenas regionales (Soriana, Arteli, etc.), desarrollar Home Depot, abrir central de abastos, explorar sector institucional/industrial con productos concentrados. La fuerza de campo en GDL y CDMX podria reenfocarse a prospeccion.</p>
-          <div class="opp-card-meta">
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Pilares</span>
-              <span class="opp-meta-value">01, 02</span>
-            </div>
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Impacto</span>
-              <span class="opp-meta-value large">Estrategico</span>
-            </div>
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Horizonte</span>
-              <span class="opp-meta-value">Mediano plazo</span>
-            </div>
+      <div class="opp-card-body">
+        <p class="opp-desc">Hugo tiene vision clara de expandir a cadenas regionales (Soriana, Arteli, etc.), desarrollar Home Depot, abrir central de abastos, explorar sector institucional/industrial con productos concentrados. La fuerza de campo en GDL y CDMX podria reenfocarse a prospeccion.</p>
+        <div class="opp-meta">
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Pilares</span>
+            <span class="opp-meta-value">01, 02</span>
+          </div>
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Impacto</span>
+            <span class="opp-meta-value large">Estrategico</span>
+          </div>
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Horizonte</span>
+            <span class="opp-badge mp">Mediano Plazo</span>
           </div>
         </div>
       </div>
-
-      <!-- OPP-008 -->
-      <div class="opp-card">
-        <div class="opp-card-header">
-          <div class="opp-card-id">OPP-008 (nueva)</div>
-          <div class="opp-card-title">Profesionalizacion del Area Comercial</div>
-        </div>
-        <div class="opp-card-body">
-          <p class="opp-card-desc">Implementar estructura de KAMs por cliente, CPFR para todos los clientes, Sales Intelligence con dashboards en Power BI, scorecard semanal para Sam's, checklist de ejecucion en tienda. Hugo ya tiene el roadmap; necesita recursos y velocidad.</p>
-          <div class="opp-card-meta">
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Pilares</span>
-              <span class="opp-meta-value">02, 12</span>
-            </div>
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Impacto</span>
-              <span class="opp-meta-value large">Habilitador</span>
-            </div>
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Horizonte</span>
-              <span class="opp-meta-value">3-6 meses</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- OPP-009 -->
-      <div class="opp-card">
-        <div class="opp-card-header">
-          <div class="opp-card-id">OPP-009 (nueva)</div>
-          <div class="opp-card-title">Explotacion de Datos Sam's (Madrid/Retail Link)</div>
-        </div>
-        <div class="opp-card-body">
-          <p class="opp-card-desc">La plataforma de Sam's ofrece informacion granular (sellout por tienda, por codigo, por dia) que no se esta aprovechando. Con un analista de Sales Intelligence y Power BI, se podrian generar insights de pricing, promociones, quiebres de inventario y desarrollo de categoria.</p>
-          <div class="opp-card-meta">
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Pilares</span>
-              <span class="opp-meta-value">01, 11</span>
-            </div>
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Impacto</span>
-              <span class="opp-meta-value large">$5-15M/ano</span>
-            </div>
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Horizonte</span>
-              <span class="opp-meta-value">Quick win</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- OPP-010 -->
-      <div class="opp-card">
-        <div class="opp-card-header">
-          <div class="opp-card-id">OPP-010 (nueva)</div>
-          <div class="opp-card-title">Recuperacion de Volumen en Sam's</div>
-        </div>
-        <div class="opp-card-body">
-          <p class="opp-card-desc">El volumen real cae ~8-10% mientras precio sube. Oportunidad de trabajar estrategia de precio-volumen, revisar incrementos de precio, ampliar surtido (hay espacio para mas SKUs) y mejorar ejecucion en tienda para recuperar piezas perdidas.</p>
-          <div class="opp-card-meta">
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Pilares</span>
-              <span class="opp-meta-value">01, 02</span>
-            </div>
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Impacto</span>
-              <span class="opp-meta-value large">$30-60M/ano</span>
-            </div>
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Horizonte</span>
-              <span class="opp-meta-value">3-6 meses</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- OPP-011 -->
-      <div class="opp-card">
-        <div class="opp-card-header">
-          <div class="opp-card-id">OPP-011 (nueva)</div>
-          <div class="opp-card-title">Desarrollo de Home Depot</div>
-        </div>
-        <div class="opp-card-body">
-          <p class="opp-card-desc">23 productos listados pero mal atendidos. Oportunidad de ampliar catalogo, consolidar pedidos, asignar KAM y profesionalizar la relacion. Home Depot tiene potencial significativo como segundo canal organizado.</p>
-          <div class="opp-card-meta">
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Pilares</span>
-              <span class="opp-meta-value">02</span>
-            </div>
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Impacto</span>
-              <span class="opp-meta-value large">$15-30M/ano</span>
-            </div>
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Horizonte</span>
-              <span class="opp-meta-value">6-12 meses</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- OPP-012 -->
-      <div class="opp-card">
-        <div class="opp-card-header">
-          <div class="opp-card-id">OPP-012 (nueva)</div>
-          <div class="opp-card-title">Activacion de Canal E-commerce</div>
-        </div>
-        <div class="opp-card-body">
-          <p class="opp-card-desc">Cuentas abiertas en Mercado Libre y Amazon sin explotar. Bajo costo de activacion, margen superior al canal maquila. Oportunidad de capturar demanda digital creciente sin inversion significativa.</p>
-          <div class="opp-card-meta">
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Pilares</span>
-              <span class="opp-meta-value">02</span>
-            </div>
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Impacto</span>
-              <span class="opp-meta-value large">$5-15M/ano</span>
-            </div>
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Horizonte</span>
-              <span class="opp-meta-value">12-18 meses</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- OPP-013 -->
-      <div class="opp-card">
-        <div class="opp-card-header">
-          <div class="opp-card-id">OPP-013 (nueva)</div>
-          <div class="opp-card-title">Expansion de Tiendas Propias</div>
-        </div>
-        <div class="opp-card-body">
-          <p class="opp-card-desc">La tienda en planta factura ~$10-12M MXN/ano con margenes superiores. Si se logra un modelo replicable (central de abastos, ubicaciones estrategicas), 5-10 tiendas podrian aportar $50-100M MXN/ano en venta con margen diferenciado.</p>
-          <div class="opp-card-meta">
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Pilares</span>
-              <span class="opp-meta-value">02</span>
-            </div>
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Impacto</span>
-              <span class="opp-meta-value large">$50-100M/ano</span>
-            </div>
-            <div class="opp-meta-item">
-              <span class="opp-meta-label">Horizonte</span>
-              <span class="opp-meta-value">Mediano plazo</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
+
+    <!-- OPP-008 -->
+    <div class="opp-card">
+      <div class="opp-card-header">
+        <div class="opp-id">OPP-008 (nueva)</div>
+        <div class="opp-name">Profesionalizacion del Area Comercial</div>
+      </div>
+      <div class="opp-card-body">
+        <p class="opp-desc">Implementar estructura de KAMs por cliente, CPFR para todos los clientes, Sales Intelligence con dashboards en Power BI, scorecard semanal para Sam's, checklist de ejecucion en tienda. Hugo ya tiene el roadmap; necesita recursos y velocidad.</p>
+        <div class="opp-meta">
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Pilares</span>
+            <span class="opp-meta-value">02, 12</span>
+          </div>
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Impacto</span>
+            <span class="opp-meta-value large">Habilitador</span>
+          </div>
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Horizonte</span>
+            <span class="opp-badge mp">3-6 Meses</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPP-009 -->
+    <div class="opp-card">
+      <div class="opp-card-header">
+        <div class="opp-id">OPP-009 (nueva)</div>
+        <div class="opp-name">Explotacion de Datos Sam's (Madrid/Retail Link)</div>
+      </div>
+      <div class="opp-card-body">
+        <p class="opp-desc">La plataforma de Sam's ofrece informacion granular (sellout por tienda, por codigo, por dia) que no se esta aprovechando. Con un analista de Sales Intelligence y Power BI, se podrian generar insights de pricing, promociones, quiebres de inventario y desarrollo de categoria.</p>
+        <div class="opp-meta">
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Pilares</span>
+            <span class="opp-meta-value">01, 11</span>
+          </div>
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Impacto</span>
+            <span class="opp-meta-value large">$5-15M/ano</span>
+          </div>
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Horizonte</span>
+            <span class="opp-badge qw">Quick Win</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPP-010 -->
+    <div class="opp-card">
+      <div class="opp-card-header">
+        <div class="opp-id">OPP-010 (nueva)</div>
+        <div class="opp-name">Recuperacion de Volumen en Sam's</div>
+      </div>
+      <div class="opp-card-body">
+        <p class="opp-desc">El volumen real cae ~8-10% mientras precio sube. Oportunidad de trabajar estrategia de precio-volumen, revisar incrementos de precio, ampliar surtido (hay espacio para mas SKUs) y mejorar ejecucion en tienda para recuperar piezas perdidas.</p>
+        <div class="opp-meta">
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Pilares</span>
+            <span class="opp-meta-value">01, 02</span>
+          </div>
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Impacto</span>
+            <span class="opp-meta-value large">$30-60M/ano</span>
+          </div>
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Horizonte</span>
+            <span class="opp-badge mp">3-6 Meses</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPP-011 -->
+    <div class="opp-card">
+      <div class="opp-card-header">
+        <div class="opp-id">OPP-011 (nueva)</div>
+        <div class="opp-name">Desarrollo de Home Depot</div>
+      </div>
+      <div class="opp-card-body">
+        <p class="opp-desc">23 productos listados pero mal atendidos. Oportunidad de ampliar catalogo, consolidar pedidos, asignar KAM y profesionalizar la relacion. Home Depot tiene potencial significativo como segundo canal organizado.</p>
+        <div class="opp-meta">
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Pilares</span>
+            <span class="opp-meta-value">02</span>
+          </div>
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Impacto</span>
+            <span class="opp-meta-value large">$15-30M/ano</span>
+          </div>
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Horizonte</span>
+            <span class="opp-badge lp">6-12 Meses</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPP-012 -->
+    <div class="opp-card">
+      <div class="opp-card-header">
+        <div class="opp-id">OPP-012 (nueva)</div>
+        <div class="opp-name">Activacion de Canal E-commerce</div>
+      </div>
+      <div class="opp-card-body">
+        <p class="opp-desc">Cuentas abiertas en Mercado Libre y Amazon sin explotar. Bajo costo de activacion, margen superior al canal maquila. Oportunidad de capturar demanda digital creciente sin inversion significativa.</p>
+        <div class="opp-meta">
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Pilares</span>
+            <span class="opp-meta-value">02</span>
+          </div>
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Impacto</span>
+            <span class="opp-meta-value large">$5-15M/ano</span>
+          </div>
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Horizonte</span>
+            <span class="opp-badge lp">12-18 Meses</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPP-013 -->
+    <div class="opp-card">
+      <div class="opp-card-header">
+        <div class="opp-id">OPP-013 (nueva)</div>
+        <div class="opp-name">Expansion de Tiendas Propias</div>
+      </div>
+      <div class="opp-card-body">
+        <p class="opp-desc">La tienda en planta factura ~$10-12M MXN/ano con margenes superiores. Si se logra un modelo replicable (central de abastos, ubicaciones estrategicas), 5-10 tiendas podrian aportar $50-100M MXN/ano en venta con margen diferenciado.</p>
+        <div class="opp-meta">
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Pilares</span>
+            <span class="opp-meta-value">02</span>
+          </div>
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Impacto</span>
+            <span class="opp-meta-value large">$50-100M/ano</span>
+          </div>
+          <div class="opp-meta-item">
+            <span class="opp-meta-label">Horizonte</span>
+            <span class="opp-badge mp">Mediano Plazo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
-</section>
 
-<!-- ═══════════════════ VALIDAR ═══════════════════ -->
-<section class="section" id="validar">
-  <div class="container">
-    <div class="section-header">
-      <div class="pillar-num">Seguimiento</div>
-      <h2>Informacion para Validar</h2>
-      <div class="section-line"></div>
-    </div>
+  <div class="page-footer">London Consulting Group &bull; Project Shine &bull; Confidencial &bull; Abril 2026</div>
+</div>
 
-    <ul class="checklist">
-      <li><strong>Numero exacto de codigos descatalogados en Sam's y monto mensual perdido.</strong> Hugo menciono ~5 codigos y ~$60M/mes pero no tenia la cifra exacta. Cruzar con datos de Marco.</li>
-      <li><strong>Fill rate actual exacto por categoria.</strong> Hugo mostro dashboards pero los numeros especificos no se compartieron verbalmente.</li>
-      <li><strong>Margen de la tienda propia vs. margen de maquila para Sam's.</strong> Se menciono que "los pesos cuentan al doble" pero no se cuantifico.</li>
-      <li><strong>Volumen real (piezas) vs. ano anterior por mes en 2026.</strong> Hugo estimo ~8-10% abajo pero no tenia el dato preciso.</li>
-      <li><strong>Estatus real de Home Depot:</strong> monto de venta actual, frecuencia de pedidos, motivos especificos de falla logistica.</li>
-      <li><strong>Facturacion y margen de Garraton (Puerto Rico), Aeromexico, Sanchez y Martin.</strong> No se detallaron cifras.</li>
-      <li><strong>Compensacion y metas del equipo comercial.</strong> No se discutio esquema de incentivos ni comisiones.</li>
-      <li><strong>Presupuesto necesario para la estructura objetivo de Hugo.</strong> No se cuantifico la inversion en nuevos roles (subdirector, KAMs, Sales Intelligence).</li>
-      <li><strong>Historial de precios y politica de incrementos con Sam's.</strong> El dato de volumen cayendo mientras pesos sube indica incrementos recientes que necesitan cuantificarse.</li>
-      <li><strong>Motivo de cierre de la tienda del centro.</strong> No se profundizo.</li>
-    </ul>
+<!-- ============================================================ -->
+<!-- INFORMACION PARA VALIDAR -->
+<!-- ============================================================ -->
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
   </div>
-</section>
 
-<!-- ═══════════════════ CITAS ═══════════════════ -->
-<section class="section" id="citas">
-  <div class="container">
-    <div class="section-header">
-      <div class="pillar-num">Voz del Entrevistado</div>
-      <h2>Citas Relevantes</h2>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="quote-block">
-      <p class="quote-text">Anteriormente no existia esto, no teniamos ni siquiera el AOP... no teniamos ni siquiera el conocimiento y la mision de poder llegar a un numero de manera semanal o mensual.</p>
-      <p class="quote-context">Sobre el estado previo del area comercial</p>
-    </div>
-
-    <div class="quote-block">
-      <p class="quote-text">La persona que estaba anteriormente se dedicaba a Sam's Club, era la directora de comercializacion, pero al mismo tiempo era el Key Account Manager, al mismo tiempo era la CPFR, y era la todologa.</p>
-      <p class="quote-context">Sobre la directora anterior de comercializacion</p>
-    </div>
-
-    <div class="quote-block">
-      <p class="quote-text">Nosotros siendo tan relevantes como Procter & Gamble, un Henkel, un Colgate para Sam's, tenemos que comportarnos a la altura con un equipo estructurado.</p>
-      <p class="quote-context">Sobre la importancia de PI para Sam's Club</p>
-    </div>
-
-    <div class="quote-block">
-      <p class="quote-text">Hoy en dia estas 2 personas lo que hacen es mandar fotos. Van a tiendas, toman fotos de productos, de la competencia, de puntos de precio, de promociones, y es todo. No hay un mas alla.</p>
-      <p class="quote-context">Sobre la fuerza de campo</p>
-    </div>
-
-    <div class="quote-block">
-      <p class="quote-text">Anteriormente era literal asi, con el dedo. Y no, asi no funciona.</p>
-      <p class="quote-context">Sobre la toma de decisiones comerciales</p>
-    </div>
-
-    <div class="quote-block">
-      <p class="quote-text">En febrero, menos 9.6% en unidades pero 0.9% de crecimiento en pesos. Hubo un incremento de precio que nos esta generando vender mas pesos pero menos unidades.</p>
-      <p class="quote-context">Sobre la caida de volumen encubierta por precio</p>
-    </div>
-
-    <div class="quote-block">
-      <p class="quote-text">Es un cliente con mucho potencial. Desafortunadamente llevamos un ano y cacho atendiendolos no de la manera correcta.</p>
-      <p class="quote-context">Sobre Home Depot</p>
-    </div>
-
-    <div class="quote-block">
-      <p class="quote-text">Tenemos cuenta abierta en Mercado Libre y Amazon, nada mas que no la atendemos.</p>
-      <p class="quote-context">Sobre e-commerce</p>
-    </div>
-
-    <div class="quote-block">
-      <p class="quote-text">La gran mayoria de los perfiles son perfiles coordinador hacia abajo. Muchos no llegan ni analista ni coordinador.</p>
-      <p class="quote-context">Sobre el nivel de talento del equipo</p>
-    </div>
-
-    <div class="quote-block">
-      <p class="quote-text">Factura alrededor de $700K-$800K, casi $1M de pesos al mes. Imaginate si tuvieramos 30 tiendas, seria otra cosa.</p>
-      <p class="quote-context">Sobre las tiendas propias</p>
-    </div>
-
-    <div class="quote-block">
-      <p class="quote-text">Cliente numero uno, no hay nadie numero uno mas que el cliente. Data antes que opinion.</p>
-      <p class="quote-context">Sobre su filosofia de gestion comercial</p>
-    </div>
+  <div class="section-header">
+    <div class="section-number">Seguimiento</div>
+    <h2 class="section-title">Informacion para Validar</h2>
+    <div class="section-subtitle">Datos que requieren confirmacion o cruce con otras fuentes</div>
   </div>
-</section>
 
-<!-- ═══════════════════ DOCUMENTOS ═══════════════════ -->
-<section class="section" id="documentos">
-  <div class="container">
-    <div class="section-header">
-      <div class="pillar-num">Evidencia</div>
-      <h2>Documentos Recibidos o Comprometidos</h2>
-      <div class="section-line"></div>
-    </div>
+  <ul class="checklist">
+    <li><strong>Numero exacto de codigos descatalogados en Sam's y monto mensual perdido.</strong> Hugo menciono ~5 codigos y ~$60M/mes pero no tenia la cifra exacta. Cruzar con datos de Marco.</li>
+    <li><strong>Fill rate actual exacto por categoria.</strong> Hugo mostro dashboards pero los numeros especificos no se compartieron verbalmente.</li>
+    <li><strong>Margen de la tienda propia vs. margen de maquila para Sam's.</strong> Se menciono que "los pesos cuentan al doble" pero no se cuantifico.</li>
+    <li><strong>Volumen real (piezas) vs. ano anterior por mes en 2026.</strong> Hugo estimo ~8-10% abajo pero no tenia el dato preciso.</li>
+    <li><strong>Estatus real de Home Depot:</strong> monto de venta actual, frecuencia de pedidos, motivos especificos de falla logistica.</li>
+    <li><strong>Facturacion y margen de Garraton (Puerto Rico), Aeromexico, Sanchez y Martin.</strong> No se detallaron cifras.</li>
+    <li><strong>Compensacion y metas del equipo comercial.</strong> No se discutio esquema de incentivos ni comisiones.</li>
+    <li><strong>Presupuesto necesario para la estructura objetivo de Hugo.</strong> No se cuantifico la inversion en nuevos roles (subdirector, KAMs, Sales Intelligence).</li>
+    <li><strong>Historial de precios y politica de incrementos con Sam's.</strong> El dato de volumen cayendo mientras pesos sube indica incrementos recientes que necesitan cuantificarse.</li>
+    <li><strong>Motivo de cierre de la tienda del centro.</strong> No se profundizo.</li>
+  </ul>
 
-    <div class="data-table-wrapper">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Documento</th>
-            <th>Tipo</th>
-            <th>Status</th>
-            <th>Pilar</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Dashboard de sellout Sam's (Excel/BI) &mdash; acceso via liga</td>
-            <td>Herramienta</td>
-            <td><span class="status-badge pending">Comprometido</span></td>
-            <td><span class="pilar-tag">01</span> <span class="pilar-tag">02</span></td>
-          </tr>
-          <tr>
-            <td>Presentacion de estructura comercial y roadmap</td>
-            <td>Evidencia</td>
-            <td><span class="status-badge pending">Comprometido</span></td>
-            <td><span class="pilar-tag">02</span> <span class="pilar-tag">12</span></td>
-          </tr>
-          <tr>
-            <td>Tracker de OC diarias vs. AOP mensual (Sam's)</td>
-            <td>Herramienta</td>
-            <td><span class="status-badge shown">Mostrado &mdash; solicitar copia</span></td>
-            <td><span class="pilar-tag">02</span></td>
-          </tr>
-          <tr>
-            <td>Dashboard de forecast sellout por codigo-tienda-semana</td>
-            <td>Herramienta</td>
-            <td><span class="status-badge shown">Mostrado &mdash; incluido en liga BI</span></td>
-            <td><span class="pilar-tag">01</span> <span class="pilar-tag">02</span></td>
-          </tr>
-          <tr>
-            <td>Dashboard de dias de inventario por codigo-tienda</td>
-            <td>Herramienta</td>
-            <td><span class="status-badge shown">Mostrado &mdash; incluido en liga BI</span></td>
-            <td><span class="pilar-tag">02</span> <span class="pilar-tag">09</span></td>
-          </tr>
-          <tr>
-            <td>Dashboard de in-stock y fill rate</td>
-            <td>Indicador</td>
-            <td><span class="status-badge shown">Mostrado &mdash; incluido en liga BI</span></td>
-            <td><span class="pilar-tag">02</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="page-footer">London Consulting Group &bull; Project Shine &bull; Confidencial &bull; Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- CITAS RELEVANTES -->
+<!-- ============================================================ -->
+<div class="section-divider">
+  <div class="section-divider-text">Voz del Entrevistado</div>
+</div>
+
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
   </div>
-</section>
 
-<!-- ═══════════════════ FOOTER ═══════════════════ -->
-<footer class="footer">
-  London Consulting Group &nbsp;|&nbsp; Project Shine &nbsp;|&nbsp; Confidencial &nbsp;|&nbsp; Abril 2026
-</footer>
+  <div class="section-header">
+    <div class="section-number">Citas Relevantes</div>
+    <h2 class="section-title">Voz del Entrevistado</h2>
+    <div class="section-subtitle">Frases clave que capturan insights importantes (parafraseadas)</div>
+  </div>
 
-<!-- ═══════════════════ SCROLL ACTIVE NAV ═══════════════════ -->
-<script>
-(function() {
-  var sections = document.querySelectorAll('section[id], div[id]');
-  var navLinks = document.querySelectorAll('.nav-link');
+  <div class="verbatim">
+    <div class="verbatim-text">Anteriormente no existia esto, no teniamos ni siquiera el AOP... no teniamos ni siquiera el conocimiento y la mision de poder llegar a un numero de manera semanal o mensual.</div>
+    <div class="verbatim-source">Sobre el estado previo del area comercial</div>
+  </div>
 
-  function onScroll() {
-    var scrollPos = window.scrollY + 80;
-    var current = '';
-    sections.forEach(function(sec) {
-      if (sec.offsetTop <= scrollPos) {
-        current = sec.getAttribute('id');
-      }
-    });
-    navLinks.forEach(function(link) {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + current) {
-        link.classList.add('active');
-      }
-    });
-  }
+  <div class="verbatim">
+    <div class="verbatim-text">La persona que estaba anteriormente se dedicaba a Sam's Club, era la directora de comercializacion, pero al mismo tiempo era el Key Account Manager, al mismo tiempo era la CPFR, y era la todologa.</div>
+    <div class="verbatim-source">Sobre la directora anterior de comercializacion</div>
+  </div>
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-})();
-</script>
+  <div class="verbatim">
+    <div class="verbatim-text">Nosotros siendo tan relevantes como Procter &amp; Gamble, un Henkel, un Colgate para Sam's, tenemos que comportarnos a la altura con un equipo estructurado.</div>
+    <div class="verbatim-source">Sobre la importancia de PI para Sam's Club</div>
+  </div>
+
+  <div class="verbatim">
+    <div class="verbatim-text">Hoy en dia estas 2 personas lo que hacen es mandar fotos. Van a tiendas, toman fotos de productos, de la competencia, de puntos de precio, de promociones, y es todo. No hay un mas alla.</div>
+    <div class="verbatim-source">Sobre la fuerza de campo</div>
+  </div>
+
+  <div class="verbatim">
+    <div class="verbatim-text">Anteriormente era literal asi, con el dedo. Y no, asi no funciona.</div>
+    <div class="verbatim-source">Sobre la toma de decisiones comerciales</div>
+  </div>
+
+  <div class="verbatim">
+    <div class="verbatim-text">En febrero, menos 9.6% en unidades pero 0.9% de crecimiento en pesos. Hubo un incremento de precio que nos esta generando vender mas pesos pero menos unidades.</div>
+    <div class="verbatim-source">Sobre la caida de volumen encubierta por precio</div>
+  </div>
+
+  <div class="verbatim">
+    <div class="verbatim-text">Es un cliente con mucho potencial. Desafortunadamente llevamos un ano y cacho atendiendolos no de la manera correcta.</div>
+    <div class="verbatim-source">Sobre Home Depot</div>
+  </div>
+
+  <div class="verbatim">
+    <div class="verbatim-text">Tenemos cuenta abierta en Mercado Libre y Amazon, nada mas que no la atendemos.</div>
+    <div class="verbatim-source">Sobre e-commerce</div>
+  </div>
+
+  <div class="verbatim">
+    <div class="verbatim-text">La gran mayoria de los perfiles son perfiles coordinador hacia abajo. Muchos no llegan ni analista ni coordinador.</div>
+    <div class="verbatim-source">Sobre el nivel de talento del equipo</div>
+  </div>
+
+  <div class="verbatim">
+    <div class="verbatim-text">Factura alrededor de $700K-$800K, casi $1M de pesos al mes. Imaginate si tuvieramos 30 tiendas, seria otra cosa.</div>
+    <div class="verbatim-source">Sobre las tiendas propias</div>
+  </div>
+
+  <div class="verbatim">
+    <div class="verbatim-text">Cliente numero uno, no hay nadie numero uno mas que el cliente. Data antes que opinion.</div>
+    <div class="verbatim-source">Sobre su filosofia de gestion comercial</div>
+  </div>
+
+  <div class="page-footer">London Consulting Group &bull; Project Shine &bull; Confidencial &bull; Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- DOCUMENTOS -->
+<!-- ============================================================ -->
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Evidencia</div>
+    <h2 class="section-title">Documentos Recibidos o Comprometidos</h2>
+    <div class="section-subtitle">Archivos asociados a esta entrevista y su estatus de recepcion</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Documento</th>
+        <th>Tipo</th>
+        <th>Status</th>
+        <th>Pilar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Dashboard de sellout Sam's (Excel/BI) &mdash; acceso via liga</td>
+        <td>Herramienta</td>
+        <td><span class="status-tag comprometido">Comprometido</span></td>
+        <td><span class="pilar-tag">01</span> <span class="pilar-tag">02</span></td>
+      </tr>
+      <tr>
+        <td>Presentacion de estructura comercial y roadmap</td>
+        <td>Evidencia</td>
+        <td><span class="status-tag comprometido">Comprometido</span></td>
+        <td><span class="pilar-tag">02</span> <span class="pilar-tag">12</span></td>
+      </tr>
+      <tr>
+        <td>Tracker de OC diarias vs. AOP mensual (Sam's)</td>
+        <td>Herramienta</td>
+        <td><span class="status-tag mostrado">Mostrado &mdash; solicitar copia</span></td>
+        <td><span class="pilar-tag">02</span></td>
+      </tr>
+      <tr>
+        <td>Dashboard de forecast sellout por codigo-tienda-semana</td>
+        <td>Herramienta</td>
+        <td><span class="status-tag mostrado">Mostrado &mdash; incluido en liga BI</span></td>
+        <td><span class="pilar-tag">01</span> <span class="pilar-tag">02</span></td>
+      </tr>
+      <tr>
+        <td>Dashboard de dias de inventario por codigo-tienda</td>
+        <td>Herramienta</td>
+        <td><span class="status-tag mostrado">Mostrado &mdash; incluido en liga BI</span></td>
+        <td><span class="pilar-tag">02</span> <span class="pilar-tag">09</span></td>
+      </tr>
+      <tr>
+        <td>Dashboard de in-stock y fill rate</td>
+        <td>Indicador</td>
+        <td><span class="status-tag mostrado">Mostrado &mdash; incluido en liga BI</span></td>
+        <td><span class="pilar-tag">02</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">London Consulting Group &bull; Project Shine &bull; Confidencial &bull; Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PRINT BUTTON -->
+<!-- ============================================================ -->
+<button class="print-btn" onclick="window.print()">Imprimir / PDF</button>
 
 </body>
 </html>

@@ -3,1540 +3,1829 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Entrevista: Marco Antonio Bárcenas Sotelo | Project Shine</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Entrevista: Marco Antonio Barcenas Sotelo | Project Shine</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Archivo:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --forest: #003D2D;
-    --teal: #009072;
-    --mint: #31EB97;
-    --sage: #CDDCC9;
-    --offwhite: #F3F3F3;
-    --near-black: #1D1D1B;
-    --amber: #E8A838;
-    --red-soft: #D94F4F;
-    --navy: #1F426E;
-    --blue: #4178E6;
-    --yellow: #E8FE41;
-  }
+:root {
+  --lcg-dark: #003D2D;
+  --lcg-teal: #009672;
+  --lcg-mint: #31EB97;
+  --lcg-sage: #CDDCC9;
+  --lcg-navy: #1F426E;
+  --warm-bg: #F3F3F3;
+  --warm-light: #EAF5EE;
+  --text: #1D1D1B;
+  --text-light: #4a4a4a;
+  --border: #CDDCC9;
+  --red: #c62828;
+  --red-light: #FFEBEE;
+}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; }
+body {
+  font-family: 'Archivo', sans-serif;
+  color: var(--text);
+  background: #e8e8e8;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
 
-  body {
-    font-family: 'Archivo', sans-serif;
-    background: var(--offwhite);
-    color: var(--near-black);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
+/* ======== COVER ======== */
+.cover {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #001A13 0%, #003D2D 40%, #00523B 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 30% 50%, rgba(49,235,151,0.06) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 80%, rgba(0,150,114,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+.cover-logos {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 1;
+}
+.cover-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: var(--lcg-mint);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+.cover h1 {
+  font-family: 'DM Serif Text', serif;
+  font-size: 56px;
+  color: #fff;
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+.cover h1 span { color: var(--lcg-mint); }
+.cover-sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.7);
+  max-width: 640px;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+.cover-stats {
+  display: flex;
+  gap: 48px;
+  margin-top: 48px;
+  position: relative;
+  z-index: 1;
+}
+.cover-stat { text-align: center; }
+.cover-stat-num {
+  font-family: 'DM Serif Text', serif;
+  font-size: 42px;
+  color: var(--lcg-mint);
+  line-height: 1.1;
+}
+.cover-stat-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 6px;
+}
+.cover-footer {
+  position: absolute;
+  bottom: 32px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 48px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  z-index: 1;
+}
 
-  /* ── HERO ── */
-  .hero {
-    background: var(--forest);
-    color: var(--offwhite);
-    padding: 80px 60px 60px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -120px; right: -80px;
-    width: 400px; height: 400px;
-    border: 3px solid rgba(49, 235, 151, 0.15);
-    border-radius: 50%;
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -60px; right: 120px;
-    width: 200px; height: 200px;
-    border: 2px solid rgba(49, 235, 151, 0.1);
-    border-radius: 50%;
-  }
-  .hero-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--mint);
-    margin-bottom: 24px;
-    opacity: 0.9;
-  }
-  .hero h1 {
-    font-family: 'DM Serif Text', serif;
-    font-size: 42px;
-    font-weight: 400;
-    line-height: 1.2;
-    max-width: 800px;
-    margin-bottom: 32px;
-  }
-  .hero h1 span {
-    color: var(--mint);
-  }
-  .hero-meta {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-  }
-  .hero-meta-item {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .hero-meta-item .label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--sage);
-  }
-  .hero-meta-item .value {
-    font-family: 'Archivo', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--offwhite);
-  }
+/* ======== CONTENT PAGE ======== */
+.content-page {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 56px 72px 48px;
+  background: white;
+  margin-bottom: 2px;
+  position: relative;
+}
+.page-logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.page-footer {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: #999;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
 
-  /* ── LAYOUT ── */
-  .container {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 40px;
-  }
+/* ======== MACRO MAP ======== */
+.macro-map {
+  display: flex;
+  gap: 2px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.macro-step {
+  flex: 1;
+  padding: 10px 4px;
+  background: var(--lcg-dark);
+  color: rgba(255,255,255,0.5);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+.macro-step.active {
+  background: var(--lcg-teal);
+  color: white;
+  font-weight: 800;
+  transform: scaleY(1.12);
+}
 
-  section {
-    padding: 60px 0;
-  }
+/* ======== SECTION HEADER ======== */
+.section-header {
+  padding-bottom: 18px;
+  border-bottom: 3px solid var(--lcg-teal);
+  margin-bottom: 32px;
+}
+.section-number {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--lcg-teal);
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.section-title {
+  font-family: 'DM Serif Text', serif;
+  font-size: 34px;
+  color: var(--lcg-dark);
+  margin: 8px 0;
+  font-weight: 400;
+}
+.section-subtitle {
+  font-size: 14px;
+  color: var(--text-light);
+  font-weight: 400;
+}
 
-  /* ── EXECUTIVE SUMMARY CARD ── */
-  .exec-summary {
-    background: white;
-    border-radius: 12px;
-    padding: 48px;
-    margin-top: -40px;
-    position: relative;
-    z-index: 10;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-    border-left: 5px solid var(--teal);
-  }
-  .exec-summary h2 {
-    font-family: 'DM Serif Text', serif;
-    font-size: 26px;
-    color: var(--forest);
-    margin-bottom: 20px;
-  }
-  .exec-summary p {
-    font-size: 15px;
-    color: var(--near-black);
-    line-height: 1.75;
-    max-width: 860px;
-  }
-  .exec-summary .highlight {
-    color: var(--teal);
-    font-weight: 600;
-  }
+/* ======== KPI BANNER ======== */
+.kpi-banner {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+.kpi-item {
+  flex: 1;
+  min-width: 150px;
+  background: var(--lcg-dark);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+.kpi-item.red-bg { background: var(--red); }
+.kpi-item.teal-bg { background: var(--lcg-teal); }
+.kpi-value {
+  font-family: 'DM Serif Text', serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+.kpi-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+  margin-top: 6px;
+}
 
-  /* ── NAVIGATION ── */
-  .nav-sticky {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: var(--forest);
-    padding: 0;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-  }
-  .nav-inner {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 40px;
-    display: flex;
-    align-items: center;
-    gap: 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  .nav-inner::-webkit-scrollbar { display: none; }
-  .nav-link {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.5px;
-    color: var(--sage);
-    text-decoration: none;
-    padding: 16px 18px;
-    white-space: nowrap;
-    transition: color 0.2s, border-bottom 0.2s;
-    border-bottom: 2px solid transparent;
-  }
-  .nav-link:hover, .nav-link.active {
-    color: var(--mint);
-    border-bottom-color: var(--mint);
-  }
-  .nav-link .pilar-num {
-    color: var(--mint);
-    font-weight: 500;
-  }
+/* ======== MATURITY BOX ======== */
+.maturity-box {
+  background: var(--warm-bg);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin: 20px 0;
+}
+.maturity-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.maturity-score {
+  font-family: 'DM Serif Text', serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1;
+}
+.maturity-score.red { color: var(--red); }
+.maturity-score.orange { color: #E65100; }
+.maturity-score.yellow { color: #F9A825; }
+.maturity-score.green { color: var(--lcg-teal); }
+.maturity-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.maturity-bar-container { margin-top: 8px; }
+.maturity-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+}
+.bar-label {
+  font-size: 13px;
+  min-width: 200px;
+  color: var(--text-light);
+}
+.bar-track {
+  flex: 1;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.8s ease;
+}
+.bar-fill.red { background: var(--red); }
+.bar-fill.orange { background: #E65100; }
+.bar-fill.yellow { background: #F9A825; }
+.bar-fill.green { background: var(--lcg-teal); }
+.bar-value {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  min-width: 24px;
+  text-align: right;
+}
 
-  /* ── SECTION HEADERS ── */
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-    margin-bottom: 32px;
-    padding-bottom: 16px;
-    border-bottom: 2px solid var(--sage);
-  }
-  .section-header .pilar-badge {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--offwhite);
-    background: var(--teal);
-    padding: 6px 14px;
-    border-radius: 6px;
-    white-space: nowrap;
-  }
-  .section-header h2 {
-    font-family: 'DM Serif Text', serif;
-    font-size: 30px;
-    color: var(--forest);
-    font-weight: 400;
-  }
+/* ======== FINDING CARDS ======== */
+.finding-card {
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--lcg-teal);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 12px 0;
+}
+.finding-card.critical {
+  border-left-color: var(--red);
+  background: var(--red-light);
+}
+.finding-card.positive {
+  border-left-color: var(--lcg-mint);
+  background: var(--warm-light);
+}
+.finding-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.finding-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  color: white;
+  flex-shrink: 0;
+}
+.finding-card.critical .finding-icon { background: var(--red); }
+.finding-card.positive .finding-icon { background: var(--lcg-teal); }
+.finding-card .finding-icon { background: var(--lcg-teal); }
+.finding-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+}
+.finding-text {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+.finding-kpi {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+.finding-kpi.red { background: var(--red-light); color: var(--red); }
+.finding-kpi.green { background: var(--warm-light); color: var(--lcg-teal); }
 
-  /* ── DIVIDER SECTIONS ── */
-  .divider-section {
-    background: var(--forest);
-    padding: 48px 0;
-    margin: 0;
-  }
-  .divider-section .container {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  .divider-section .divider-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    flex-shrink: 0;
-  }
-  .divider-section h2 {
-    font-family: 'DM Serif Text', serif;
-    font-size: 32px;
-    color: var(--offwhite);
-    font-weight: 400;
-  }
-  .divider-section p {
-    font-family: 'Archivo', sans-serif;
-    font-size: 14px;
-    color: var(--sage);
-    margin-top: 4px;
-  }
+/* ======== CALLOUTS ======== */
+.callout {
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+.callout-red { background: var(--red-light); border-left: 4px solid var(--red); }
+.callout-green { background: #E8F5E9; border-left: 4px solid var(--lcg-mint); }
+.callout-amber { background: var(--warm-light); border-left: 4px solid var(--lcg-teal); }
+.callout-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 6px;
+}
+.callout p, .callout ul { font-size: 14px; line-height: 1.65; color: var(--text-light); }
+.callout ul { padding-left: 18px; margin-top: 4px; }
+.callout li { margin-bottom: 4px; }
 
-  /* ── FINDINGS ── */
-  .finding {
-    background: white;
-    border-radius: 10px;
-    padding: 24px 28px;
-    margin-bottom: 16px;
-    border-left: 4px solid var(--sage);
-    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
-    transition: border-left-color 0.2s, box-shadow 0.2s;
-  }
-  .finding:hover {
-    border-left-color: var(--teal);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  }
-  .finding p {
-    font-size: 14.5px;
-    line-height: 1.7;
-  }
-  .finding strong {
-    color: var(--forest);
-  }
-  .finding .data-highlight {
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 500;
-    color: var(--teal);
-    background: rgba(0, 144, 114, 0.07);
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 13.5px;
-  }
+/* ======== TABLES ======== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14px;
+}
+th {
+  background: var(--lcg-dark);
+  color: white;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 12px 14px;
+  text-align: left;
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+td {
+  padding: 11px 14px;
+  border-bottom: 1px solid #eee;
+  color: var(--text);
+}
+tr:nth-child(even) { background: #fafafa; }
 
-  /* ── TABLES ── */
-  .data-table-wrapper {
-    overflow-x: auto;
-    margin: 24px 0;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13.5px;
-  }
-  thead th {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--offwhite);
-    background: var(--forest);
-    padding: 14px 16px;
-    text-align: left;
-    white-space: nowrap;
-  }
-  thead th:first-child { border-radius: 8px 0 0 0; }
-  thead th:last-child { border-radius: 0 8px 0 0; }
-  tbody td {
-    padding: 12px 16px;
-    border-bottom: 1px solid rgba(205, 220, 201, 0.5);
-    vertical-align: top;
-  }
-  tbody tr:last-child td { border-bottom: none; }
-  tbody tr:nth-child(even) { background: rgba(205, 220, 201, 0.15); }
-  tbody tr:hover { background: rgba(0, 144, 114, 0.05); }
-  td .mono {
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 500;
-    color: var(--teal);
-  }
-  td .pilar-tag {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    background: var(--sage);
-    color: var(--forest);
-    padding: 2px 8px;
-    border-radius: 4px;
-    white-space: nowrap;
-  }
+/* ======== OPPORTUNITY CARDS ======== */
+.opp-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.opp-id {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--lcg-teal);
+  min-width: 68px;
+}
+.opp-name {
+  flex: 1;
+  font-weight: 600;
+  font-size: 15px;
+}
+.opp-impact {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--lcg-dark);
+  text-align: right;
+  min-width: 120px;
+}
+.opp-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.opp-badge.qw { background: #E8F5E9; color: var(--lcg-teal); }
+.opp-badge.mp { background: #FFF3E0; color: #E65100; }
+.opp-badge.lp { background: #E3F2FD; color: var(--lcg-navy); }
 
-  /* ── ALERT CARDS ── */
-  .alert-card {
-    background: white;
-    border-radius: 10px;
-    padding: 24px 28px;
-    margin-bottom: 16px;
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
-  }
-  .alert-card.critical { border-left: 5px solid var(--red-soft); }
-  .alert-card.warning { border-left: 5px solid var(--amber); }
-  .alert-indicator {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    flex-shrink: 0;
-    color: white;
-  }
-  .alert-indicator.red { background: var(--red-soft); }
-  .alert-indicator.amber { background: var(--amber); }
-  .alert-card h4 {
-    font-family: 'Archivo', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--forest);
-    margin-bottom: 6px;
-  }
-  .alert-card p {
-    font-size: 14px;
-    line-height: 1.65;
-    color: #444;
-  }
+/* ======== BRIDGE ======== */
+.bridge-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 260px;
+  padding: 20px 0;
+  margin: 24px 0;
+}
+.bridge-bar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+.bridge-block {
+  width: 100%;
+  max-width: 100px;
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  min-height: 24px;
+}
+.bridge-block.positive { background: var(--lcg-teal); }
+.bridge-block.negative { background: var(--red); }
+.bridge-block.total { background: var(--lcg-dark); }
+.bridge-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  text-align: center;
+  margin-top: 6px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  max-width: 100px;
+  line-height: 1.3;
+}
 
-  /* ── OPPORTUNITY CARDS ── */
-  .opp-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 20px;
-    margin-top: 24px;
-  }
-  .opp-card {
-    background: white;
-    border-radius: 12px;
-    padding: 28px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    border-top: 4px solid var(--teal);
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .opp-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 24px rgba(0,0,0,0.1);
-  }
-  .opp-card .opp-id {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 1px;
-    color: var(--teal);
-    text-transform: uppercase;
-  }
-  .opp-card h4 {
-    font-family: 'DM Serif Text', serif;
-    font-size: 20px;
-    color: var(--forest);
-    font-weight: 400;
-    line-height: 1.3;
-  }
-  .opp-card .opp-impact {
-    font-family: 'DM Serif Text', serif;
-    font-size: 32px;
-    color: var(--teal);
-    line-height: 1;
-  }
-  .opp-card .opp-impact .unit {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 13px;
-    color: var(--near-black);
-    opacity: 0.6;
-  }
-  .opp-card .opp-desc {
-    font-size: 13.5px;
-    line-height: 1.65;
-    color: #555;
-    flex: 1;
-  }
-  .opp-card .opp-tags {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .opp-card .opp-tags span {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    padding: 4px 10px;
-    border-radius: 4px;
-    background: rgba(0, 144, 114, 0.08);
-    color: var(--teal);
-  }
+/* ======== RADAR / MATURITY OVERVIEW ======== */
+.maturity-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+.maturity-cell {
+  background: var(--warm-bg);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  border-left: 4px solid transparent;
+}
+.maturity-cell.red { border-left-color: var(--red); }
+.maturity-cell.orange { border-left-color: #E65100; }
+.maturity-cell.yellow { border-left-color: #F9A825; }
+.maturity-cell.green { border-left-color: var(--lcg-teal); }
+.maturity-cell-score {
+  font-family: 'DM Serif Text', serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1;
+}
+.maturity-cell-score.red { color: var(--red); }
+.maturity-cell-score.orange { color: #E65100; }
+.maturity-cell-score.yellow { color: #F9A825; }
+.maturity-cell-score.green { color: var(--lcg-teal); }
+.maturity-cell-name {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-light);
+  margin-top: 6px;
+}
+.maturity-cell-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: #999;
+  margin-top: 2px;
+}
 
-  /* ── VALIDATION CHECKLIST ── */
-  .checklist {
-    list-style: none;
-    padding: 0;
-  }
-  .checklist li {
-    background: white;
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    font-size: 14px;
-    line-height: 1.65;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  }
-  .checklist li::before {
-    content: '';
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--teal);
-    border-radius: 4px;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
+/* ======== TWO COLUMN ======== */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
 
-  /* ── BLOCKQUOTES ── */
-  .quote-card {
-    background: var(--forest);
-    color: var(--offwhite);
-    border-radius: 12px;
-    padding: 32px 36px;
-    margin-bottom: 20px;
-    position: relative;
-    overflow: hidden;
-  }
-  .quote-card::before {
-    content: '\201C';
-    position: absolute;
-    top: -10px;
-    left: 16px;
-    font-family: 'DM Serif Text', serif;
-    font-size: 120px;
-    color: rgba(49, 235, 151, 0.12);
-    line-height: 1;
-  }
-  .quote-card blockquote {
-    font-family: 'DM Serif Text', serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.6;
-    position: relative;
-    z-index: 1;
-  }
-  .quote-card .quote-context {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--mint);
-    margin-top: 16px;
-    position: relative;
-    z-index: 1;
-  }
+/* ======== HEADINGS ======== */
+h3 {
+  font-family: 'DM Serif Text', serif;
+  font-size: 22px;
+  color: var(--lcg-dark);
+  margin: 28px 0 12px;
+  font-weight: 400;
+}
+h4 {
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 20px 0 8px;
+}
+p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
 
-  /* ── DOCUMENTS TABLE ── */
-  .status-badge {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    padding: 4px 12px;
-    border-radius: 20px;
-    white-space: nowrap;
-  }
-  .status-badge.comprometido {
-    background: rgba(232, 168, 56, 0.15);
-    color: #B07A1E;
-  }
-  .status-badge.recibido {
-    background: rgba(49, 235, 151, 0.15);
-    color: var(--teal);
-  }
-  .status-badge.pendiente {
-    background: rgba(217, 79, 79, 0.12);
-    color: var(--red-soft);
-  }
+/* ======== VERBATIM ======== */
+.verbatim {
+  background: linear-gradient(135deg, #f0f5f2, #e8efe9);
+  padding: 20px 24px;
+  border-left: 4px solid var(--lcg-teal);
+  border-radius: 10px;
+  margin: 16px 0;
+  position: relative;
+}
+.verbatim::before {
+  content: '\201C';
+  font-family: 'DM Serif Text', serif;
+  font-size: 48px;
+  color: var(--lcg-teal);
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  opacity: 0.3;
+}
+.verbatim-text {
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.7;
+  padding-left: 24px;
+  color: var(--text);
+}
+.verbatim-source {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 8px;
+  padding-left: 24px;
+  color: var(--lcg-teal);
+}
 
-  /* ── NOTES SECTION ── */
-  .notes-section {
-    background: var(--sage);
-    border-radius: 12px;
-    padding: 32px 36px;
-    margin-top: 20px;
-  }
-  .notes-section h3 {
-    font-family: 'DM Serif Text', serif;
-    font-size: 22px;
-    color: var(--forest);
-    margin-bottom: 16px;
-  }
-  .notes-section ul {
-    list-style: none;
-    padding: 0;
-  }
-  .notes-section ul li {
-    padding: 8px 0;
-    font-size: 14px;
-    line-height: 1.65;
-    border-bottom: 1px solid rgba(0, 61, 45, 0.1);
-    padding-left: 20px;
-    position: relative;
-  }
-  .notes-section ul li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 16px;
-    width: 8px;
-    height: 8px;
-    background: var(--teal);
-    border-radius: 50%;
-  }
-  .notes-section ul li:last-child { border-bottom: none; }
+/* ======== PRINT BUTTON ======== */
+.print-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--lcg-teal);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  transition: all 0.2s;
+}
+.print-btn:hover { background: var(--lcg-dark); transform: translateY(-2px); }
 
-  /* ── FOOTER ── */
-  .footer {
-    background: var(--forest);
-    color: var(--sage);
-    padding: 32px 0;
-    text-align: center;
-  }
-  .footer p {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
+/* ======== STATUS TAGS ======== */
+.status-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+.status-tag.validada { background: #E8F5E9; color: var(--lcg-teal); }
+.status-tag.analisis { background: #FFF3E0; color: #E65100; }
+.status-tag.identificada { background: #E3F2FD; color: var(--lcg-navy); }
+.status-tag.comprometido { background: #FFF3E0; color: #E65100; }
+.status-tag.recibido { background: #E8F5E9; color: var(--lcg-teal); }
+.status-tag.pendiente { background: var(--red-light); color: var(--red); }
 
-  /* ── BIG METRIC ── */
-  .metric-row {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-    margin: 24px 0;
-  }
-  .metric-box {
-    background: white;
-    border-radius: 10px;
-    padding: 24px 28px;
-    flex: 1;
-    min-width: 200px;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
-    text-align: center;
-  }
-  .metric-box .metric-value {
-    font-family: 'DM Serif Text', serif;
-    font-size: 44px;
-    color: var(--teal);
-    line-height: 1.1;
-  }
-  .metric-box .metric-value.alert { color: var(--red-soft); }
-  .metric-box .metric-value.mint { color: var(--mint); }
-  .metric-box .metric-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #777;
-    margin-top: 8px;
-  }
-  .metric-box .metric-context {
-    font-size: 12px;
-    color: #999;
-    margin-top: 4px;
-  }
+/* ======== SECTION DIVIDER ======== */
+.section-divider {
+  min-height: 80px;
+  background: linear-gradient(160deg, #001A13, #003D2D);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1340px;
+  margin: 0 auto 2px;
+}
+.section-divider-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: var(--lcg-mint);
+  text-transform: uppercase;
+}
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    .hero { padding: 48px 24px 40px; }
-    .hero h1 { font-size: 28px; }
-    .hero-meta { gap: 20px; }
-    .container { padding: 0 20px; }
-    .exec-summary { padding: 28px; margin-top: -24px; }
-    .section-header h2 { font-size: 24px; }
-    .opp-grid { grid-template-columns: 1fr; }
-    .metric-box .metric-value { font-size: 32px; }
-    .nav-link { padding: 12px 12px; font-size: 10px; }
-    .quote-card { padding: 24px; }
-    .quote-card blockquote { font-size: 15px; }
-  }
+/* ======== CHECKLIST ======== */
+.checklist { list-style: none; padding: 0; margin: 16px 0; }
+.checklist li {
+  padding: 10px 16px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-light);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.checklist li::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--lcg-teal);
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ======== CONTEXT CARD ======== */
+.context-card {
+  background: var(--warm-bg);
+  border-radius: 12px;
+  padding: 28px 32px;
+  margin: 24px 0;
+}
+.context-card h4 { margin-top: 0; }
+
+/* ======== PRINT ======== */
+@media print {
+  .print-btn { display: none; }
+  .content-page { break-inside: avoid; padding: 36px 48px; }
+  .cover { break-after: page; }
+  body { background: white; }
+  .section-divider { break-before: page; }
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 900px) {
+  .content-page { padding: 32px 24px; }
+  .section-title { font-size: 26px; }
+  .cover h1 { font-size: 36px; }
+  .cover-stats { flex-direction: column; gap: 20px; }
+  .kpi-banner { flex-direction: column; }
+  .two-col { grid-template-columns: 1fr; }
+  .macro-map { overflow-x: auto; }
+  .macro-step { min-width: 70px; }
+  .maturity-grid { grid-template-columns: repeat(2, 1fr); }
+  .bridge-container { overflow-x: auto; }
+  .cover-footer { flex-direction: column; text-align: center; gap: 4px; }
+}
 </style>
 </head>
 <body>
 
-<!-- ════════════ HERO ════════════ -->
-<header class="hero">
-  <div style="display:flex; align-items:center; gap:14px; margin-bottom:12px;">
-    <img src="../../assets/logo_lcg.png" alt="LCG" style="height:22px; filter:brightness(10);">
-    <span style="color:rgba(255,255,255,0.3);">|</span>
-    <img src="../../assets/logo_pi.jpeg" alt="PI" style="height:42px; border-radius:6px;">
+<!-- ============================================================ -->
+<!-- COVER -->
+<!-- ============================================================ -->
+<div class="cover">
+  <div class="cover-logos">
+    <img src="../../assets/logo_lcg.png" alt="LCG" height="36" style="filter:brightness(10)">
+    <img src="../../assets/logo_pi.jpeg" alt="PI Group" height="52" style="border-radius:8px">
   </div>
-  <div class="hero-label">Project Shine &mdash; Prediagnóstico PI Group</div>
-  <h1>Entrevista: Director de Contraloria y Finanzas &mdash; <span>Marco Antonio Barcenas Sotelo</span></h1>
-  <div class="hero-meta">
-    <div class="hero-meta-item">
-      <span class="label">Fecha</span>
-      <span class="value">18 de marzo de 2026</span>
+  <div class="cover-tag">Entrevista &bull; Director de Contraloria y Finanzas</div>
+  <h1>Marco Antonio <span>Barcenas Sotelo</span></h1>
+  <div class="cover-sub">Primera sesion de entrevista con el Director de Contraloria y Finanzas de PI Group. Fuente clave de informacion financiera, estructura de costos, relaciones con proveedores estrategicos y gobierno corporativo.</div>
+  <div class="cover-stats">
+    <div class="cover-stat">
+      <div class="cover-stat-num">21</div>
+      <div class="cover-stat-label">Anos en PI Group</div>
     </div>
-    <div class="hero-meta-item">
-      <span class="label">Duracion</span>
-      <span class="value">~1h 33m</span>
+    <div class="cover-stat">
+      <div class="cover-stat-num">96-99%</div>
+      <div class="cover-stat-label">Concentracion Sam's</div>
     </div>
-    <div class="hero-meta-item">
-      <span class="label">Entrevistador LCG</span>
-      <span class="value">Fernando Sanchez Andrade</span>
+    <div class="cover-stat">
+      <div class="cover-stat-num">$400M</div>
+      <div class="cover-stat-label">Perdida Licitacion</div>
     </div>
-    <div class="hero-meta-item">
-      <span class="label">Sesion</span>
-      <span class="value">1 de 2</span>
-    </div>
-  </div>
-</header>
-
-<!-- ════════════ NAVIGATION ════════════ -->
-<nav class="nav-sticky">
-  <div class="nav-inner">
-    <a href="#resumen" class="nav-link">Resumen</a>
-    <a href="#pilar-01" class="nav-link"><span class="pilar-num">01</span> Inteligencia Comercial</a>
-    <a href="#pilar-02" class="nav-link"><span class="pilar-num">02</span> Ejecucion Comercial</a>
-    <a href="#pilar-07" class="nav-link"><span class="pilar-num">07</span> Innovacion</a>
-    <a href="#pilar-08" class="nav-link"><span class="pilar-num">08</span> Abastecimiento</a>
-    <a href="#pilar-09" class="nav-link"><span class="pilar-num">09</span> Almacenes</a>
-    <a href="#pilar-12" class="nav-link"><span class="pilar-num">12</span> Estructura y Gobierno</a>
-    <a href="#datos-duros" class="nav-link">Datos Duros</a>
-    <a href="#banderas" class="nav-link">Banderas</a>
-    <a href="#oportunidades" class="nav-link">Oportunidades</a>
-    <a href="#validar" class="nav-link">Por Validar</a>
-    <a href="#citas" class="nav-link">Citas</a>
-    <a href="#documentos" class="nav-link">Documentos</a>
-  </div>
-</nav>
-
-<!-- ════════════ EXECUTIVE SUMMARY ════════════ -->
-<section id="resumen">
-  <div class="container">
-    <div class="exec-summary">
-      <h2>Resumen Ejecutivo</h2>
-      <p>
-        Marco Barcenas es el <span class="highlight">Director de Contraloria y Finanzas</span> de PI Group y el punto de contacto clave para LCG durante el proceso de prediagnostico. Su rol abarca mucho mas alla de lo financiero: supervisa personalmente negociaciones con los <span class="highlight">10 principales proveedores</span> (70% del gasto), revisa al detalle reportes de costo estandar diarios y mensuales, monitorea inflacion interna de materias primas y mantiene relacion directa con accionistas de proveedores estrategicos.
-      </p>
-      <p style="margin-top: 16px;">
-        Esta entrevista (primera de dos sesiones) cubrio principalmente la dimension de <span class="highlight">ingresos y costo de ventas</span>. Los hallazgos mas relevantes incluyen: la concentracion extrema en Sam's Club (<span class="highlight">~96-99% de ingresos</span>), la perdida de 3 SKUs clave por un conflicto relacional (<span class="highlight">~$400M MXN/ano</span>), una crisis de suministro activa por el cierre del Estrecho de Ormuz, y la oportunidad estrategica de diversificacion via Costco.
-      </p>
-
-      <div class="metric-row" style="margin-top: 28px;">
-        <div class="metric-box">
-          <div class="metric-value alert">96-99%</div>
-          <div class="metric-label">Concentracion en Sam's Club</div>
-          <div class="metric-context">Porcentaje de ingresos</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-value alert">$400M</div>
-          <div class="metric-label">MXN/ano en SKUs perdidos</div>
-          <div class="metric-context">Licitacion 2024</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-value">$1,756M</div>
-          <div class="metric-label">MXN ventas 2025</div>
-          <div class="metric-context">Facturacion comercializadora</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-value mint">70%</div>
-          <div class="metric-label">Gasto top 10 proveedores</div>
-          <div class="metric-context">Negociado directamente por Marco</div>
-        </div>
-      </div>
+    <div class="cover-stat">
+      <div class="cover-stat-num">70%</div>
+      <div class="cover-stat-label">Gasto Top 10 Prov.</div>
     </div>
   </div>
-</section>
-
-<!-- ════════════ PILAR 01 ════════════ -->
-<section id="pilar-01">
-  <div class="container">
-    <div class="section-header">
-      <span class="pilar-badge">Pilar 01</span>
-      <h2>Inteligencia Comercial</h2>
-    </div>
-
-    <div class="finding">
-      <p><strong>Concentracion extrema en un solo cliente:</strong> Sam's Club representa <span class="data-highlight">~96-99%</span> de los ingresos del grupo. La comercializadora (PI Group) factura <span class="data-highlight">$1,756M MXN</span> (2025) y practicamente toda la venta es a Sam's Club bajo la marca Members Mark.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Perdida de 3 SKUs clave por licitacion en 2024:</strong> PI Group perdio los SKUs de pino (10L y 20L), detergente ropa oscura (10L) y lavanda (10L y 20L) a partir de marzo-abril 2025. Estos representaban <span class="data-highlight">~20% del volumen total</span> y <span class="data-highlight">~$400M MXN anuales</span> en ventas.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Compensacion parcial de la perdida:</strong> La caida real de ingresos fue de <span class="data-highlight">~$230M MXN (12%)</span> vs. los $400M que representaban los SKUs perdidos, indicando crecimiento en otros productos que amortiguo la caida.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Origen relacional, no comercial:</strong> La licitacion se detono por un enfrentamiento entre David Padilla (Director General Adjunto) y el comprador de Sam's. Padilla declaro de forma arrogante que PI ganaria cualquier licitacion; el comprador respondio con un "manotazo en la mesa" para demostrar que podia reducir el volumen a PI.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Relacion ya restaurada via Hugo Ambrosi:</strong> La gestion de Hugo ha restablecido la relacion con Sam's. Se abrieron nuevamente puertas para nuevos productos, aunque los 3 SKUs perdidos no regresaran a corto plazo. Sam's no le esta yendo bien con el proveedor alternativo.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Estrategia de marcas propias dominante:</strong> Sam's migro la marca propia de PI (Now/Sensacional) hacia Members Mark. Home Depot esta haciendo lo mismo: reemplazando la marca Nao de PI por HDX. Esto confirma el <span class="data-highlight">modelo de maquila puro</span>.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Diversificacion: oportunidad principal pero compleja:</strong> Marco identifica la diversificacion de clientes como la mayor oportunidad del negocio. Sin embargo, el modelo de grandes volumenes dificulta entrar a formatos mas pequenos (ej. Walmart con productos de 1L requeriria nueva maquinaria y fuente de agua adicional).</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Costco como objetivo estrategico principal:</strong> Ya existe un proyecto con Juan Carlos Bojalil para entrar a Costco a traves de sus marcas y productos. Se presento propuesta de jabon de manos liquido. Costco pidio algo "mas premium". Costco permite <span class="data-highlight">mejores margenes</span> porque no compite solo por precio.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Bolt como caso de exito en diversificacion:</strong> Hace ~4 anos iniciaron maquila para Bolt (detergentes y suavizantes). La maquina enmangadora se amortizo en <span class="data-highlight">6 meses vs. 3 anos planeados</span>. Las ventas estan al <span class="data-highlight">3x</span> de lo que Bolt esperaba.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Meta a 5 anos:</strong> Tener un cliente equivalente a Sam's (Costco) que mitigue el riesgo de concentracion.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════ PILAR 02 ════════════ -->
-<section id="pilar-02" style="background: rgba(205, 220, 201, 0.2);">
-  <div class="container">
-    <div class="section-header">
-      <span class="pilar-badge">Pilar 02</span>
-      <h2>Ejecucion Comercial</h2>
-    </div>
-
-    <div class="finding">
-      <p><strong>Analisis de ventas granular por SKU y cliente:</strong> Existe un estado de resultados mensual consolidado que desglosa ventas por cliente, descuentos comerciales y fletes por separado. Este nivel de detalle es <span class="data-highlight">mayor al que tiene Emerge Advisors</span> (el asesor financiero del fondo).</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Definicion interna de "ingreso real" difiere del estandar financiero:</strong> Para PI Group, el ingreso real = ventas netas - descuentos comerciales - fletes. Los fletes se consideran parte integral del costo de generar el ingreso. Esto <span class="data-highlight">afecta la lectura de estados financieros</span> internos vs. los presentados externamente.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Cambios de formato en SKUs vigentes:</strong> Algunos productos no se "perdieron" sino que cambiaron de formato (ej. champu automotriz paso de envase de 2 bocas a bidon; cambios de formula en detergentes que aparecen como SKU nuevo pero es mismo producto). Esto puede distorsionar analisis de tendencia.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Productos estacionales/temporales:</strong> Algunos SKUs como "brisa de mar" son temporales (3 meses) y luego rotan a otra version. Importante considerar al analizar patrones de venta.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════ PILAR 07 ════════════ -->
-<section id="pilar-07">
-  <div class="container">
-    <div class="section-header">
-      <span class="pilar-badge">Pilar 07</span>
-      <h2>Innovacion</h2>
-    </div>
-
-    <div class="finding">
-      <p><strong>Desarrollo de molecula vegetal para suavizante:</strong> Hace ~2 anos, PI desarrollo con Juan Carlos Bojalil una molecula vegetal que sustituyo la base de suavizante animal. El cambio represento <span class="data-highlight">mejora en desempeno y en costo</span>.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Migracion de LESS:</strong> Se cambio del LESS al 28% (liquido, diluido con agua) al <span class="data-highlight">LESS al 70% (pasta)</span>, importado de China via Juan Carlos Bojalil. Mejor precio y rendimiento.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Primer envase reciclado en Mexico:</strong> PI fue la primera en tener envase reciclado de 10L en Mexico, desarrollado en conjunto con Tecnopelets. PI puso la ingenieria y Tecnopelets los moldes y maquinas. El diseno es <span class="data-highlight">exclusivo de PI</span>.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Capacidad de I+D como diferenciador competitivo:</strong> La capacidad de formulacion e ingenieria de envases es una barrera de entrada real. Marco estima que replicar la operacion de PI tomaria <span class="data-highlight">2-3 anos</span> incluso con capital suficiente.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════ PILAR 08 ════════════ -->
-<section id="pilar-08" style="background: rgba(205, 220, 201, 0.2);">
-  <div class="container">
-    <div class="section-header">
-      <span class="pilar-badge">Pilar 08</span>
-      <h2>Abastecimiento</h2>
-    </div>
-
-    <div class="metric-row">
-      <div class="metric-box">
-        <div class="metric-value">70%</div>
-        <div class="metric-label">Gasto Top 10 Proveedores</div>
-        <div class="metric-context">Relacion directa Marco y/o DG</div>
-      </div>
-      <div class="metric-box">
-        <div class="metric-value">85%</div>
-        <div class="metric-label">Gasto Top 15 Proveedores</div>
-      </div>
-      <div class="metric-box">
-        <div class="metric-value alert">-15%</div>
-        <div class="metric-label">Precio envase vs. mercado</div>
-        <div class="metric-context">Envases Universales</div>
-      </div>
-      <div class="metric-box">
-        <div class="metric-value alert">+167%</div>
-        <div class="metric-label">Incremento precio agua</div>
-        <div class="metric-context">Operativo Caudal</div>
-      </div>
-    </div>
-
-    <div class="finding">
-      <p><strong>Gestion de proveedores altamente centralizada:</strong> Marco personalmente gestiona relaciones con los ~10 principales proveedores (70% del gasto). La Direccion General participa en las negociaciones de mas alto nivel (Simprise, Envases Universales).</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Top proveedores y relaciones clave:</strong></p>
-      <div class="data-table-wrapper" style="margin-top: 12px;">
-        <table>
-          <thead>
-            <tr>
-              <th>Proveedor</th>
-              <th>Producto</th>
-              <th>Relacion</th>
-              <th>Dato clave</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Simprise</strong></td>
-              <td>Fragancias</td>
-              <td>Negociacion directa DG + Marco</td>
-              <td>Contrato exclusividad + rebate por volumen</td>
-            </tr>
-            <tr>
-              <td><strong>Envases Universales</strong></td>
-              <td>Envases</td>
-              <td>Director comercial (Marcos Zapata)</td>
-              <td><span class="mono">-15% vs. mercado</span>; exclusividad durante licitacion</td>
-            </tr>
-            <tr>
-              <td><strong>BM / M-Chem / Aditivos</strong></td>
-              <td>MP quimicas, LESS 70%</td>
-              <td>Juan Carlos Bojalil (3 empresas)</td>
-              <td>Desarrollo conjunto MP alternas en China</td>
-            </tr>
-            <tr>
-              <td><strong>Tecnopelets</strong></td>
-              <td>Envase reciclado</td>
-              <td>Bernardo Liu (accionista)</td>
-              <td>Mejor resina reciclada de Mexico</td>
-            </tr>
-            <tr>
-              <td><strong>Manufacturas Jupiter</strong></td>
-              <td>Soplado de envases</td>
-              <td>Familia Platonoff / Ross France</td>
-              <td>Originalmente solo Ross France, ahora tambien PI</td>
-            </tr>
-            <tr>
-              <td><strong>Especialidades PDV</strong></td>
-              <td>Especialidades quimicas</td>
-              <td>Director comercial directo</td>
-              <td>Manejo directo de Marco</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="finding">
-      <p><strong>Equipo de compras incompleto:</strong> Hay <span class="data-highlight">2 compradores + 1 coordinador</span>. No hay gerente de compras estable; han pasado por varios sin encontrar al adecuado. Francisco Rojas (subdirector) cubre parcialmente ese rol.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Impacto geopolitico severo en materias primas (abril 2026):</strong> Cierre del Estrecho de Ormuz disparo precios de derivados quimicos globalmente. ADBS sin stock en Mexico. Precio spot casi al doble del contrato. Todos los proveedores de envases incrementaron <span class="data-highlight">+30%</span> con cartas de fuerza mayor.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Operativo Caudal impacto costo del agua:</strong> Precio del agua cruda paso de <span class="data-highlight">$0.075/L</span> a <span class="data-highlight">$0.20/L</span> &mdash; incremento de ~167%. PI no puede controlar este costo; depende del mercado de piperos.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Contratos de abasto a plazo fijo:</strong> Para LESS, negociaron con China (via Juan Carlos) precio fijo para 6 meses de consumo a <span class="data-highlight">$1.79-1.80 USD/kg</span>. Precio spot de mercado esta cerca de <span class="data-highlight">$2.30 USD/kg</span>. Esto protege margenes temporalmente.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Reporteo de inflacion interna mensual:</strong> Existe un reporte llamado "inflacion interna mensual" que rastrea variaciones de precio de todas las materias primas mes a mes, indicando inflacion o deflacion por cada insumo.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════ PILAR 09 ════════════ -->
-<section id="pilar-09">
-  <div class="container">
-    <div class="section-header">
-      <span class="pilar-badge">Pilar 09</span>
-      <h2>Almacenes</h2>
-    </div>
-
-    <div class="finding">
-      <p><strong>Operacion basada en 11-12 naves industriales arrendadas:</strong> Todos los inmuebles son arrendados. Marco menciona el almacenamiento y abasto de materias primas como parte del <span class="data-highlight">activo operativo dificil de replicar</span>.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════ PILAR 12 ════════════ -->
-<section id="pilar-12" style="background: rgba(205, 220, 201, 0.2);">
-  <div class="container">
-    <div class="section-header">
-      <span class="pilar-badge">Pilar 12</span>
-      <h2>Estructura, Gobierno y Capital Humano</h2>
-    </div>
-
-    <div class="finding">
-      <p><strong>Narrativa interna para entrevistas LCG:</strong> Marco comunico a los accionistas y tiene visto bueno para agendar entrevistas con directores. Narrativa: "firma consultora que busca optimizar procesos y hacer un assessment para cotizacion a los actuales accionistas." Los directores NO saben de la operacion de M&A.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>David Padilla como riesgo de gobierno:</strong> Su comportamiento arrogante con el comprador de Sam's detono la licitacion que costo <span class="data-highlight">~$400M MXN/ano</span> en ventas. Evidencia falta de gobierno corporativo en la gestion de la relacion con el cliente ancla.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Centralizacion excesiva en Marco Barcenas:</strong> Marco revisa personalmente el 100% del detalle financiero, negocia con principales proveedores, gestiona relaciones con accionistas de proveedores y coordina compras estrategicas. <span class="data-highlight">"El detalle de todo 100% lo reviso yo."</span></p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Reporteo mensual robusto pero concentrado:</strong> Existe un paquete de analisis financiero-operativo mensual que incluye: estado de resultados consolidado, analisis de ventas por SKU, reporte de costo estandar, reporte de margenes por producto, comparativo de inflacion interna de MP, analisis de proveedores por volumen. Todo revisado por Marco personalmente.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Entidades no incluidas en la transaccion:</strong> ARQCO (constructora de alto lujo) y Solari (empresa patrimonial con activos inmobiliarios) no estan en el perimetro de la operacion. Solari no tiene ingresos actualmente.</p>
-    </div>
-
-    <div class="finding">
-      <p><strong>Estructura PIMA y PISA clarificada:</strong></p>
-      <div class="data-table-wrapper" style="margin-top: 12px;">
-        <table>
-          <thead>
-            <tr>
-              <th>Entidad</th>
-              <th>Funcion</th>
-              <th>Costo principal</th>
-              <th>Nota</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>PIMA</strong> (Manufacturing)</td>
-              <td>Manufactura</td>
-              <td>Mano de obra</td>
-              <td>No compra MP; toda la MP la compra PI Group</td>
-            </tr>
-            <tr>
-              <td><strong>PISA</strong> (Admin Services)</td>
-              <td>Administradora</td>
-              <td>Nomina</td>
-              <td>Sin costo de ventas; factura servicios internos</td>
-            </tr>
-            <tr>
-              <td><strong>PI Group</strong></td>
-              <td>Comercializadora</td>
-              <td>Materias primas</td>
-              <td>Compra toda la MP; factura $1,756M (2025)</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════ DATOS DUROS ════════════ -->
-<div class="divider-section">
-  <div class="container">
-    <div class="divider-icon" style="background: var(--mint); color: var(--forest);">&#9776;</div>
-    <div>
-      <h2>Datos Duros Obtenidos</h2>
-      <p>Metricas concretas extraidas de la entrevista</p>
-    </div>
+  <div class="cover-footer">
+    <div>Confidencial &bull; 18 de marzo de 2026 &bull; Duracion ~1h 33m</div>
+    <div>Entrevistador: Fernando Sanchez Andrade &bull; London Consulting Group</div>
   </div>
 </div>
 
-<section id="datos-duros">
-  <div class="container">
-    <div class="data-table-wrapper">
-      <table>
-        <thead>
-          <tr>
-            <th>Dato</th>
-            <th>Valor</th>
-            <th>Contexto</th>
-            <th>Pilar</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>SKUs perdidos en licitacion 2025</td>
-            <td><span class="mono">3 SKUs (5 presentaciones)</span></td>
-            <td>Pino 10L, Pino 20L, Detergente ropa oscura 10L, Lavanda 10L/20L</td>
-            <td><span class="pilar-tag">01</span></td>
-          </tr>
-          <tr>
-            <td>Impacto mensual de SKUs perdidos</td>
-            <td><span class="mono">~$40M MXN/mes</span></td>
-            <td>Pino 10L ~$6.5M, Pino 20L ~$7M, Lavanda 10L ~$15M, Lavanda 20L ~$7M, Ropa oscura ~$4.5M</td>
-            <td><span class="pilar-tag">01</span></td>
-          </tr>
-          <tr>
-            <td>Impacto anual SKUs perdidos</td>
-            <td><span class="mono">~$400M MXN/ano</span></td>
-            <td>Detonado por conflicto David Padilla vs. comprador Sam's</td>
-            <td><span class="pilar-tag">01</span></td>
-          </tr>
-          <tr>
-            <td>Caida real de ingresos 2025 vs 2024</td>
-            <td><span class="mono">~$230M MXN (12%)</span></td>
-            <td>Se compensaron ~$170M con crecimiento en otros SKUs</td>
-            <td><span class="pilar-tag">01</span></td>
-          </tr>
-          <tr>
-            <td>% volumen perdido por licitacion</td>
-            <td><span class="mono">~20%</span></td>
-            <td>Resultado real fue ~12% en ingresos</td>
-            <td><span class="pilar-tag">01</span></td>
-          </tr>
-          <tr>
-            <td>Participacion Sam's en ingresos</td>
-            <td><span class="mono">~96-99%</span></td>
-            <td>Practicamente toda la venta es Sam's/Members Mark</td>
-            <td><span class="pilar-tag">01</span></td>
-          </tr>
-          <tr>
-            <td>Ventas Bolt vs. expectativa</td>
-            <td><span class="mono">3x proyectado</span></td>
-            <td>Maquina enmangadora amortizada en 6 meses vs. 3 anos plan</td>
-            <td><span class="pilar-tag">01</span> <span class="pilar-tag">07</span></td>
-          </tr>
-          <tr>
-            <td>Precio agua cruda (antes)</td>
-            <td><span class="mono">$0.075/L</span></td>
-            <td>Antes del Operativo Caudal</td>
-            <td><span class="pilar-tag">08</span></td>
-          </tr>
-          <tr>
-            <td>Precio agua cruda (actual)</td>
-            <td><span class="mono">$0.20/L</span></td>
-            <td>Post Operativo Caudal &mdash; incremento de ~167%</td>
-            <td><span class="pilar-tag">08</span></td>
-          </tr>
-          <tr>
-            <td>Precio ADBS (contrato)</td>
-            <td><span class="mono">$3.25 MXN/kg</span></td>
-            <td>Precio negociado hasta marzo 2026</td>
-            <td><span class="pilar-tag">08</span></td>
-          </tr>
-          <tr>
-            <td>Precio ADBS (spot crisis)</td>
-            <td><span class="mono">~$6.04 MXN/kg</span></td>
-            <td>$1.79 USD/kg x TC — casi al doble</td>
-            <td><span class="pilar-tag">08</span></td>
-          </tr>
-          <tr>
-            <td>Precio LESS (contrato 6 meses)</td>
-            <td><span class="mono">$1.79-1.80 USD/kg</span></td>
-            <td>Negociado con China via Juan Carlos Bojalil</td>
-            <td><span class="pilar-tag">08</span></td>
-          </tr>
-          <tr>
-            <td>Precio LESS (spot mercado)</td>
-            <td><span class="mono">~$2.30 USD/kg</span></td>
-            <td>Precio mercado actual</td>
-            <td><span class="pilar-tag">08</span></td>
-          </tr>
-          <tr>
-            <td>Precio LESS (pico dic 2025)</td>
-            <td><span class="mono">Prom. $8.27 MXN/kg</span></td>
-            <td>Escasez puntual, compras de multiples fuentes</td>
-            <td><span class="pilar-tag">08</span></td>
-          </tr>
-          <tr>
-            <td>Incremento envases por crisis</td>
-            <td><span class="mono">+30%</span></td>
-            <td>Todos los proveedores con cartas de fuerza mayor</td>
-            <td><span class="pilar-tag">08</span></td>
-          </tr>
-          <tr>
-            <td>Precio envase PI vs mercado</td>
-            <td><span class="mono">-15% debajo</span></td>
-            <td>Relacion directa con Envases Universales</td>
-            <td><span class="pilar-tag">08</span></td>
-          </tr>
-          <tr>
-            <td>Meses contenidos sin incremento</td>
-            <td><span class="mono">~3 meses</span></td>
-            <td>PI absorbio estabilidad mientras otros ya tuvieron incrementos</td>
-            <td><span class="pilar-tag">08</span></td>
-          </tr>
-          <tr>
-            <td>Concentracion top 10 proveedores</td>
-            <td><span class="mono">~70% del gasto</span></td>
-            <td>Relacion directa de Marco y/o DG con todos</td>
-            <td><span class="pilar-tag">08</span></td>
-          </tr>
-          <tr>
-            <td>Concentracion top 15 proveedores</td>
-            <td><span class="mono">~85% del gasto</span></td>
-            <td>Segundo bloque tambien con relacion directa</td>
-            <td><span class="pilar-tag">08</span></td>
-          </tr>
-          <tr>
-            <td>Equipo de compras</td>
-            <td><span class="mono">2 compradores + 1 coordinador</span></td>
-            <td>Sin gerente de compras estable</td>
-            <td><span class="pilar-tag">08</span> <span class="pilar-tag">12</span></td>
-          </tr>
-          <tr>
-            <td>Tipo de cambio referencia</td>
-            <td><span class="mono">~$17.77 MXN/USD</span></td>
-            <td>Mencionado durante la entrevista (abril 2026)</td>
-            <td><span class="pilar-tag">--</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<!-- ============================================================ -->
+<!-- RESUMEN DEL ENTREVISTADO -->
+<!-- ============================================================ -->
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
   </div>
-</section>
 
-<!-- ════════════ BANDERAS ════════════ -->
-<div class="divider-section">
-  <div class="container">
-    <div class="divider-icon" style="background: var(--amber); color: white;">&#9888;</div>
-    <div>
-      <h2>Banderas y Alertas</h2>
-      <p>Riesgos y temas que requieren atencion inmediata</p>
+  <div class="section-header">
+    <div class="section-number">Perfil del Entrevistado</div>
+    <h2 class="section-title">Marco Antonio Barcenas Sotelo</h2>
+    <div class="section-subtitle">Director de Contraloria y Finanzas &bull; PI Group SA de CV</div>
+  </div>
+
+  <div class="context-card">
+    <h4>Contexto y Rol</h4>
+    <p>Marco Barcenas es el Director de Contraloria y Finanzas de PI Group. Su rol abarca mucho mas alla de lo financiero: supervisa personalmente las negociaciones con proveedores estrategicos (top 10 por volumen de compra), revisa al detalle reportes de costo estandar diarios y mensuales, monitorea inflacion interna de materias primas y tiene relacion directa con los accionistas de los principales proveedores.</p>
+    <p>Es el punto de contacto clave para LCG y continuara post-adquisicion. Tambien coordina la agenda de entrevistas internas con directores de PI Group bajo la narrativa de "firma consultora evaluando procesos para cotizacion" -- los directores no conocen la operacion de M&A.</p>
+  </div>
+
+  <div class="kpi-banner">
+    <div class="kpi-item">
+      <div class="kpi-value">6</div>
+      <div class="kpi-label">Pilares Tocados</div>
+    </div>
+    <div class="kpi-item teal-bg">
+      <div class="kpi-value">22</div>
+      <div class="kpi-label">Hallazgos Clave</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-value">5</div>
+      <div class="kpi-label">Oportunidades</div>
+    </div>
+    <div class="kpi-item red-bg">
+      <div class="kpi-value">6</div>
+      <div class="kpi-label">Banderas / Alertas</div>
     </div>
   </div>
+
+  <h3>Pilares cubiertos en esta entrevista</h3>
+  <div class="maturity-grid">
+    <div class="maturity-cell green">
+      <div class="maturity-cell-score green">01</div>
+      <div class="maturity-cell-name">Inteligencia Comercial</div>
+      <div class="maturity-cell-num">10 hallazgos</div>
+    </div>
+    <div class="maturity-cell green">
+      <div class="maturity-cell-score green">02</div>
+      <div class="maturity-cell-name">Ejecucion Comercial</div>
+      <div class="maturity-cell-num">4 hallazgos</div>
+    </div>
+    <div class="maturity-cell green">
+      <div class="maturity-cell-score green">07</div>
+      <div class="maturity-cell-name">Innovacion</div>
+      <div class="maturity-cell-num">4 hallazgos</div>
+    </div>
+    <div class="maturity-cell green">
+      <div class="maturity-cell-score green">08</div>
+      <div class="maturity-cell-name">Abastecimiento</div>
+      <div class="maturity-cell-num">10 hallazgos</div>
+    </div>
+    <div class="maturity-cell">
+      <div class="maturity-cell-score" style="color:#999">09</div>
+      <div class="maturity-cell-name">Almacenes</div>
+      <div class="maturity-cell-num">1 hallazgo</div>
+    </div>
+    <div class="maturity-cell green">
+      <div class="maturity-cell-score green">12</div>
+      <div class="maturity-cell-name">Estructura y Gobierno</div>
+      <div class="maturity-cell-num">5 hallazgos</div>
+    </div>
+  </div>
+
+  <div class="page-footer">Entrevista Marco Barcenas &bull; 18 marzo 2026 &bull; Project Shine &bull; London Consulting Group</div>
 </div>
 
-<section id="banderas">
-  <div class="container">
-
-    <div class="alert-card critical">
-      <div class="alert-indicator red">!</div>
-      <div>
-        <h4>Riesgo David Padilla (Director General Adjunto)</h4>
-        <p>Causo directamente la perdida de ~$400M MXN/ano en ventas por un conflicto personal con el comprador de Sam's. Requiere evaluacion de su rol y continuidad post-adquisicion.</p>
-      </div>
-    </div>
-
-    <div class="alert-card critical">
-      <div class="alert-indicator red">!</div>
-      <div>
-        <h4>Centralizacion extrema en Marco Barcenas</h4>
-        <p>Toda la inteligencia financiera, negociacion con proveedores estrategicos y control de costos depende de una sola persona. Riesgo de persona clave y cuello de botella operativo. "El detalle de todo 100% lo reviso yo."</p>
-      </div>
-    </div>
-
-    <div class="alert-card critical">
-      <div class="alert-indicator red">!</div>
-      <div>
-        <h4>Crisis de suministro activa (abril 2026)</h4>
-        <p>Cierre del Estrecho de Ormuz esta causando escasez de derivados quimicos (ADBS sin stock en Mexico), incrementos de precios de envases (+30%) y presion generalizada de costos. Los incrementos contenidos comenzaran a impactar en segunda quincena de abril.</p>
-      </div>
-    </div>
-
-    <div class="alert-card warning">
-      <div class="alert-indicator amber">!</div>
-      <div>
-        <h4>Vacante de Gerente de Compras</h4>
-        <p>Posicion clave sin titular estable. Han rotado varios gerentes sin encontrar al adecuado. En un contexto de crisis de suministro, esto es especialmente critico.</p>
-      </div>
-    </div>
-
-    <div class="alert-card warning">
-      <div class="alert-indicator amber">!</div>
-      <div>
-        <h4>Operativo Caudal / Costo del Agua</h4>
-        <p>Costo del agua se triplico (de $0.075 a $0.20/L) y es un costo que PI no puede controlar. Para una empresa que manufactura productos liquidos de gran volumen, esto impacta directamente en COGS.</p>
-      </div>
-    </div>
-
-    <div class="alert-card warning">
-      <div class="alert-indicator amber">!</div>
-      <div>
-        <h4>Archivos financieros son version preliminar</h4>
-        <p>Marco advierte que el cierre de diciembre 2025 estaba pendiente por declaracion anual. Los numeros compartidos no son definitivos, aunque los "grandes numeros" deberian estar cercanos.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ════════════ OPORTUNIDADES ════════════ -->
-<div class="divider-section">
-  <div class="container">
-    <div class="divider-icon" style="background: var(--mint); color: var(--forest);">&#9650;</div>
-    <div>
-      <h2>Oportunidades Identificadas</h2>
-      <p>Valor potencial detectado en esta entrevista</p>
-    </div>
-  </div>
+<!-- ============================================================ -->
+<!-- PILAR 01: INTELIGENCIA COMERCIAL -->
+<!-- ============================================================ -->
+<div class="section-divider">
+  <div class="section-divider-text">Hallazgos por Pilar</div>
 </div>
 
-<section id="oportunidades">
-  <div class="container">
-    <div class="opp-grid">
-
-      <div class="opp-card">
-        <span class="opp-id">OPP-005</span>
-        <h4>Diversificacion via Costco</h4>
-        <div class="opp-impact">Estrategica <span class="unit">Reduccion de riesgo</span></div>
-        <p class="opp-desc">Entrada a Costco a traves de la relacion con Juan Carlos Bojalil. Ya se presento propuesta de jabon de manos liquido (formato premium). Costco permite mejores margenes que Sam's. Horizonte: 3-5 anos para alcanzar volumen equivalente.</p>
-        <div class="opp-tags">
-          <span>Pilar 01</span>
-          <span>Pilar 02</span>
-          <span>3-5 anos</span>
-        </div>
-      </div>
-
-      <div class="opp-card">
-        <span class="opp-id">OPP-001</span>
-        <h4>Recuperacion de SKUs Perdidos</h4>
-        <div class="opp-impact">$400M <span class="unit">MXN/ano potencial</span></div>
-        <p class="opp-desc">Sam's no le esta yendo bien con el proveedor alterno. Con la relacion restaurada via Hugo Ambrosi, existe posibilidad de recuperar volumen a mediano plazo.</p>
-        <div class="opp-tags">
-          <span>Pilar 01</span>
-          <span>Pilar 02</span>
-          <span>Mediano plazo</span>
-        </div>
-      </div>
-
-      <div class="opp-card">
-        <span class="opp-id">OPP-002</span>
-        <h4>Optimizacion de Formulacion y MP</h4>
-        <div class="opp-impact">$30-80M <span class="unit">MXN/ano estimado</span></div>
-        <p class="opp-desc">Ya en ejecucion parcial: migracion de suavizante animal a vegetal (mejor costo y desempeno), LESS 28% a 70% (mejor precio), contratos a plazo con proveedores chinos. Oportunidad de profundizar desarrollo de MP alternas.</p>
-        <div class="opp-tags">
-          <span>Pilar 07</span>
-          <span>Pilar 08</span>
-          <span>En ejecucion parcial</span>
-        </div>
-      </div>
-
-      <div class="opp-card">
-        <span class="opp-id">OPP-008</span>
-        <h4>Profesionalizacion de Compras</h4>
-        <div class="opp-impact">Habilitadora <span class="unit">Eficiencia + liberacion de Marco</span></div>
-        <p class="opp-desc">Llenar vacante de gerente de compras con perfil de sourcing estrategico. Formalizar proceso de evaluacion de proveedores. Reducir dependencia de negociaciones personales de Marco. Impacto en el 30% del gasto no negociado directamente.</p>
-        <div class="opp-tags">
-          <span>Pilar 08</span>
-          <span>Pilar 12</span>
-          <span>Quick win</span>
-        </div>
-      </div>
-
-      <div class="opp-card">
-        <span class="opp-id">OPP-006</span>
-        <h4>Gobierno Corporativo</h4>
-        <div class="opp-impact">Habilitadora <span class="unit">Proteccion de valor</span></div>
-        <p class="opp-desc">Formalizar protocolos de gestion de relacion con cliente ancla. Evitar que decisiones individuales (caso David Padilla) pongan en riesgo la operacion. Implementar comite comercial con reglas de escalamiento.</p>
-        <div class="opp-tags">
-          <span>Pilar 12</span>
-          <span>Quick win</span>
-        </div>
-      </div>
-
-    </div>
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
   </div>
-</section>
 
-<!-- ════════════ INFORMACION POR VALIDAR ════════════ -->
-<div class="divider-section">
-  <div class="container">
-    <div class="divider-icon" style="background: var(--blue); color: white;">?</div>
-    <div>
-      <h2>Informacion para Validar</h2>
-      <p>Temas que requieren confirmacion con otras fuentes</p>
-    </div>
+  <div class="macro-map">
+    <div class="macro-step active">01 Intel. Comercial</div>
+    <div class="macro-step">02 Ejec. Comercial</div>
+    <div class="macro-step">03 Planeacion</div>
+    <div class="macro-step">04 Produccion</div>
+    <div class="macro-step">05 Mantto.</div>
+    <div class="macro-step">06 Calidad</div>
+    <div class="macro-step">07 Innovacion</div>
+    <div class="macro-step">08 Abasto</div>
+    <div class="macro-step">09 Almacenes</div>
+    <div class="macro-step">10 Distrib.</div>
+    <div class="macro-step">11 Digital</div>
+    <div class="macro-step">12 Gobierno</div>
   </div>
+
+  <div class="section-header">
+    <div class="section-number">Pilar 01</div>
+    <h2 class="section-title">Inteligencia Comercial</h2>
+    <div class="section-subtitle">Mix de clientes &bull; Mix de productos &bull; Precios &bull; Condiciones comerciales</div>
+  </div>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Concentracion extrema en un solo cliente</div>
+    </div>
+    <div class="finding-text">Sam's Club representa ~96-99% de los ingresos del grupo. La comercializadora (PI Group) factura $1,756M MXN (2025) y practicamente toda la venta es a Sam's Club bajo la marca Members Mark.</div>
+    <div class="finding-kpi red">96-99% concentracion</div>
+  </div>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Perdida de 3 SKUs clave por licitacion en 2024</div>
+    </div>
+    <div class="finding-text">PI Group perdio los SKUs de pino (10L y 20L), detergente ropa oscura (10L) y lavanda (10L y 20L) a partir de marzo-abril 2025. Estos representaban ~20% del volumen total y ~$400M MXN anuales en ventas.</div>
+    <div class="finding-kpi red">-$400M MXN/ano</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Compensacion parcial de la caida</div>
+    </div>
+    <div class="finding-text">La caida real de ingresos fue de ~$230M MXN (12%) vs. los $400M MXN que representaban los SKUs perdidos, indicando crecimiento en otros productos que amortiguo la caida.</div>
+    <div class="finding-kpi green">-12% real vs -20% esperado</div>
+  </div>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Origen relacional, no comercial</div>
+    </div>
+    <div class="finding-text">La licitacion se detono por un enfrentamiento entre David Padilla (Director General Adjunto) y el comprador de Sam's. Padilla declaro de forma arrogante que PI ganaria cualquier licitacion y el comprador respondio con un "manotazo en la mesa" para demostrar que podia reducir el volumen a PI.</div>
+  </div>
+
+  <div class="finding-card positive">
+    <div class="finding-header">
+      <div class="finding-icon">+</div>
+      <div class="finding-title">Relacion restaurada via Hugo Ambrosi</div>
+    </div>
+    <div class="finding-text">La gestion de Hugo ha restablecido la relacion con Sam's. Ya se abrieron nuevamente puertas para nuevos productos, aunque los 3 SKUs perdidos no regresaran a corto plazo. Sam's no le esta yendo bien con el proveedor alternativo.</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Estrategia de marcas propias dominante</div>
+    </div>
+    <div class="finding-text">Sam's migro la marca propia de PI (Now/Sensacional) hacia Members Mark. Home Depot esta haciendo lo mismo: reemplazando la marca Nao de PI por HDX (marca propia de Home Depot). Esto confirma el modelo de maquila puro.</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Diversificacion: oportunidad principal pero compleja</div>
+    </div>
+    <div class="finding-text">Marco identifica la diversificacion de clientes como la mayor oportunidad del negocio. Sin embargo, el modelo de grandes volumenes dificulta entrar a formatos mas pequenos (ej. Walmart con productos de 1L requeriria nueva maquinaria y fuente de agua adicional).</div>
+  </div>
+
+  <div class="finding-card positive">
+    <div class="finding-header">
+      <div class="finding-icon">+</div>
+      <div class="finding-title">Costco como objetivo estrategico principal</div>
+    </div>
+    <div class="finding-text">Ya existe un proyecto con Juan Carlos Bojalil para entrar a Costco a traves de sus marcas y productos. Se presento una propuesta de jabon de manos liquido. Costco pidio algo "mas premium" (mejor envase, etiqueta mas estilizada). Costco permite mejores margenes porque no compite solo por precio.</div>
+  </div>
+
+  <div class="finding-card positive">
+    <div class="finding-header">
+      <div class="finding-icon">+</div>
+      <div class="finding-title">Bolt como caso de exito en diversificacion</div>
+    </div>
+    <div class="finding-text">Hace ~4 anos iniciaron maquila para Bolt (detergentes y suavizantes). La maquina enmangadora se amortizo en 6 meses vs. los 3 anos planeados. Las ventas estan al triple de lo que Bolt esperaba.</div>
+    <div class="finding-kpi green">3x ventas vs. plan</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Meta a 5 anos</div>
+    </div>
+    <div class="finding-text">Tener un cliente equivalente a Sam's (Costco) que mitigue el riesgo de concentracion.</div>
+  </div>
+
+  <div class="page-footer">Entrevista Marco Barcenas &bull; 18 marzo 2026 &bull; Project Shine &bull; London Consulting Group</div>
 </div>
 
-<section id="validar">
-  <div class="container">
-    <ul class="checklist">
-      <li><strong>Fill rate real:</strong> La KB indica 99.99% pero tambien menciona que "fluctua; no es constante". Marco no lo abordo en esta entrevista. <em>Validar con Direccion de Operaciones.</em></li>
-      <li><strong>Impacto financiero del Operativo Caudal:</strong> Cuanto representa el agua como % del COGS total? Cuantificar para dimensionar el impacto del incremento de 167%. <em>Validar con analisis financiero.</em></li>
-      <li><strong>Alcance real del conflicto David Padilla - Sam's:</strong> Fue solo un incidente o hay un patron? Cual es su rol actual en la relacion comercial? <em>Validar con Hugo Ambrosi.</em></li>
-      <li><strong>Detalles del contrato de exclusividad con Simprise:</strong> Terminos, duracion, rebate por volumen. Relevante para evaluar poder de negociacion. <em>Validar con Marco (sesion 2).</em></li>
-      <li><strong>Estructura real de compras:</strong> Francisco Rojas aparece como subdirector que cubre compras, pero bajo que direccion reporta? Es subdirector de Administracion o de otra area? <em>Validar con organigrama.</em></li>
-      <li><strong>Inversion en subsidiaria ($100M salto 2025):</strong> No se abordo en esta entrevista. Sigue pendiente de aclaracion. <em>Preguntar en sesion 2.</em></li>
-      <li><strong>Magnitud del negocio Home Depot / Nao a HDX:</strong> Cuanto representa en ingresos? Que margen deja? <em>Validar con Hugo Ambrosi.</em></li>
-      <li><strong>Status de la entrada a Costco:</strong> Se avanzo despues de la propuesta de jabon de manos? <em>Validar con Hugo Ambrosi y/o Juan Carlos Bojalil.</em></li>
-      <li><strong>Archivos financieros definitivos (cierre diciembre 2025):</strong> Marco indico que los compartidos eran version preliminar. <em>Solicitar version final.</em></li>
-    </ul>
+<!-- ============================================================ -->
+<!-- PILAR 02: EJECUCION COMERCIAL -->
+<!-- ============================================================ -->
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
   </div>
-</section>
 
-<!-- ════════════ CITAS ════════════ -->
-<div class="divider-section">
-  <div class="container">
-    <div class="divider-icon" style="background: rgba(243,243,243,0.15); color: var(--mint); border: 2px solid var(--mint);">&ldquo;</div>
-    <div>
-      <h2>Citas Relevantes</h2>
-      <p>Frases clave que capturan insights importantes</p>
-    </div>
+  <div class="macro-map">
+    <div class="macro-step">01 Intel. Comercial</div>
+    <div class="macro-step active">02 Ejec. Comercial</div>
+    <div class="macro-step">03 Planeacion</div>
+    <div class="macro-step">04 Produccion</div>
+    <div class="macro-step">05 Mantto.</div>
+    <div class="macro-step">06 Calidad</div>
+    <div class="macro-step">07 Innovacion</div>
+    <div class="macro-step">08 Abasto</div>
+    <div class="macro-step">09 Almacenes</div>
+    <div class="macro-step">10 Distrib.</div>
+    <div class="macro-step">11 Digital</div>
+    <div class="macro-step">12 Gobierno</div>
   </div>
+
+  <div class="section-header">
+    <div class="section-number">Pilar 02</div>
+    <h2 class="section-title">Ejecucion Comercial</h2>
+    <div class="section-subtitle">Recepcion de pedidos &bull; Gestion KAM &bull; Fill rate / OTIF &bull; Estructura comercial</div>
+  </div>
+
+  <div class="finding-card positive">
+    <div class="finding-header">
+      <div class="finding-icon">+</div>
+      <div class="finding-title">Analisis de ventas granular por SKU y cliente</div>
+    </div>
+    <div class="finding-text">Existe un estado de resultados mensual consolidado que desglosa ventas por cliente, descuentos comerciales y fletes por separado. Este nivel de detalle es mayor al que tiene Emerge Advisors (el asesor financiero del fondo).</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Definicion interna de "ingreso real" difiere del estandar</div>
+    </div>
+    <div class="finding-text">Para PI Group, el ingreso real = ventas netas - descuentos comerciales - fletes. Los fletes se consideran parte integral del costo de generar el ingreso, no un gasto de venta. Esto afecta la forma de leer sus estados financieros internos vs. los presentados externamente.</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Cambios de formato en SKUs vigentes</div>
+    </div>
+    <div class="finding-text">Algunos productos no se "perdieron" sino que cambiaron de formato (ej. champu automotriz paso de envase de 2 bocas a bidon; cambios de formula en detergentes que aparecen como SKU nuevo pero es mismo producto). Esto puede distorsionar analisis de tendencia si no se rastrea la continuidad.</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Productos estacionales/temporales</div>
+    </div>
+    <div class="finding-text">Algunos SKUs como "brisa de mar" son temporales (3 meses) y luego rotan a otra version. Importante considerar al analizar patrones de venta.</div>
+  </div>
+
+  <div class="page-footer">Entrevista Marco Barcenas &bull; 18 marzo 2026 &bull; Project Shine &bull; London Consulting Group</div>
 </div>
 
-<section id="citas">
-  <div class="container">
-
-    <div class="quote-card">
-      <blockquote>La mayor oportunidad es diversificarnos, pero la diversificacion no es tan sencilla por nuestro modelo de negocios basado en grandes volumenes, no en litros.</blockquote>
-      <div class="quote-context">Sobre la restriccion fundamental del modelo de negocio para diversificar &mdash; Pilar 01</div>
-    </div>
-
-    <div class="quote-card">
-      <blockquote>David le manifesto que no importaba si nos licitaba, el iba a ganar porque sabia que eramos la mejor opcion y nadie mas sabia hacer las cosas como nosotros, pero no se lo dijo de buena forma.</blockquote>
-      <div class="quote-context">Sobre el origen de la perdida de SKUs por arrogancia directiva &mdash; Pilar 01, 12</div>
-    </div>
-
-    <div class="quote-card">
-      <blockquote>El comprador le dio un manotazo en la mesa: 'Te puedo destruir cuando yo quiera.'</blockquote>
-      <div class="quote-context">Sobre la reaccion del comprador de Sam's ante la arrogancia de David Padilla &mdash; Pilar 01</div>
-    </div>
-
-    <div class="quote-card">
-      <blockquote>Levantar un modelo con una inversion como la que traemos en equipo, gente, I+D, maquinaria... no es que de la noche a la manana puedas hacer que esto funcione. Yo creo que es un proceso de 2-3 anos.</blockquote>
-      <div class="quote-context">Sobre la barrera de entrada real para competidores &mdash; Pilar 07</div>
-    </div>
-
-    <div class="quote-card">
-      <blockquote>El detalle de todo, 100%, lo reviso yo.</blockquote>
-      <div class="quote-context">Evidencia de la centralizacion extrema en Marco &mdash; Pilar 12</div>
-    </div>
-
-    <div class="quote-card">
-      <blockquote>Nadie trae el precio que traemos nosotros con Envases Universales. Exigimos a este proveedor que no le vendiera a ninguna de nuestras competencias.</blockquote>
-      <div class="quote-context">Sobre el poder de negociacion y acuerdos de exclusividad con proveedores clave &mdash; Pilar 08</div>
-    </div>
-
-    <div class="quote-card">
-      <blockquote>Con Juan Carlos surgio el cambio de la molecula vegetal que nos represento una mejora en desempeno y una mejora en costo.</blockquote>
-      <div class="quote-context">Sobre la capacidad de innovacion en formulacion &mdash; Pilar 07</div>
-    </div>
-
-    <div class="quote-card">
-      <blockquote>En Costco no vas por precio. Ahi si puedes aumentar tus margenes y presentar proyectos mas premium.</blockquote>
-      <div class="quote-context">Sobre la oportunidad estrategica de Costco &mdash; Pilar 01</div>
-    </div>
-
+<!-- ============================================================ -->
+<!-- PILAR 07: INNOVACION -->
+<!-- ============================================================ -->
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
   </div>
-</section>
 
-<!-- ════════════ DOCUMENTOS ════════════ -->
-<div class="divider-section">
-  <div class="container">
-    <div class="divider-icon" style="background: var(--sage); color: var(--forest);">&#9998;</div>
-    <div>
-      <h2>Documentos Recibidos o Comprometidos</h2>
-      <p>Archivos asociados a esta entrevista</p>
-    </div>
+  <div class="macro-map">
+    <div class="macro-step">01 Intel. Comercial</div>
+    <div class="macro-step">02 Ejec. Comercial</div>
+    <div class="macro-step">03 Planeacion</div>
+    <div class="macro-step">04 Produccion</div>
+    <div class="macro-step">05 Mantto.</div>
+    <div class="macro-step">06 Calidad</div>
+    <div class="macro-step active">07 Innovacion</div>
+    <div class="macro-step">08 Abasto</div>
+    <div class="macro-step">09 Almacenes</div>
+    <div class="macro-step">10 Distrib.</div>
+    <div class="macro-step">11 Digital</div>
+    <div class="macro-step">12 Gobierno</div>
   </div>
+
+  <div class="section-header">
+    <div class="section-number">Pilar 07</div>
+    <h2 class="section-title">Innovacion</h2>
+    <div class="section-subtitle">Desarrollo de iniciativas &bull; Formulacion &bull; Ingenieria de envases</div>
+  </div>
+
+  <div class="finding-card positive">
+    <div class="finding-header">
+      <div class="finding-icon">+</div>
+      <div class="finding-title">Desarrollo de molecula vegetal para suavizante</div>
+    </div>
+    <div class="finding-text">Hace ~2 anos, PI desarrollo con Juan Carlos Bojalil (via BM/M-Chem/Aditivos) una molecula vegetal que sustituyo la base de suavizante animal (previamente de Quimicao). El cambio represento mejora en desempeno y en costo.</div>
+  </div>
+
+  <div class="finding-card positive">
+    <div class="finding-header">
+      <div class="finding-icon">+</div>
+      <div class="finding-title">Migracion de LESS 28% a 70%</div>
+    </div>
+    <div class="finding-text">Se cambio del LESS al 28% (liquido, diluido con agua) al LESS al 70% (pasta), importado de China via Juan Carlos Bojalil. Mejor precio y rendimiento.</div>
+  </div>
+
+  <div class="finding-card positive">
+    <div class="finding-header">
+      <div class="finding-icon">+</div>
+      <div class="finding-title">Primer envase reciclado en Mexico</div>
+    </div>
+    <div class="finding-text">PI fue la primera en tener envase reciclado de 10L en Mexico, desarrollado en conjunto con Tecnopelets. PI puso la ingenieria y Tecnopelets los moldes y maquinas. El diseno es exclusivo de PI aunque Tecnopelets ahora vende a otros.</div>
+  </div>
+
+  <div class="finding-card positive">
+    <div class="finding-header">
+      <div class="finding-icon">+</div>
+      <div class="finding-title">Capacidad de I+D como diferenciador competitivo</div>
+    </div>
+    <div class="finding-text">La capacidad de formulacion e ingenieria de envases es una barrera de entrada real. Marco menciona que replicar la operacion de PI tomaria 2-3 anos incluso con capital suficiente.</div>
+  </div>
+
+  <div class="verbatim">
+    <div class="verbatim-text">Levantar un modelo con una inversion como la que traemos en equipo, gente, I+D, maquinaria... no es que de la noche a la manana puedas hacer que esto funcione. Yo creo que es un proceso de 2-3 anos.</div>
+    <div class="verbatim-source">Marco Barcenas &mdash; sobre barreras de entrada</div>
+  </div>
+
+  <div class="page-footer">Entrevista Marco Barcenas &bull; 18 marzo 2026 &bull; Project Shine &bull; London Consulting Group</div>
 </div>
 
-<section id="documentos">
-  <div class="container">
-    <div class="data-table-wrapper">
-      <table>
-        <thead>
-          <tr>
-            <th>Documento</th>
-            <th>Tipo</th>
-            <th>Status</th>
-            <th>Pilar</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Estado de resultados mensual consolidado (por cliente, por entidad)</td>
-            <td>Herramienta</td>
-            <td><span class="status-badge comprometido">Comprometido</span></td>
-            <td><span class="pilar-tag">01</span> <span class="pilar-tag">12</span></td>
-          </tr>
-          <tr>
-            <td>Reporte de costo estandar diario/mensual</td>
-            <td>Herramienta</td>
-            <td><span class="status-badge comprometido">Comprometido</span></td>
-            <td><span class="pilar-tag">08</span></td>
-          </tr>
-          <tr>
-            <td>Reporte de margenes por producto (telefonico)</td>
-            <td>Herramienta</td>
-            <td><span class="status-badge comprometido">Comprometido</span></td>
-            <td><span class="pilar-tag">01</span> <span class="pilar-tag">08</span></td>
-          </tr>
-          <tr>
-            <td>Reporte de inflacion interna mensual de materias primas</td>
-            <td>Herramienta</td>
-            <td><span class="status-badge comprometido">Comprometido</span></td>
-            <td><span class="pilar-tag">08</span></td>
-          </tr>
-          <tr>
-            <td>Analisis de proveedores por volumen de compra (ABC)</td>
-            <td>Herramienta</td>
-            <td><span class="status-badge comprometido">Comprometido</span></td>
-            <td><span class="pilar-tag">08</span></td>
-          </tr>
-          <tr>
-            <td>Reporte de aumentos/variaciones en costo por tipo de cambio</td>
-            <td>Herramienta</td>
-            <td><span class="status-badge comprometido">Comprometido</span></td>
-            <td><span class="pilar-tag">08</span></td>
-          </tr>
-          <tr>
-            <td>Paquete completo de analisis financiero-operativo mensual</td>
-            <td>Herramienta</td>
-            <td><span class="status-badge comprometido">Comprometido</span></td>
-            <td><span class="pilar-tag">--</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<!-- ============================================================ -->
+<!-- PILAR 08: ABASTECIMIENTO -->
+<!-- ============================================================ -->
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
+  </div>
 
-    <!-- NOTAS ADICIONALES -->
-    <div class="notes-section">
-      <h3>Notas Adicionales</h3>
-      <ul>
-        <li><strong>Esta fue la primera parte de una entrevista en dos sesiones.</strong> La conversacion se corto por tiempo (~1h 33m) cuando apenas se habia cubierto ingresos y costo de ventas. Se agendo una segunda sesion para el 20 de marzo de 7:00-9:30am para continuar con gastos, capital de trabajo, oportunidades operativas y demas temas.</li>
-        <li><strong>Marco compartira archivos via correo/chat</strong> antes de la segunda sesion para que Fernando pueda "hacer la tarea" previamente.</li>
-        <li><strong>El reporte financiero de PI Group es significativamente mas detallado que el de Emerge Advisors.</strong> El que tiene LCG (via Emerge) es una version resumida para bancos. El interno de PI tiene desglose por cliente, por SKU, por materia prima, con analisis de margenes unitarios y comparativos mensuales.</li>
-      </ul>
+  <div class="macro-map">
+    <div class="macro-step">01 Intel. Comercial</div>
+    <div class="macro-step">02 Ejec. Comercial</div>
+    <div class="macro-step">03 Planeacion</div>
+    <div class="macro-step">04 Produccion</div>
+    <div class="macro-step">05 Mantto.</div>
+    <div class="macro-step">06 Calidad</div>
+    <div class="macro-step">07 Innovacion</div>
+    <div class="macro-step active">08 Abasto</div>
+    <div class="macro-step">09 Almacenes</div>
+    <div class="macro-step">10 Distrib.</div>
+    <div class="macro-step">11 Digital</div>
+    <div class="macro-step">12 Gobierno</div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Pilar 08</div>
+    <h2 class="section-title">Abastecimiento</h2>
+    <div class="section-subtitle">Negociacion de proveedores &bull; Analisis de costos &bull; Desarrollo de proveedores</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Gestion centralizada de proveedores estrategicos</div>
+    </div>
+    <div class="finding-text">Marco personalmente gestiona las relaciones con los ~10 principales proveedores (70% del gasto). La Direccion General participa en las negociaciones de mas alto nivel (Simprise, Envases Universales).</div>
+    <div class="finding-kpi red">70% gasto en 10 proveedores</div>
+  </div>
+
+  <h3>Proveedores Estrategicos Clave</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Proveedor</th>
+        <th>Categoria</th>
+        <th>Relacion</th>
+        <th>Ventaja Competitiva</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Simprise</strong></td>
+        <td>Fragancias</td>
+        <td>Negociacion directa DG + Marco</td>
+        <td>Contrato exclusividad con rebate por volumen</td>
+      </tr>
+      <tr>
+        <td><strong>Envases Universales</strong></td>
+        <td>Envases</td>
+        <td>Relacion directa con familia Zapata</td>
+        <td>Precio ~15% debajo de mercado + exclusividad</td>
+      </tr>
+      <tr>
+        <td><strong>BM / M-Chem / Aditivos</strong></td>
+        <td>MP quimicas</td>
+        <td>Juan Carlos Bojalil (3 empresas)</td>
+        <td>Desarrollo conjunto de MP alternas en China</td>
+      </tr>
+      <tr>
+        <td><strong>Tecnopelets</strong></td>
+        <td>Envase reciclado</td>
+        <td>Relacion con Bernardo Liu (accionista)</td>
+        <td>Mejor resina reciclada de Mexico</td>
+      </tr>
+      <tr>
+        <td><strong>Manufacturas Jupiter</strong></td>
+        <td>Sopladora envases</td>
+        <td>Familia Platonoff / Ross France</td>
+        <td>Proveedor exclusivo PI + Ross France</td>
+      </tr>
+      <tr>
+        <td><strong>Especialidades PDV</strong></td>
+        <td>Especialidades</td>
+        <td>Manejo directo Marco con dir. comercial</td>
+        <td>--</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Impacto geopolitico severo en materias primas (abril 2026)</div>
+    </div>
+    <div class="finding-text">Cierre del Estrecho de Ormuz disparo precios de derivados quimicos globalmente. ADBS sin stock en Mexico. Todos los proveedores de envases incrementaron 30% con cartas de fuerza mayor. PI logro contener incrementos por ~3 meses vs. otros clientes.</div>
+  </div>
+
+  <div class="kpi-banner">
+    <div class="kpi-item red-bg">
+      <div class="kpi-value">+167%</div>
+      <div class="kpi-label">Costo Agua (Caudal)</div>
+    </div>
+    <div class="kpi-item red-bg">
+      <div class="kpi-value">+30%</div>
+      <div class="kpi-label">Precio Envases</div>
+    </div>
+    <div class="kpi-item teal-bg">
+      <div class="kpi-value">-15%</div>
+      <div class="kpi-label">PI vs Mdo. Envases</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-value">3 meses</div>
+      <div class="kpi-label">Contencion Precios</div>
     </div>
   </div>
-</section>
 
-<!-- ════════════ FOOTER ════════════ -->
-<footer class="footer">
-  <div class="container">
-    <p>London Consulting Group &nbsp;|&nbsp; Project Shine &nbsp;|&nbsp; Confidencial &nbsp;|&nbsp; Abril 2026</p>
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Operativo Caudal: costo del agua se triplico</div>
+    </div>
+    <div class="finding-text">Operativo gubernamental cerro pozos con concesiones agricolas. Precio del agua cruda paso de $0.075/L a $0.20/L -- incremento de ~167%. PI no puede controlar este costo; depende del mercado de piperos.</div>
   </div>
-</footer>
 
-<!-- ════════════ JAVASCRIPT ════════════ -->
-<script>
-(function() {
-  // Active nav highlighting on scroll
-  const navLinks = document.querySelectorAll('.nav-link');
-  const sections = [];
+  <div class="finding-card positive">
+    <div class="finding-header">
+      <div class="finding-icon">+</div>
+      <div class="finding-title">Contratos de abasto a plazo fijo</div>
+    </div>
+    <div class="finding-text">Para LESS, negociaron con China (via Juan Carlos) precio fijo para 6 meses de consumo a $1.79-1.80 USD/kg. Precio spot de mercado esta cerca de $2.30 USD/kg. Esto protege margenes temporalmente.</div>
+  </div>
 
-  navLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    if (href && href.startsWith('#')) {
-      const target = document.querySelector(href);
-      if (target) sections.push({ el: target, link: link, id: href });
-    }
-  });
+  <div class="finding-card positive">
+    <div class="finding-header">
+      <div class="finding-icon">+</div>
+      <div class="finding-title">Reporteo de inflacion interna mensual</div>
+    </div>
+    <div class="finding-text">Existe un reporte llamado "inflacion interna mensual" que rastrea variaciones de precio de todas las materias primas mes a mes, indicando inflacion o deflacion por cada insumo.</div>
+  </div>
 
-  function updateActiveNav() {
-    const scrollY = window.scrollY + 80;
-    let current = sections[0];
-    for (const s of sections) {
-      if (s.el.offsetTop <= scrollY) current = s;
-    }
-    navLinks.forEach(l => l.classList.remove('active'));
-    if (current) current.link.classList.add('active');
-  }
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Equipo de compras incompleto</div>
+    </div>
+    <div class="finding-text">Solo hay 2 compradores directos + 1 coordinador. No hay gerente de compras estable -- han pasado varios sin encontrar al adecuado. Francisco Rojas (subdirector) cubre parcialmente ese rol.</div>
+  </div>
 
-  let ticking = false;
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      window.requestAnimationFrame(function() {
-        updateActiveNav();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
+  <div class="page-footer">Entrevista Marco Barcenas &bull; 18 marzo 2026 &bull; Project Shine &bull; London Consulting Group</div>
+</div>
 
-  updateActiveNav();
+<!-- ============================================================ -->
+<!-- PILAR 09: ALMACENES -->
+<!-- ============================================================ -->
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
+  </div>
 
-  // Smooth scroll for nav links
-  navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          const offset = target.offsetTop - 56;
-          window.scrollTo({ top: offset, behavior: 'smooth' });
-        }
-      }
-    });
-  });
+  <div class="macro-map">
+    <div class="macro-step">01 Intel. Comercial</div>
+    <div class="macro-step">02 Ejec. Comercial</div>
+    <div class="macro-step">03 Planeacion</div>
+    <div class="macro-step">04 Produccion</div>
+    <div class="macro-step">05 Mantto.</div>
+    <div class="macro-step">06 Calidad</div>
+    <div class="macro-step">07 Innovacion</div>
+    <div class="macro-step">08 Abasto</div>
+    <div class="macro-step active">09 Almacenes</div>
+    <div class="macro-step">10 Distrib.</div>
+    <div class="macro-step">11 Digital</div>
+    <div class="macro-step">12 Gobierno</div>
+  </div>
 
-  // Fade-in on scroll for findings and cards
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
+  <div class="section-header">
+    <div class="section-number">Pilar 09</div>
+    <h2 class="section-title">Almacenes</h2>
+    <div class="section-subtitle">Control de inventarios &bull; Diseno de almacen &bull; Infraestructura</div>
+  </div>
 
-  document.querySelectorAll('.finding, .alert-card, .opp-card, .quote-card, .checklist li').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(16px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
-  });
-})();
-</script>
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Operacion basada en naves industriales arrendadas</div>
+    </div>
+    <div class="finding-text">Todos los inmuebles son arrendados (11-12 naves industriales). Marco menciona el tema de "almacenamiento y abasto de materias primas, agua" como parte del activo operativo dificil de replicar.</div>
+    <div class="finding-kpi green">11-12 naves arrendadas</div>
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-label">Nota</div>
+    <p>Este pilar fue tocado solo superficialmente en esta entrevista. Se requiere profundizar con el Director de Operaciones (Rodolfo Vega) y el Gerente de Logistica.</p>
+  </div>
+
+  <div class="page-footer">Entrevista Marco Barcenas &bull; 18 marzo 2026 &bull; Project Shine &bull; London Consulting Group</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PILAR 12: ESTRUCTURA, GOBIERNO Y CAPITAL HUMANO -->
+<!-- ============================================================ -->
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
+  </div>
+
+  <div class="macro-map">
+    <div class="macro-step">01 Intel. Comercial</div>
+    <div class="macro-step">02 Ejec. Comercial</div>
+    <div class="macro-step">03 Planeacion</div>
+    <div class="macro-step">04 Produccion</div>
+    <div class="macro-step">05 Mantto.</div>
+    <div class="macro-step">06 Calidad</div>
+    <div class="macro-step">07 Innovacion</div>
+    <div class="macro-step">08 Abasto</div>
+    <div class="macro-step">09 Almacenes</div>
+    <div class="macro-step">10 Distrib.</div>
+    <div class="macro-step">11 Digital</div>
+    <div class="macro-step active">12 Gobierno</div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Pilar 12</div>
+    <h2 class="section-title">Estructura, Gobierno y Capital Humano</h2>
+    <div class="section-subtitle">Gobierno operativo &bull; Gestion por indicadores &bull; Talento &bull; Estructura organizacional</div>
+  </div>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">David Padilla como riesgo de gobierno</div>
+    </div>
+    <div class="finding-text">El Director General Adjunto causo directamente la perdida de ~$400M MXN/ano en ventas por un conflicto personal con el comprador de Sam's. Este episodio evidencia falta de gobierno corporativo en la gestion de la relacion con el cliente ancla.</div>
+    <div class="finding-kpi red">$400M MXN/ano en riesgo</div>
+  </div>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Centralizacion excesiva en Marco Barcenas</div>
+    </div>
+    <div class="finding-text">Marco revisa personalmente el 100% del detalle financiero, negocia con los principales proveedores, gestiona relaciones con accionistas de proveedores y coordina compras estrategicas. Riesgo de persona clave y cuello de botella operativo.</div>
+  </div>
+
+  <div class="verbatim">
+    <div class="verbatim-text">El detalle de todo, 100%, lo reviso yo.</div>
+    <div class="verbatim-source">Marco Barcenas &mdash; sobre centralizacion</div>
+  </div>
+
+  <div class="finding-card positive">
+    <div class="finding-header">
+      <div class="finding-icon">+</div>
+      <div class="finding-title">Reporteo mensual robusto</div>
+    </div>
+    <div class="finding-text">Existe un paquete de analisis financiero-operativo mensual que incluye: estado de resultados consolidado (por mes, por cliente, por entidad), analisis de ventas por SKU, reporte de costo estandar diario/mensual, reporte de margenes por producto, comparativo de inflacion interna de MP, analisis de proveedores por volumen.</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Entidades no incluidas en la transaccion</div>
+    </div>
+    <div class="finding-text">ARQCO (constructora de alto lujo) y Solari (empresa patrimonial con activos inmobiliarios) no estan en el perimetro de la operacion. Solari no tiene ingresos actualmente.</div>
+  </div>
+
+  <div class="finding-card">
+    <div class="finding-header">
+      <div class="finding-icon">i</div>
+      <div class="finding-title">Estructura PIMA y PISA clarificada</div>
+    </div>
+    <div class="finding-text"><strong>PIMA</strong> (Manufacturing): su costo es basicamente mano de obra -- no compra materias primas directamente. Toda la MP la compra PI Group (la comercializadora). <strong>PISA</strong> (Admin Services): no tiene costo de ventas -- es una administradora. Su gasto principal es la nomina. Las eliminaciones intercompania impactan solo el resultado, no el balance.</div>
+  </div>
+
+  <div class="page-footer">Entrevista Marco Barcenas &bull; 18 marzo 2026 &bull; Project Shine &bull; London Consulting Group</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- DATOS DUROS -->
+<!-- ============================================================ -->
+<div class="section-divider">
+  <div class="section-divider-text">Datos Duros</div>
+</div>
+
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Datos Cuantitativos</div>
+    <h2 class="section-title">Datos Duros Obtenidos</h2>
+    <div class="section-subtitle">Cifras concretas mencionadas durante la entrevista</div>
+  </div>
+
+  <h3>Inteligencia Comercial</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Dato</th>
+        <th>Valor</th>
+        <th>Contexto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Participacion Sam's en ingresos</td>
+        <td><strong>~96-99%</strong></td>
+        <td>Practicamente toda la venta es Sam's/Members Mark</td>
+      </tr>
+      <tr>
+        <td>SKUs perdidos en licitacion 2025</td>
+        <td><strong>3 SKUs</strong></td>
+        <td>Pino 10L/20L, ropa oscura 10L, lavanda 10L/20L</td>
+      </tr>
+      <tr>
+        <td>Impacto mensual SKUs perdidos</td>
+        <td><strong>~$40M MXN/mes</strong></td>
+        <td>~$400M MXN/ano. Pino 10L ~$6.5M, Pino 20L ~$7M, Lavanda 10L ~$15M, Lavanda 20L ~$7M, Ropa oscura ~$4.5M</td>
+      </tr>
+      <tr>
+        <td>Caida real ingresos 2025 vs 2024</td>
+        <td><strong>~$230M (-12%)</strong></td>
+        <td>Se compensaron ~$170M con crecimiento en otros SKUs</td>
+      </tr>
+      <tr>
+        <td>% volumen perdido licitacion</td>
+        <td><strong>~20%</strong></td>
+        <td>Resultado real fue ~12% en ingresos</td>
+      </tr>
+      <tr>
+        <td>Ventas Bolt vs. expectativa</td>
+        <td><strong>3x proyeccion</strong></td>
+        <td>Maquina enmangadora amortizada en 6 meses vs. 3 anos plan</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Abastecimiento y Costos</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Dato</th>
+        <th>Valor</th>
+        <th>Contexto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Precio agua cruda (antes)</td>
+        <td><strong>$0.075/L</strong></td>
+        <td>Antes del Operativo Caudal</td>
+      </tr>
+      <tr>
+        <td>Precio agua cruda (actual)</td>
+        <td><strong>$0.20/L</strong></td>
+        <td>Post Operativo Caudal -- incremento ~167%</td>
+      </tr>
+      <tr>
+        <td>Precio ADBS (contrato)</td>
+        <td><strong>$3.25 MXN/kg</strong></td>
+        <td>Precio negociado hasta marzo 2026</td>
+      </tr>
+      <tr>
+        <td>Precio ADBS (spot crisis)</td>
+        <td><strong>~$6.04 MXN/kg</strong></td>
+        <td>$1.79 USD/kg x TC $3.40 -- casi al doble</td>
+      </tr>
+      <tr>
+        <td>Precio LESS (contrato 6 meses)</td>
+        <td><strong>$1.79-1.80 USD/kg</strong></td>
+        <td>Negociado con China via Juan Carlos Bojalil</td>
+      </tr>
+      <tr>
+        <td>Precio LESS (spot mercado)</td>
+        <td><strong>~$2.30 USD/kg</strong></td>
+        <td>Precio mercado actual</td>
+      </tr>
+      <tr>
+        <td>Precio LESS (pico dic 2025)</td>
+        <td><strong>Promedio $8.27 MXN/kg</strong></td>
+        <td>Escasez puntual, compras de multiples fuentes</td>
+      </tr>
+      <tr>
+        <td>Incremento envases por crisis</td>
+        <td><strong>+30%</strong></td>
+        <td>Todos los proveedores con cartas de fuerza mayor</td>
+      </tr>
+      <tr>
+        <td>Precio envase PI vs mercado</td>
+        <td><strong>-15%</strong></td>
+        <td>Gracias a relacion directa con Envases Universales</td>
+      </tr>
+      <tr>
+        <td>Meses contenidos sin incremento</td>
+        <td><strong>~3 meses</strong></td>
+        <td>PI absorbio estabilidad mientras otros ya tuvieron incrementos</td>
+      </tr>
+      <tr>
+        <td>Concentracion top 10 proveedores</td>
+        <td><strong>~70% gasto</strong></td>
+        <td>Relacion directa de Marco y/o DG con todos</td>
+      </tr>
+      <tr>
+        <td>Concentracion top 15 proveedores</td>
+        <td><strong>~85% gasto</strong></td>
+        <td>Segundo bloque tambien con relacion directa</td>
+      </tr>
+      <tr>
+        <td>Equipo de compras</td>
+        <td><strong>2 + 1</strong></td>
+        <td>2 compradores + 1 coordinador. Sin gerente estable.</td>
+      </tr>
+      <tr>
+        <td>Tipo de cambio referencia</td>
+        <td><strong>~$17.77 MXN/USD</strong></td>
+        <td>Mencionado durante la entrevista (abril 2026)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">Entrevista Marco Barcenas &bull; 18 marzo 2026 &bull; Project Shine &bull; London Consulting Group</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- BANDERAS / ALERTAS -->
+<!-- ============================================================ -->
+<div class="section-divider">
+  <div class="section-divider-text">Banderas y Alertas</div>
+</div>
+
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Alertas Criticas</div>
+    <h2 class="section-title">Banderas y Alertas</h2>
+    <div class="section-subtitle">Temas que requieren atencion inmediata o seguimiento prioritario</div>
+  </div>
+
+  <div class="callout callout-red">
+    <div class="callout-label">Riesgo Critico &mdash; Gobierno</div>
+    <p><strong>Riesgo David Padilla:</strong> El Director General Adjunto causo directamente la perdida de ~$400M MXN/ano en ventas por un conflicto personal con el comprador de Sam's. Requiere evaluacion de su rol y continuidad post-adquisicion.</p>
+  </div>
+
+  <div class="callout callout-red">
+    <div class="callout-label">Riesgo Critico &mdash; Persona Clave</div>
+    <p><strong>Centralizacion extrema en Marco Barcenas:</strong> Toda la inteligencia financiera, negociacion con proveedores estrategicos y control de costos depende de una sola persona. Riesgo de persona clave y cuello de botella operativo.</p>
+  </div>
+
+  <div class="callout callout-red">
+    <div class="callout-label">Riesgo Critico &mdash; Suministro</div>
+    <p><strong>Crisis de suministro activa (abril 2026):</strong> Cierre del Estrecho de Ormuz esta causando escasez de derivados quimicos (ADBS sin stock en Mexico), incrementos de precios de envases (+30%) y presion generalizada de costos. Los incrementos contenidos comenzaran a impactar en segunda quincena de abril.</p>
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-label">Alerta &mdash; Estructura</div>
+    <p><strong>Vacante de Gerente de Compras:</strong> Posicion clave sin titular estable. Han rotado varios gerentes sin encontrar al adecuado. En un contexto de crisis de suministro, esto es especialmente critico.</p>
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-label">Alerta &mdash; Costos</div>
+    <p><strong>Operativo Caudal / Agua:</strong> Costo del agua se triplico (de $0.075 a $0.20/L) y es un costo que PI no puede controlar. Para una empresa que manufactura productos liquidos de gran volumen, esto impacta directamente en COGS.</p>
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-label">Alerta &mdash; Datos</div>
+    <p><strong>Archivos financieros version preliminar:</strong> Marco advierte que el cierre de diciembre 2025 estaba pendiente por declaracion anual. Los numeros compartidos no son definitivos, aunque los "grandes numeros" deberian estar cercanos.</p>
+  </div>
+
+  <div class="page-footer">Entrevista Marco Barcenas &bull; 18 marzo 2026 &bull; Project Shine &bull; London Consulting Group</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- OPORTUNIDADES -->
+<!-- ============================================================ -->
+<div class="section-divider">
+  <div class="section-divider-text">Oportunidades Identificadas</div>
+</div>
+
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Oportunidades</div>
+    <h2 class="section-title">Oportunidades Identificadas</h2>
+    <div class="section-subtitle">Oportunidades de mejora detectadas a partir de esta entrevista</div>
+  </div>
+
+  <div class="opp-card">
+    <div class="opp-id">OPP-005</div>
+    <div class="opp-name">Diversificacion via Costco</div>
+    <div class="opp-impact">Estrategica</div>
+    <div class="opp-badge lp">3-5 anos</div>
+  </div>
+  <div class="finding-card positive" style="margin-left:20px; margin-right:20px;">
+    <div class="finding-text"><strong>Pilares 01, 02.</strong> Entrada a Costco a traves de la relacion con Juan Carlos Bojalil. Ya se presento propuesta de jabon de manos liquido (formato premium). Costco permite mejores margenes que Sam's. Horizonte: 3-5 anos para alcanzar volumen equivalente a Sam's. Impacto estrategico: reducir dependencia del cliente ancla.</div>
+  </div>
+
+  <div class="opp-card">
+    <div class="opp-id">OPP-002</div>
+    <div class="opp-name">Optimizacion de formulacion y MP</div>
+    <div class="opp-impact">$30-80M MXN</div>
+    <div class="opp-badge mp">En ejecucion</div>
+  </div>
+  <div class="finding-card positive" style="margin-left:20px; margin-right:20px;">
+    <div class="finding-text"><strong>Pilares 07, 08.</strong> Ya en ejecucion parcial: migracion de suavizante animal a vegetal (mejor costo y desempeno), LESS 28% a 70% (mejor precio), contratos a plazo con proveedores chinos. Oportunidad de profundizar desarrollo de materias primas alternas.</div>
+  </div>
+
+  <div class="opp-card">
+    <div class="opp-id">OPP-008</div>
+    <div class="opp-name">Profesionalizacion de compras</div>
+    <div class="opp-impact">Habilitadora</div>
+    <div class="opp-badge mp">3-6 meses</div>
+  </div>
+  <div class="finding-card" style="margin-left:20px; margin-right:20px;">
+    <div class="finding-text"><strong>Pilares 08, 12.</strong> Llenar vacante de gerente de compras con perfil de sourcing estrategico. Formalizar proceso de evaluacion de proveedores y desarrollo de alternativas. Reducir dependencia de negociaciones personales de Marco. Impacto: eficiencia en compras del 30% restante + liberacion de tiempo de Marco.</div>
+  </div>
+
+  <div class="opp-card">
+    <div class="opp-id">OPP-001</div>
+    <div class="opp-name">Recuperacion de SKUs perdidos</div>
+    <div class="opp-impact">$400M MXN/ano</div>
+    <div class="opp-badge mp">Mediano plazo</div>
+  </div>
+  <div class="finding-card" style="margin-left:20px; margin-right:20px;">
+    <div class="finding-text"><strong>Pilares 01, 02.</strong> Sam's no le esta yendo bien con el proveedor alterno. Con la relacion restaurada via Hugo, existe posibilidad de recuperar volumen a mediano plazo. Impacto potencial: hasta $400M MXN/ano.</div>
+  </div>
+
+  <div class="opp-card">
+    <div class="opp-id">OPP-006</div>
+    <div class="opp-name">Gobierno corporativo</div>
+    <div class="opp-impact">Habilitadora</div>
+    <div class="opp-badge qw">Quick win</div>
+  </div>
+  <div class="finding-card" style="margin-left:20px; margin-right:20px;">
+    <div class="finding-text"><strong>Pilar 12.</strong> Formalizar protocolos de gestion de relacion con cliente ancla. Evitar que decisiones individuales (caso David Padilla) pongan en riesgo la operacion. Implementar comite comercial con reglas de escalamiento.</div>
+  </div>
+
+  <div class="page-footer">Entrevista Marco Barcenas &bull; 18 marzo 2026 &bull; Project Shine &bull; London Consulting Group</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- INFORMACION PARA VALIDAR -->
+<!-- ============================================================ -->
+<div class="section-divider">
+  <div class="section-divider-text">Informacion para Validar</div>
+</div>
+
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Validacion Pendiente</div>
+    <h2 class="section-title">Informacion para Validar</h2>
+    <div class="section-subtitle">Datos que requieren confirmacion de otras fuentes</div>
+  </div>
+
+  <ul class="checklist">
+    <li><strong>Fill rate real:</strong> La KB indica 99.99% pero tambien menciona que "fluctua; no es constante". Marco no lo abordo. Validar con Direccion de Operaciones.</li>
+    <li><strong>Impacto financiero del Operativo Caudal:</strong> Cuanto representa el agua como % del COGS total? Cuantificar para dimensionar el impacto del incremento de 167%.</li>
+    <li><strong>Alcance del conflicto David Padilla -- Sam's:</strong> Fue solo un incidente o hay un patron? Cual es su rol actual en la relacion comercial? Validar con Hugo Ambrosi.</li>
+    <li><strong>Detalles del contrato de exclusividad con Simprise:</strong> Terminos, duracion, rebate por volumen. Relevante para evaluar poder de negociacion.</li>
+    <li><strong>Estructura real de compras:</strong> Francisco Rojas aparece como subdirector que cubre compras, pero bajo que direccion reporta? Es subdirector de Administracion o de otra area?</li>
+    <li><strong>Inversion en subsidiaria ($100M salto 2025):</strong> No se abordo en esta entrevista. Sigue pendiente de aclaracion.</li>
+    <li><strong>Magnitud del negocio Home Depot / Nao a HDX:</strong> Cuanto representa en ingresos? Que margen deja?</li>
+    <li><strong>Status de la entrada a Costco:</strong> Se avanzo despues de la propuesta de jabon de manos? Validar con Hugo Ambrosi y/o Juan Carlos Bojalil.</li>
+    <li><strong>Archivos financieros definitivos (cierre diciembre 2025):</strong> Marco indico que los compartidos eran version preliminar.</li>
+  </ul>
+
+  <div class="page-footer">Entrevista Marco Barcenas &bull; 18 marzo 2026 &bull; Project Shine &bull; London Consulting Group</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- CITAS RELEVANTES -->
+<!-- ============================================================ -->
+<div class="section-divider">
+  <div class="section-divider-text">Citas Relevantes</div>
+</div>
+
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Voz del Entrevistado</div>
+    <h2 class="section-title">Citas Relevantes</h2>
+    <div class="section-subtitle">Frases clave parafraseadas que capturan insights importantes</div>
+  </div>
+
+  <div class="verbatim">
+    <div class="verbatim-text">La mayor oportunidad es diversificarnos, pero la diversificacion no es tan sencilla por nuestro modelo de negocios basado en grandes volumenes, no en litros.</div>
+    <div class="verbatim-source">Marco Barcenas &mdash; sobre la restriccion fundamental del modelo de negocio</div>
+  </div>
+
+  <div class="verbatim">
+    <div class="verbatim-text">David le manifesto que no importaba si nos licitaba, el iba a ganar porque sabia que eramos la mejor opcion y nadie mas sabia hacer las cosas como nosotros, pero no se lo dijo de buena forma.</div>
+    <div class="verbatim-source">Marco Barcenas &mdash; sobre el origen de la perdida de SKUs</div>
+  </div>
+
+  <div class="verbatim">
+    <div class="verbatim-text">El comprador le dio un manotazo en la mesa: 'Te puedo destruir cuando yo quiera.'</div>
+    <div class="verbatim-source">Marco Barcenas &mdash; sobre la reaccion del comprador de Sam's</div>
+  </div>
+
+  <div class="verbatim">
+    <div class="verbatim-text">Levantar un modelo con una inversion como la que traemos en equipo, gente, I+D, maquinaria... no es que de la noche a la manana puedas hacer que esto funcione. Yo creo que es un proceso de 2-3 anos.</div>
+    <div class="verbatim-source">Marco Barcenas &mdash; sobre la barrera de entrada real para competidores</div>
+  </div>
+
+  <div class="verbatim">
+    <div class="verbatim-text">El detalle de todo, 100%, lo reviso yo.</div>
+    <div class="verbatim-source">Marco Barcenas &mdash; evidencia de centralizacion extrema</div>
+  </div>
+
+  <div class="verbatim">
+    <div class="verbatim-text">Nadie trae el precio que traemos nosotros con Envases Universales. Exigimos a este proveedor que no le vendiera a ninguna de nuestras competencias.</div>
+    <div class="verbatim-source">Marco Barcenas &mdash; sobre poder de negociacion y exclusividad</div>
+  </div>
+
+  <div class="verbatim">
+    <div class="verbatim-text">Con Juan Carlos surgio el cambio de la molecula vegetal que nos represento una mejora en desempeno y una mejora en costo.</div>
+    <div class="verbatim-source">Marco Barcenas &mdash; sobre capacidad de innovacion en formulacion</div>
+  </div>
+
+  <div class="verbatim">
+    <div class="verbatim-text">En Costco no vas por precio. Ahi si puedes aumentar tus margenes y presentar proyectos mas premium.</div>
+    <div class="verbatim-source">Marco Barcenas &mdash; sobre la oportunidad estrategica de Costco</div>
+  </div>
+
+  <div class="page-footer">Entrevista Marco Barcenas &bull; 18 marzo 2026 &bull; Project Shine &bull; London Consulting Group</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- DOCUMENTOS -->
+<!-- ============================================================ -->
+<div class="section-divider">
+  <div class="section-divider-text">Documentos Asociados</div>
+</div>
+
+<div class="content-page">
+  <div class="page-logos">
+    <img src="../../assets/logo_lcg.png" height="22" style="filter:brightness(0.2)">
+    <img src="../../assets/logo_pi.jpeg" height="30" style="border-radius:4px">
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Documentos</div>
+    <h2 class="section-title">Documentos Recibidos o Comprometidos</h2>
+    <div class="section-subtitle">Archivos compartidos o solicitados durante la entrevista</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Documento</th>
+        <th>Tipo</th>
+        <th>Status</th>
+        <th>Pilar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Estado de resultados mensual consolidado (por cliente, por entidad)</td>
+        <td>Herramienta</td>
+        <td><span class="status-tag comprometido">Comprometido</span></td>
+        <td>01, 12</td>
+      </tr>
+      <tr>
+        <td>Reporte de costo estandar diario/mensual</td>
+        <td>Herramienta</td>
+        <td><span class="status-tag comprometido">Comprometido</span></td>
+        <td>08</td>
+      </tr>
+      <tr>
+        <td>Reporte de margenes por producto (telefonico)</td>
+        <td>Herramienta</td>
+        <td><span class="status-tag comprometido">Comprometido</span></td>
+        <td>01, 08</td>
+      </tr>
+      <tr>
+        <td>Reporte de inflacion interna mensual de materias primas</td>
+        <td>Herramienta</td>
+        <td><span class="status-tag comprometido">Comprometido</span></td>
+        <td>08</td>
+      </tr>
+      <tr>
+        <td>Analisis de proveedores por volumen de compra (ABC)</td>
+        <td>Herramienta</td>
+        <td><span class="status-tag comprometido">Comprometido</span></td>
+        <td>08</td>
+      </tr>
+      <tr>
+        <td>Reporte de aumentos/variaciones en costo por tipo de cambio</td>
+        <td>Herramienta</td>
+        <td><span class="status-tag comprometido">Comprometido</span></td>
+        <td>08</td>
+      </tr>
+      <tr>
+        <td>Paquete completo de analisis financiero-operativo mensual</td>
+        <td>Herramienta</td>
+        <td><span class="status-tag comprometido">Comprometido</span></td>
+        <td>Transversal</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-amber">
+    <div class="callout-label">Nota importante</div>
+    <p>Todos los documentos fueron comprometidos como version preliminar. Marco indico que el cierre de diciembre 2025 estaba pendiente por declaracion anual. Los archivos definitivos se esperan posterior a la segunda sesion de entrevista.</p>
+  </div>
+
+  <h3>Notas Adicionales</h3>
+  <div class="context-card">
+    <p><strong>Primera parte de entrevista en dos sesiones.</strong> La conversacion se corto por tiempo (~1h 33m) cuando apenas se habia cubierto ingresos y costo de ventas. Se agendo una segunda sesion para el miercoles siguiente (20 de marzo) de 7:00-9:30am para continuar con gastos, capital de trabajo, oportunidades operativas y demas temas.</p>
+    <p><strong>Reporte financiero de PI Group mas detallado que el de Emerge Advisors.</strong> El que tiene LCG (via Emerge) es una version resumida para bancos. El interno de PI tiene desglose por cliente, por SKU, por materia prima, con analisis de margenes unitarios y comparativos mensuales.</p>
+  </div>
+
+  <div class="page-footer">Entrevista Marco Barcenas &bull; 18 marzo 2026 &bull; Project Shine &bull; London Consulting Group</div>
+</div>
+
+<!-- PRINT BUTTON -->
+<button class="print-btn" onclick="window.print()">Imprimir / PDF</button>
 
 </body>
 </html>
